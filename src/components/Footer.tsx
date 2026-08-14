@@ -10,11 +10,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-100 inline-block transition-all duration-300 hover:shadow-md">
+              <div className="bg-slate-950 p-1.5 rounded-lg shadow-xl border border-slate-800 inline-block transition-all duration-300 hover:shadow-2xl">
                 <img
                   src={med4oneLogo.url}
                   alt="Med4One Logo"
-                  className="h-10 w-auto md:h-12 object-contain"
+                  className="h-10 w-auto md:h-12 object-contain brightness-110"
                 />
               </div>
             </Link>

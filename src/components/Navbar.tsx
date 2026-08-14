@@ -36,11 +36,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md hover:scale-105">
+            <div className="bg-slate-950 p-1.5 rounded-lg shadow-xl border border-slate-800 transition-all duration-300 hover:shadow-2xl hover:scale-105 group">
               <img
                 src={med4oneLogo.url}
                 alt="Med4One Logo"
-                className="h-10 w-auto md:h-12 object-contain"
+                className="h-10 w-auto md:h-12 object-contain brightness-110 group-hover:brightness-125 transition-all"
               />
             </div>
           </Link>
