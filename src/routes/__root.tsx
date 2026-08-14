@@ -8,6 +8,10 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -77,21 +81,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Med4One | Intelligent Healthcare & Pharmacy Technology Platform" },
+      {
+        name: "description",
+        content:
+          "Med4One provides intelligent pharmacy and healthcare technology with PharmacyOS, AI-powered business insights, inventory management, billing, analytics and customer engagement.",
+      },
+      { name: "author", content: "Med4One Health Services Pvt Ltd" },
+      { property: "og:title", content: "Med4One | Intelligent Healthcare Platform" },
+      {
+        property: "og:description",
+        content:
+          "Connect pharmacy, healthcare, business and AI in one intelligent ecosystem.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@Med4One" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -119,8 +131,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+      <WhatsAppButton />
+      <Toaster />
     </QueryClientProvider>
   );
 }

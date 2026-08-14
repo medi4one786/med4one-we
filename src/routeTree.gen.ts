@@ -10,33 +10,323 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as BiRouteImport } from './routes/bi'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as EnterpriseRouteImport } from './routes/enterprise'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as GetStartedRouteImport } from './routes/get-started'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MultiStoreRouteImport } from './routes/multi-store'
+import { Route as PharmacyosRouteImport } from './routes/pharmacyos'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProductTourRouteImport } from './routes/product-tour'
+import { Route as RefundRouteImport } from './routes/refund'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BiRoute = BiRouteImport.update({
+  id: '/bi',
+  path: '/bi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterpriseRoute = EnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetStartedRoute = GetStartedRouteImport.update({
+  id: '/get-started',
+  path: '/get-started',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MultiStoreRoute = MultiStoreRouteImport.update({
+  id: '/multi-store',
+  path: '/multi-store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyosRoute = PharmacyosRouteImport.update({
+  id: '/pharmacyos',
+  path: '/pharmacyos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductTourRoute = ProductTourRouteImport.update({
+  id: '/product-tour',
+  path: '/product-tour',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/bi': typeof BiRoute
+  '/blog': typeof BlogRoute
+  '/book-demo': typeof BookDemoRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/enterprise': typeof EnterpriseRoute
+  '/faq': typeof FaqRoute
+  '/get-started': typeof GetStartedRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/multi-store': typeof MultiStoreRoute
+  '/pharmacyos': typeof PharmacyosRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product-tour': typeof ProductTourRoute
+  '/refund': typeof RefundRoute
+  '/security': typeof SecurityRoute
+  '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/bi': typeof BiRoute
+  '/blog': typeof BlogRoute
+  '/book-demo': typeof BookDemoRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/enterprise': typeof EnterpriseRoute
+  '/faq': typeof FaqRoute
+  '/get-started': typeof GetStartedRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/multi-store': typeof MultiStoreRoute
+  '/pharmacyos': typeof PharmacyosRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product-tour': typeof ProductTourRoute
+  '/refund': typeof RefundRoute
+  '/security': typeof SecurityRoute
+  '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/bi': typeof BiRoute
+  '/blog': typeof BlogRoute
+  '/book-demo': typeof BookDemoRoute
+  '/careers': typeof CareersRoute
+  '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/enterprise': typeof EnterpriseRoute
+  '/faq': typeof FaqRoute
+  '/get-started': typeof GetStartedRoute
+  '/help': typeof HelpRoute
+  '/login': typeof LoginRoute
+  '/multi-store': typeof MultiStoreRoute
+  '/pharmacyos': typeof PharmacyosRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product-tour': typeof ProductTourRoute
+  '/refund': typeof RefundRoute
+  '/security': typeof SecurityRoute
+  '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/bi'
+    | '/blog'
+    | '/book-demo'
+    | '/careers'
+    | '/contact'
+    | '/docs'
+    | '/enterprise'
+    | '/faq'
+    | '/get-started'
+    | '/help'
+    | '/login'
+    | '/multi-store'
+    | '/pharmacyos'
+    | '/pricing'
+    | '/privacy'
+    | '/product-tour'
+    | '/refund'
+    | '/security'
+    | '/solutions'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/bi'
+    | '/blog'
+    | '/book-demo'
+    | '/careers'
+    | '/contact'
+    | '/docs'
+    | '/enterprise'
+    | '/faq'
+    | '/get-started'
+    | '/help'
+    | '/login'
+    | '/multi-store'
+    | '/pharmacyos'
+    | '/pricing'
+    | '/privacy'
+    | '/product-tour'
+    | '/refund'
+    | '/security'
+    | '/solutions'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/bi'
+    | '/blog'
+    | '/book-demo'
+    | '/careers'
+    | '/contact'
+    | '/docs'
+    | '/enterprise'
+    | '/faq'
+    | '/get-started'
+    | '/help'
+    | '/login'
+    | '/multi-store'
+    | '/pharmacyos'
+    | '/pricing'
+    | '/privacy'
+    | '/product-tour'
+    | '/refund'
+    | '/security'
+    | '/solutions'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiRoute: typeof AiRoute
+  BiRoute: typeof BiRoute
+  BlogRoute: typeof BlogRoute
+  BookDemoRoute: typeof BookDemoRoute
+  CareersRoute: typeof CareersRoute
+  ContactRoute: typeof ContactRoute
+  DocsRoute: typeof DocsRoute
+  EnterpriseRoute: typeof EnterpriseRoute
+  FaqRoute: typeof FaqRoute
+  GetStartedRoute: typeof GetStartedRoute
+  HelpRoute: typeof HelpRoute
+  LoginRoute: typeof LoginRoute
+  MultiStoreRoute: typeof MultiStoreRoute
+  PharmacyosRoute: typeof PharmacyosRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProductTourRoute: typeof ProductTourRoute
+  RefundRoute: typeof RefundRoute
+  SecurityRoute: typeof SecurityRoute
+  SolutionsRoute: typeof SolutionsRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +338,187 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bi': {
+      id: '/bi'
+      path: '/bi'
+      fullPath: '/bi'
+      preLoaderRoute: typeof BiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise': {
+      id: '/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof EnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-started': {
+      id: '/get-started'
+      path: '/get-started'
+      fullPath: '/get-started'
+      preLoaderRoute: typeof GetStartedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/multi-store': {
+      id: '/multi-store'
+      path: '/multi-store'
+      fullPath: '/multi-store'
+      preLoaderRoute: typeof MultiStoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacyos': {
+      id: '/pharmacyos'
+      path: '/pharmacyos'
+      fullPath: '/pharmacyos'
+      preLoaderRoute: typeof PharmacyosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-tour': {
+      id: '/product-tour'
+      path: '/product-tour'
+      fullPath: '/product-tour'
+      preLoaderRoute: typeof ProductTourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiRoute: AiRoute,
+  BiRoute: BiRoute,
+  BlogRoute: BlogRoute,
+  BookDemoRoute: BookDemoRoute,
+  CareersRoute: CareersRoute,
+  ContactRoute: ContactRoute,
+  DocsRoute: DocsRoute,
+  EnterpriseRoute: EnterpriseRoute,
+  FaqRoute: FaqRoute,
+  GetStartedRoute: GetStartedRoute,
+  HelpRoute: HelpRoute,
+  LoginRoute: LoginRoute,
+  MultiStoreRoute: MultiStoreRoute,
+  PharmacyosRoute: PharmacyosRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProductTourRoute: ProductTourRoute,
+  RefundRoute: RefundRoute,
+  SecurityRoute: SecurityRoute,
+  SolutionsRoute: SolutionsRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
