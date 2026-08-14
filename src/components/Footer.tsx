@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import med4oneLogo from "@/assets/med4one-logo.jpg.asset.json";
+import med4oneLogo from "@/assets/med4one-logo-new.png.asset.json";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
