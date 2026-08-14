@@ -10,11 +10,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img
-                src={med4oneLogo.url}
-                alt="Med4One Logo"
-                className="h-12 w-auto md:h-16"
-              />
+              <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-100 inline-block transition-all duration-300 hover:shadow-md">
+                <img
+                  src={med4oneLogo.url}
+                  alt="Med4One Logo"
+                  className="h-10 w-auto md:h-12 object-contain"
+                />
+              </div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Med4One Health Services Pvt Ltd. Intelligent technology for the future of healthcare. Building the operating system for the modern pharmacy.

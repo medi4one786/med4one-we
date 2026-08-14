@@ -36,11 +36,13 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img
-              src={med4oneLogo.url}
-              alt="Med4One Logo"
-              className="h-12 w-auto md:h-16"
-            />
+            <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md hover:scale-105">
+              <img
+                src={med4oneLogo.url}
+                alt="Med4One Logo"
+                className="h-10 w-auto md:h-12 object-contain"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
