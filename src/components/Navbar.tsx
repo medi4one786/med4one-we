@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import med4oneLogo from "@/assets/med4one-logo-new.png.asset.json";
+import med4oneLogo from "@/assets/med4one-logo-premium.png.asset.json";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
