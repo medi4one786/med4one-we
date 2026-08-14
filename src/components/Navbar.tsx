@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import med4oneLogo from "@/assets/med4one-logo.png";
+import med4oneLogoWebp from "@/assets/med4one-logo.webp";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,11 +37,18 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img
-              src={med4oneLogo}
-              alt="Med4One Health Services logo"
-              className="h-9 w-auto md:h-11 object-contain transition-transform duration-300 hover:scale-105"
-            />
+            <picture>
+              <source srcSet={med4oneLogoWebp} type="image/webp" />
+              <img
+                src={med4oneLogo}
+                alt="Med4One Health Services logo"
+                width={513}
+                height={160}
+                fetchPriority="high"
+                decoding="async"
+                className="h-9 w-auto md:h-11 object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </picture>
           </Link>
 
           {/* Desktop Navigation */}
