@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import med4oneLogo from "@/assets/med4one-logo.png";
+import med4oneLogoWebp from "@/assets/med4one-logo.webp";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,11 +11,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img
-                src={med4oneLogo}
-                alt="Med4One Health Services logo"
-                className="h-9 w-auto md:h-11 object-contain"
-              />
+              <picture>
+                <source srcSet={med4oneLogoWebp} type="image/webp" />
+                <img
+                  src={med4oneLogo}
+                  alt="Med4One Health Services logo"
+                  width={513}
+                  height={160}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-9 w-auto md:h-11 object-contain"
+                />
+              </picture>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Med4One Health Services Pvt Ltd. Intelligent technology for the future of healthcare. Building the operating system for the modern pharmacy.
