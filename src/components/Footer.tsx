@@ -13,7 +13,7 @@ export function Footer() {
               <img
                 src={med4oneLogo.url}
                 alt="Med4One Logo"
-                className="h-10 w-auto"
+                className="h-12 w-auto md:h-16"
               />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
