@@ -82,7 +82,7 @@ function Index() {
                   <Link to="/solutions">Explore Med4One</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="h-14 px-10 text-base font-bold w-full sm:w-auto rounded-xl bg-white/50 backdrop-blur-sm" asChild>
-                  <a href="#demo">Book a Demo</a>
+                  <a href="#demo" className="flex items-center justify-center w-full h-full">Book a Demo</a>
                 </Button>
               </motion.div>
             </div>
