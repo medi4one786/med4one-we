@@ -59,7 +59,7 @@ const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/blog..lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/blog.lazy').then((d) => d.Route))
 const BookDemoRoute = BookDemoRouteImport.update({
   id: '/book-demo',
   path: '/book-demo',
