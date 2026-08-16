@@ -31,7 +31,6 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -143,11 +142,6 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/blog.$slug.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -172,7 +166,6 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -197,7 +190,6 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -223,7 +215,6 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
-  '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -250,7 +241,6 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
-    | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -275,7 +265,6 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
-    | '/blog/$slug'
   id:
     | '__root__'
     | '/'
@@ -300,7 +289,6 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
-    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -326,7 +314,6 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
-  BlogSlugRoute: typeof BlogSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -485,13 +472,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -518,7 +498,6 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
-  BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
