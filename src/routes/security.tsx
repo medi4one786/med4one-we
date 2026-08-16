@@ -17,6 +17,8 @@ export const Route = createFileRoute("/security")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://med4oneai.lovable.app/security/" if False else "https://med4oneai.lovable.app/security" },
     ],
+    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/security" }],
   }),
 });

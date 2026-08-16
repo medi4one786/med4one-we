@@ -9,6 +9,8 @@ export const Route = createFileRoute("/blog")({
       { property: "og:description", content: "Explore ideas, insights and practical knowledge about pharmacy technology, healthcare innovation, AI, and the future of connected healthcare." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://med4oneai.lovable.app/blog/" if False else "https://med4oneai.lovable.app/blog" },
     ],
+    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/blog" }],
   }),
 });
