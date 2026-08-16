@@ -18,6 +18,8 @@ import {
   Briefcase
 } from "lucide-react";
 import { motion } from "framer-motion";
+import dashboardAsset from "@/assets/pharmacyos-dashboard.png.asset.json";
+import aiAsset from "@/assets/pharmacyos-ai-interface.png.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -85,10 +87,19 @@ function Index() {
               className="flex-1 w-full max-w-lg lg:max-w-xl"
             >
               {/* Product Visual: Device Composition */}
-              <div className="relative aspect-[4/3] w-full">
-                <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl flex items-center justify-center p-4">
-                  <div className="text-center text-muted-foreground italic text-sm">PharmacyOS Dashboard & AI Interface</div>
+              <div className="relative aspect-[4/3] w-full group">
+                <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl overflow-hidden">
+                  <img 
+                    src={aiAsset.url}
+                    alt="PharmacyOS Dashboard & AI Interface"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                 </div>
+                
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 blur-3xl rounded-full -z-10 animate-pulse" />
               </div>
             </motion.div>
           </div>
@@ -103,66 +114,16 @@ function Index() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto max-w-6xl aspect-video rounded-2xl overflow-hidden border shadow-2xl bg-background"
+            className="relative mx-auto max-w-6xl aspect-video rounded-2xl overflow-hidden border shadow-2xl bg-background group"
           >
-            <div className="flex h-full w-full">
-              <div className="w-64 border-r bg-muted/10 p-4 hidden md:block">
-                <div className="h-8 w-32 bg-muted rounded mb-8" />
-                <div className="space-y-4">
-                  {[1, 2, 3, 4, 5, 6].map(i => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="h-5 w-5 bg-muted rounded" />
-                      <div className="h-4 w-24 bg-muted/60 rounded" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="flex-1 p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="h-8 w-48 bg-muted rounded" />
-                  <div className="flex gap-4">
-                    <div className="h-10 w-10 bg-muted rounded-full" />
-                    <div className="h-10 w-24 bg-primary/20 rounded-md" />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                  {['Today\'s Sales', 'Revenue', 'Gross Profit', 'Low Stock'].map((title, i) => (
-                    <div key={i} className="p-4 rounded-xl border bg-card">
-                      <div className="text-xs text-muted-foreground mb-1">{title}</div>
-                      <div className="text-2xl font-bold">
-                        {i === 3 ? '12' : `₹${(Math.random() * 50000 + 10000).toLocaleString()}`}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  <div className="lg:col-span-2 p-6 rounded-xl border bg-card h-64">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-4 w-32 bg-muted rounded" />
-                      <div className="h-4 w-24 bg-muted/60 rounded" />
-                    </div>
-                    <div className="h-full w-full bg-muted/10 rounded" />
-                  </div>
-                  <div className="p-6 rounded-xl border bg-primary/5 border-primary/20 h-64">
-                    <div className="flex items-center gap-2 mb-4 text-primary font-semibold">
-                      <Bot className="h-5 w-5" />
-                      <span>AI Insights</span>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="p-3 rounded-lg bg-background border text-xs">
-                        "Based on recent velocity, reorder 18 products soon."
-                      </div>
-                      <div className="p-3 rounded-lg bg-background border text-xs">
-                        "Sales increased by 12% compared to last week."
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img 
+              src={dashboardAsset.url}
+              alt="PharmacyOS Enterprise Dashboard"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+            {/* Overlay for better integration */}
+            <div className="absolute inset-0 bg-primary/5 pointer-events-none mix-blend-overlay" />
           </motion.div>
         </div>
       </section>
