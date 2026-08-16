@@ -126,13 +126,22 @@ function Pricing() {
                   ))}
                 </ul>
 
-                <Button 
-                  className={`w-full h-12 text-base font-semibold rounded-xl ${tier.popular ? 'bg-primary' : 'variant-outline'}`}
-                  variant={tier.popular ? 'default' : 'outline'}
-                  asChild
-                >
-                  <Link to="/get-started">Get Started</Link>
-                </Button>
+                <div className="flex flex-col gap-3 mt-auto">
+                  <Button 
+                    className={`w-full h-12 text-base font-semibold rounded-xl ${tier.popular ? 'bg-primary' : ''}`}
+                    variant={tier.popular ? 'default' : 'outline'}
+                    asChild
+                  >
+                    <Link to="/get-started">Start 7 Days Free Trial</Link>
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-muted-foreground hover:text-primary"
+                    asChild
+                  >
+                    <Link to="/get-started">Book a Demo</Link>
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>
