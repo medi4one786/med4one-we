@@ -215,15 +215,7 @@ function Index() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative p-8 rounded-2xl border bg-background hover:shadow-lg transition-all overflow-hidden flex flex-col items-center text-center sm:text-left sm:items-start"
               >
-                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity">
-                  <img 
-                    src={i === 0 ? "https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&q=80&w=800" : 
-                         i === 1 ? "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=800" :
-                         "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <div className="absolute inset-0 z-0 opacity-10 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
                 <div className="relative z-10 flex flex-col items-center text-center sm:text-left sm:items-start">
                   <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                     <item.icon className="h-6 w-6" />
