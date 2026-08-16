@@ -125,62 +125,6 @@ function Index() {
             {/* Overlay for better integration */}
             <div className="absolute inset-0 bg-primary/5 pointer-events-none mix-blend-overlay" />
           </motion.div>
-                <div className="space-y-4">
-                  {[1, 2, 3, 4, 5, 6].map(i => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="h-5 w-5 bg-muted rounded" />
-                      <div className="h-4 w-24 bg-muted/60 rounded" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="flex-1 p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="h-8 w-48 bg-muted rounded" />
-                  <div className="flex gap-4">
-                    <div className="h-10 w-10 bg-muted rounded-full" />
-                    <div className="h-10 w-24 bg-primary/20 rounded-md" />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                  {['Today\'s Sales', 'Revenue', 'Gross Profit', 'Low Stock'].map((title, i) => (
-                    <div key={i} className="p-4 rounded-xl border bg-card">
-                      <div className="text-xs text-muted-foreground mb-1">{title}</div>
-                      <div className="text-2xl font-bold">
-                        {i === 3 ? '12' : `₹${(Math.random() * 50000 + 10000).toLocaleString()}`}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  <div className="lg:col-span-2 p-6 rounded-xl border bg-card h-64">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-4 w-32 bg-muted rounded" />
-                      <div className="h-4 w-24 bg-muted/60 rounded" />
-                    </div>
-                    <div className="h-full w-full bg-muted/10 rounded" />
-                  </div>
-                  <div className="p-6 rounded-xl border bg-primary/5 border-primary/20 h-64">
-                    <div className="flex items-center gap-2 mb-4 text-primary font-semibold">
-                      <Bot className="h-5 w-5" />
-                      <span>AI Insights</span>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="p-3 rounded-lg bg-background border text-xs">
-                        "Based on recent velocity, reorder 18 products soon."
-                      </div>
-                      <div className="p-3 rounded-lg bg-background border text-xs">
-                        "Sales increased by 12% compared to last week."
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
