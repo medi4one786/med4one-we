@@ -40,14 +40,8 @@ function PharmacyOS() {
   return (
     <div className="flex flex-col min-h-screen">
       <section className="relative pt-32 pb-20 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000" 
-            alt="Modern Healthcare Facility" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
+        <div className="absolute inset-0 z-0 bg-slate-950">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-slate-950" />
         </div>
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
