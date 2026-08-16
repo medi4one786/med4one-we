@@ -1,3 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/solutions")({});
+export const Route = createFileRoute("/solutions")({
+  head: () => ({
+    meta: [
+      { title: "Solutions | Med4One" },
+      { name: "description", content: "Intelligent healthcare solutions for pharmacies, clinics, and enterprises." },
+    ],
+  }),
+});
