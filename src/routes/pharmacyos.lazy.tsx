@@ -71,9 +71,12 @@ function PharmacyOS() {
                 <Button size="lg" className="h-12 px-8" asChild>
                   <Link to="/get-started">Start Free Trial</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="h-12 px-8 border-white/20 text-white hover:bg-white/10">
+                <a 
+                  href="/#demo" 
+                  className="inline-flex items-center justify-center h-12 px-8 border border-white/20 text-white hover:bg-white/10 rounded-md text-sm font-medium transition-colors"
+                >
                   Watch Demo
-                </Button>
+                </a>
               </motion.div>
             </div>
             
