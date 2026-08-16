@@ -113,17 +113,93 @@ function PharmacyOS() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 -z-10" />
         <div className="container px-4 md:px-6 mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center">Core Capabilities</h2>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Core Capabilities</h2>
+              <p className="text-muted-foreground max-w-xl">Everything you need to manage a modern pharmacy business at scale.</p>
+            </div>
+            <Button variant="ghost" className="text-primary hover:text-primary hover:bg-primary/5" asChild>
+              <Link to="/docs" className="flex items-center gap-2">View Documentation <ArrowRight className="h-4 w-4" /></Link>
+            </Button>
+          </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
             {capabilities.map((cap, i) => (
-              <div key={i} className="p-6 rounded-2xl border bg-card hover:shadow-lg transition-all">
-                <cap.icon className="h-8 w-8 text-primary mb-4" />
-                <h3 className="font-bold mb-2">{cap.title}</h3>
-                <p className="text-sm text-muted-foreground">{cap.desc}</p>
-              </div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="group p-6 rounded-2xl border bg-card hover:border-primary/50 hover:shadow-xl transition-all relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="h-24 w-24 bg-primary/5 rounded-full -mr-12 -mt-12" />
+                </div>
+                <div className="relative z-10">
+                  <cap.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-bold mb-2 text-lg">{cap.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
+                </div>
+              </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Realistic Product Showcase Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 -z-10" />
+              <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900 aspect-video">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1200" 
+                  alt="PharmacyOS Dashboard" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating Statistic */}
+              <div className="absolute -bottom-6 -right-6 backdrop-blur-xl bg-white/90 border border-white/20 p-6 rounded-2xl shadow-xl hidden md:block w-64">
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-slate-900">Inventory Sync</div>
+                    <div className="text-xs text-slate-500">Last updated 2s ago</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-slate-900">99.9% Accuracy</div>
+              </div>
+            </div>
+            
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Software that understands your business.</h2>
+              <div className="space-y-6">
+                {[
+                  { title: "Smart Stock Forecasting", desc: "Never run out of life-saving medicines with AI-driven inventory predictions." },
+                  { title: "Automated GST Reconciliation", desc: "Save hours of accounting work with one-click tax reporting and filing support." },
+                  { title: "Real-time Multi-store Sync", desc: "Monitor stock levels and sales performance across all your locations instantly." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="mt-1 h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Button size="lg" className="h-12 px-8" asChild>
+                <Link to="/get-started">Start 7 Days Free Trial</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

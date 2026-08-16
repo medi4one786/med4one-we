@@ -232,7 +232,7 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow flex flex-col items-center text-center sm:text-left sm:items-start"
+                className="group relative p-8 rounded-2xl border bg-background hover:shadow-lg transition-all overflow-hidden flex flex-col items-center text-center sm:text-left sm:items-start"
               >
                 <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity">
                   <img 
