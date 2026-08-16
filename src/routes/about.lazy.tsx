@@ -67,9 +67,9 @@ function About() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 text-center lg:text-left"
             >
-              <div className="flex items-center gap-2 text-primary font-bold tracking-wider uppercase text-sm">
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-primary font-bold tracking-wider uppercase text-sm">
                 <Eye className="h-5 w-5" />
                 <span>Our Vision</span>
               </div>
@@ -88,7 +88,7 @@ function About() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
             >
               {[
                 { title: "Connect", desc: "Bring healthcare businesses, people, data and technology together.", icon: Network },
@@ -96,11 +96,11 @@ function About() {
                 { title: "Intelligent", desc: "Turn data into meaningful insights and better decisions through AI.", icon: Bot },
                 { title: "Impact", desc: "Use technology to create measurable value for healthcare businesses and patients.", icon: Target },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-background border shadow-sm space-y-3 hover:shadow-md transition-shadow">
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-primary" />
+                <div key={i} className="p-6 md:p-8 rounded-2xl bg-background border shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                  <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h4 className="font-bold text-lg">{item.title}</h4>
+                  <h4 className="font-bold text-xl">{item.title}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -140,12 +140,12 @@ function About() {
                 We believe technology should <span className="text-white font-semibold">work for healthcare businesses</span> — not create more work for them.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {[
                   "Pharmacy Operations", "AI & Automation", "Business Intelligence", "Customer Engagement",
                   "Multi-Store Management", "Digital Healthcare", "Connected Technology", "One Evolving Ecosystem"
                 ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm text-slate-400">
+                  <div key={i} className="flex items-center gap-3 text-sm text-slate-400 justify-center md:justify-start">
                     <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
                     <span>{text}</span>
                   </div>
@@ -267,11 +267,16 @@ function About() {
                 { label: "Connected Healthcare", role: "powers the future" },
               ].map((step, i, arr) => (
                 <div key={i} className="flex flex-col items-center gap-4 w-full">
-                  <div className="w-full max-w-md p-4 rounded-2xl bg-white/5 border border-white/10 flex justify-between items-center group hover:bg-white/10 transition-colors">
-                    <span className="font-bold text-lg">{step.label}</span>
-                    <span className="text-accent text-sm font-medium">{step.role}</span>
+                  <div className="w-full max-w-lg p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2 group hover:bg-white/10 transition-colors">
+                    <span className="font-bold text-lg md:text-xl">{step.label}</span>
+                    <span className="text-accent text-sm md:text-base font-medium">{step.role}</span>
                   </div>
-                  {i < arr.length - 1 && <div className="h-8 w-px bg-white/20" />}
+                  {i < arr.length - 1 && (
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="h-8 w-px bg-gradient-to-b from-primary/50 to-transparent" />
+                      <div className="text-primary text-[10px]">▼</div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

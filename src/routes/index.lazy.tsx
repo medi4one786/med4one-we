@@ -27,59 +27,69 @@ function Index() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-5%] left-[-5%] w-[30%] h-[30%] bg-primary/20 blur-[100px] rounded-full" />
-          <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-accent/20 blur-[100px] rounded-full" />
+      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20 pointer-events-none">
+          <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-accent/20 blur-[120px] rounded-full" />
         </div>
 
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 flex-1">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs md:text-sm font-medium text-primary"
+              >
+                <Zap className="mr-2 h-4 w-4" />
+                <span>Building the Technology Behind a Smarter Healthcare Ecosystem</span>
+              </motion.div>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground"
+              >
+                The Intelligent Healthcare Platform for the <span className="text-primary">Next Generation</span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-lg md:text-xl text-muted-foreground max-w-xl"
+              >
+                Med4One brings pharmacy, healthcare, technology and AI together to create a smarter, simpler and more connected healthcare ecosystem.
+              </motion.p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              >
+                <Button size="lg" className="h-14 px-8 text-base font-semibold w-full sm:w-auto" asChild>
+                  <Link to="/get-started">Get Started</Link>
+                </Button>
+                <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold w-full sm:w-auto" asChild>
+                  <Link to="/pharmacyos">Explore PharmacyOS</Link>
+                </Button>
+              </motion.div>
+            </div>
+
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="flex-1 w-full max-w-lg lg:max-w-xl"
             >
-              <Zap className="mr-2 h-4 w-4" />
-              <span>Building the Technology Behind a Smarter Healthcare Ecosystem</span>
-            </motion.div>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
-            >
-              We’re Building the <span className="text-primary">Digital Future</span> of Healthcare.
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl"
-            >
-              Connecting pharmacy, healthcare, technology and AI to create a smarter, simpler and more connected healthcare ecosystem.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-4 pt-4"
-            >
-              <Button size="lg" className="h-12 px-8 text-base font-semibold" asChild>
-                <Link to="/get-started">Get Started</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold" asChild>
-                <Link to="/pharmacyos">Explore PharmacyOS</Link>
-              </Button>
-              <Button size="lg" variant="ghost" className="h-12 px-8 text-base font-semibold group" asChild>
-                <Link to="/book-demo">
-                  Book a Demo <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+              {/* Product Visual: Device Composition */}
+              <div className="relative aspect-[4/3] w-full">
+                <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl flex items-center justify-center p-4">
+                  <div className="text-center text-muted-foreground italic text-sm">PharmacyOS Dashboard & AI Interface</div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -179,7 +189,7 @@ function Index() {
             <p className="text-muted-foreground max-w-2xl mx-auto">Intelligent digital workflows tailored for diverse healthcare operational needs.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Independent Pharmacies", desc: "Modern tools to manage everyday pharmacy operations.", icon: Building2 },
               { title: "Pharmacy Chains", desc: "Centralized control across multiple stores.", icon: LayoutDashboard },
@@ -193,7 +203,7 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow"
+                className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow flex flex-col items-center text-center sm:text-left sm:items-start"
               >
                 <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <item.icon className="h-6 w-6" />
@@ -226,29 +236,52 @@ function Index() {
               </Button>
             </div>
             
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-8 rounded-full border border-primary/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-24 w-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-xl shadow-primary/20">
-                  Med4One
-                </div>
-              </div>
-              {[Bot, Smartphone, BarChart3, Package, Users, ShieldCheck].map((Icon, i) => (
-                <div 
-                  key={i}
-                  className="absolute"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    transform: `rotate(${i * 60}deg) translate(160px) rotate(-${i * 60}deg)`,
-                  }}
-                >
-                  <div className="h-12 w-12 bg-background border rounded-full flex items-center justify-center text-primary shadow-md">
-                    <Icon className="h-6 w-6" />
+            <div className="relative aspect-square max-w-md mx-auto scale-90 sm:scale-100">
+              {/* Circular flow for Desktop, Vertical for Mobile */}
+              <div className="hidden sm:block absolute inset-0">
+                <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-[spin_30s_linear_infinite]" />
+                <div className="absolute inset-8 rounded-full border border-primary/10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-24 w-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-xl shadow-primary/20">
+                    Med4One
                   </div>
                 </div>
-              ))}
+                {[Bot, Smartphone, BarChart3, Package, Users, ShieldCheck].map((Icon, i) => (
+                  <div 
+                    key={i}
+                    className="absolute"
+                    style={{
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${i * 60}deg) translate(160px) rotate(-${i * 60}deg)`,
+                    }}
+                  >
+                    <div className="h-12 w-12 bg-background border rounded-full flex items-center justify-center text-primary shadow-md">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Vertical flow for Mobile */}
+              <div className="sm:hidden flex flex-col items-center gap-6 py-8">
+                <div className="h-20 w-20 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">Med4One</div>
+                {[
+                  { icon: LayoutDashboard, label: "PharmacyOS" },
+                  { icon: Bot, label: "AI Intelligence" },
+                  { icon: BarChart3, label: "Business BI" },
+                  { icon: Smartphone, label: "Customer Exp" },
+                  { icon: Globe, label: "Connected Future" }
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center gap-4">
+                    <div className="h-0.5 w-6 bg-primary/20" />
+                    <div className="flex items-center gap-3 bg-background border rounded-lg px-4 py-3 w-48 shadow-sm">
+                      <item.icon className="h-5 w-5 text-primary" />
+                      <span className="text-sm font-semibold">{item.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -262,7 +295,7 @@ function Index() {
             <p className="text-muted-foreground max-w-2xl mx-auto">Med4One PharmacyOS is a modern operating system designed to simplify operations while providing real-time visibility.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Billing & POS", desc: "Fast and accurate pharmacy billing with WhatsApp/SMS receipts.", icon: LayoutDashboard },
               { title: "Inventory Management", desc: "Real-time inventory with batch, expiry and stock level control.", icon: Package },
@@ -271,11 +304,11 @@ function Index() {
               { title: "AI Business Assistant", desc: "Get answers to your business questions in natural language.", icon: Bot },
               { title: "GST & Tax Ready", desc: "GST-ready reports, HSN information and automated tax reconciliation.", icon: ShieldCheck },
             ].map((feature, i) => (
-              <div key={i} className="group p-8 rounded-2xl border bg-background hover:border-primary/50 transition-all">
+              <div key={i} className="group p-6 md:p-8 rounded-2xl border bg-background hover:border-primary/50 transition-all shadow-sm">
                 <div className="h-12 w-12 rounded-xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </div>
             ))}
