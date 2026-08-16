@@ -1,5 +1,3 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/login")({
-  component: () => <div>Login Page Placeholder</div>,
-});
+export const Route = createFileRoute("/login")({});

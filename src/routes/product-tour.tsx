@@ -7,5 +7,4 @@ export const Route = createFileRoute("/product-tour")({
       { name: "description", content: "Take a visual tour of Med4One PharmacyOS." },
     ],
   }),
-  component: () => <div>Product Tour Page Placeholder</div>,
 });

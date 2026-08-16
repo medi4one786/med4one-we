@@ -7,5 +7,4 @@ export const Route = createFileRoute("/pharmacyos")({
       { name: "description", content: "The modern operating system for your pharmacy." },
     ],
   }),
-  component: () => <div>PharmacyOS Page Placeholder</div>,
 });

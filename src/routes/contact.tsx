@@ -7,5 +7,4 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Let's build the future of healthcare together. Contact Med4One." },
     ],
   }),
-  component: () => <div>Contact Page Placeholder</div>,
 });
