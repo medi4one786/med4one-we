@@ -437,11 +437,18 @@ function Index() {
                     </div>
                   ))}
                 </div>
-                <Button variant={plan.popular ? 'default' : 'outline'} className="w-full" asChild>
-                  <Link to={plan.name === 'Pro' ? '/contact' : '/get-started'}>
-                    {plan.name === 'Pro' ? 'Talk to Sales' : 'Get Started'}
-                  </Link>
-                </Button>
+                <div className="flex flex-col gap-3 mt-auto">
+                  <Button variant={plan.popular ? 'default' : 'outline'} className="w-full" asChild>
+                    <Link to="/get-started">
+                      Start 7 Days Free Trial
+                    </Link>
+                  </Button>
+                  {plan.name === 'Pro' && (
+                    <Button variant="ghost" className="w-full text-muted-foreground" asChild>
+                      <Link to="/contact">Talk to Sales</Link>
+                    </Button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
