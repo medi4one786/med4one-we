@@ -21,8 +21,8 @@ export const Route = createLazyFileRoute("/blog_/$slug")({
 });
 
 function ArticlePage() {
-  const params = Route.useParams() as { slug: string };
-  const slug = params.slug;
+  const params = Route.useParams();
+  const slug = (params as any).slug;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   const [activeId, setActiveId] = useState<string>("");
 
@@ -46,7 +46,6 @@ function ArticlePage() {
     .filter((p) => p.category === post.category && p.id !== post.id)
     .slice(0, 3);
 
-  // Mock table of contents from headers in content
   const toc = [
     { id: "intro", text: "Introduction" },
     { id: "shift", text: "The Shift in Pharmacy Operations" },
@@ -57,7 +56,6 @@ function ArticlePage() {
   return (
     <div className="min-h-screen pt-24 pb-20 bg-background">
       <div className="container mx-auto px-4">
-        {/* Back Button */}
         <Link 
           to="/blog" 
           className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 transition-colors group"
@@ -67,7 +65,6 @@ function ArticlePage() {
         </Link>
 
         <article className="max-w-7xl mx-auto">
-          {/* Header */}
           <header className="max-w-4xl mx-auto mb-12 space-y-6 text-center lg:text-left">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">
@@ -98,7 +95,6 @@ function ArticlePage() {
             </div>
           </header>
 
-          {/* Hero Image */}
           <div className="rounded-3xl overflow-hidden aspect-[21/9] mb-16 shadow-2xl border border-primary/5">
             <img 
               src={post.image} 
@@ -108,14 +104,12 @@ function ArticlePage() {
           </div>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-16">
-            {/* Content */}
             <div className="max-w-4xl">
               <div 
                 className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-2xl max-w-none"
                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
               />
 
-              {/* Share */}
               <div className="mt-16 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="font-bold text-lg flex items-center gap-2">
                   <Share2 className="h-5 w-5 text-primary" />
@@ -135,9 +129,7 @@ function ArticlePage() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <aside className="hidden lg:block space-y-12">
-              {/* Table of Contents */}
               <div className="sticky top-32 space-y-6">
                 <div>
                   <h4 className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-4">Table of Contents</h4>
@@ -167,7 +159,6 @@ function ArticlePage() {
           </div>
         </article>
 
-        {/* Related Articles */}
         {relatedArticles.length > 0 && (
           <section className="max-w-7xl mx-auto mt-24">
             <h3 className="text-2xl font-bold mb-8">Related Articles</h3>
@@ -175,7 +166,7 @@ function ArticlePage() {
               {relatedArticles.map((article) => (
                 <Link 
                   key={article.id} 
-                  to="/blog/$slug" 
+                  to="/blog_/$slug" 
                   params={{ slug: article.slug }}
                   className="group block space-y-4"
                 >

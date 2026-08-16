@@ -140,7 +140,7 @@ function BlogPage() {
                   <div>{featuredPost.publishedDate}</div>
                 </div>
                 <Button variant="link" className="w-fit px-0 text-primary text-lg font-semibold group-hover:translate-x-2 transition-transform" asChild>
-                  <Link to={`/blog/${featuredPost.slug}`}>
+                  <Link to="/blog_/$slug" params={{ slug: featuredPost.slug }}>
                     Read Article <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -172,7 +172,7 @@ function BlogPage() {
                 transition={{ delay: idx * 0.05 }}
                 className="group flex flex-col"
               >
-                <Link to={`/blog/${post.slug}`} className="block overflow-hidden rounded-2xl mb-5 aspect-[16/10] relative border border-primary/5">
+                <Link to="/blog_/$slug" params={{ slug: post.slug }} className="block overflow-hidden rounded-2xl mb-5 aspect-[16/10] relative border border-primary/5">
                   <img 
                     src={post.image} 
                     alt={post.title}
@@ -201,7 +201,7 @@ function BlogPage() {
                   </p>
                 </div>
                 <Button variant="link" className="w-fit px-0 text-primary font-semibold mt-4 group-hover:translate-x-1 transition-transform" asChild>
-                  <Link to={`/blog/${post.slug}`}>
+                  <Link to="/blog_/$slug" params={{ slug: post.slug }}>
                     Read More <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
