@@ -37,17 +37,17 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any) 
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
   getParentRoute: () => rootRouteImport,
-} as any) 
+} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
   getParentRoute: () => rootRouteImport,
-} as any) 
+} as any).lazy(() => import('./routes/ai.lazy').then((d) => d.Route))
 const BiRoute = BiRouteImport.update({
   id: '/bi',
   path: '/bi',
