@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { BLOG_POSTS } from "@/lib/blog/data";
 import { useEffect, useState } from "react";
 
-export const Route = createLazyFileRoute("/blog/$slug")({
+export const Route = createLazyFileRoute("/blog_/$slug")({
   component: ArticlePage,
 });
 
