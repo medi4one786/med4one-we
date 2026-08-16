@@ -119,14 +119,11 @@ function Index() {
             transition={{ duration: 0.8 }}
             className="relative mx-auto max-w-6xl rounded-2xl overflow-hidden border shadow-2xl bg-slate-950"
           >
-            {/* Realistic Dashboard Mockup */}
-            <div className="relative w-full aspect-[16/9]">
+            <div className="relative w-full aspect-[16/9] bg-slate-900">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10" />
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1600" 
-                alt="Med4One PharmacyOS Interface" 
-                className="w-full h-full object-cover opacity-80"
-              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <LayoutDashboard className="h-32 w-32 text-primary opacity-10" />
+              </div>
               
               {/* Overlay UI Elements */}
               <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
