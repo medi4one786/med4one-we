@@ -111,7 +111,7 @@ export function Navbar() {
           {/* Tablet/Mobile Actions */}
           <div className="flex lg:hidden items-center gap-2 md:gap-4">
             <Button variant="default" size="sm" className="hidden sm:flex h-9 px-4 text-xs font-semibold" asChild>
-              <Link to="/book-demo">Book a Demo</Link>
+              <a href="/#demo">Book a Demo</a>
             </Button>
             <button
               className="p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
