@@ -18,6 +18,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "Solutions", href: "/solutions", dropdown: [
       { name: "PharmacyOS", href: "/pharmacyos", desc: "Run your pharmacy smarter" },
       { name: "AI Solutions", href: "/ai", desc: "Intelligence behind every decision" },
