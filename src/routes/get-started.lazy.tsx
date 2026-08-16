@@ -122,7 +122,7 @@ function GetStarted() {
     phone: string;
     email: string;
   }>({ company: "", size: "", phone: "", email: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof typeof values, string>>>({});
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ data: TrialValues; onboarding: Onboarding } | null>(null);
 
@@ -135,9 +135,9 @@ function GetStarted() {
     e.preventDefault();
     const parsed = trialSchema.safeParse(values);
     if (!parsed.success) {
-      const fieldErrors: Record<string, string> = {};
+      const fieldErrors: Partial<Record<keyof TrialValues, string>> = {};
       for (const issue of parsed.error.issues) {
-        const key = String(issue.path[0]);
+        const key = issue.path[0] as keyof TrialValues;
         if (!fieldErrors[key]) fieldErrors[key] = issue.message;
       }
       setErrors(fieldErrors);
