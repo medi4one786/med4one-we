@@ -234,11 +234,22 @@ function Index() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow flex flex-col items-center text-center sm:text-left sm:items-start"
               >
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <item.icon className="h-6 w-6" />
+                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity">
+                  <img 
+                    src={i === 0 ? "https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&q=80&w=800" : 
+                         i === 1 ? "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=800" :
+                         "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <div className="relative z-10 flex flex-col items-center text-center sm:text-left sm:items-start">
+                  <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                    <item.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -338,7 +349,23 @@ function Index() {
                   <feature.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{feature.desc}</p>
+                <div className="mt-auto pt-4 border-t border-muted-foreground/10">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((_, idx) => (
+                      <div key={idx} className="h-8 w-8 rounded-full border-2 border-background overflow-hidden bg-muted">
+                        <img 
+                          src={`https://i.pravatar.cc/100?u=${feature.title}${idx}`} 
+                          alt="User" 
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    ))}
+                    <div className="h-8 px-2 flex items-center justify-center text-[10px] font-medium text-muted-foreground">
+                      +1.2k users
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
