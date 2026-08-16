@@ -104,6 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "preload", href: "/src/assets/med4one-logo.webp", as: "image", type: "image/webp" },
     ],
   }),
   shellComponent: RootShell,
