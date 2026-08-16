@@ -90,7 +90,7 @@ function Index() {
                 <div className="absolute top-0 right-0 w-[85%] aspect-[16/10] bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden z-10 group hover:-translate-y-2 transition-transform duration-500">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none" />
                   <img 
-                    src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1200" 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
                     alt="PharmacyOS Dashboard" 
                     className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -100,7 +100,7 @@ function Index() {
                 {/* Tablet Mockup */}
                 <div className="absolute bottom-10 left-0 w-[45%] aspect-[3/4] bg-slate-800 rounded-lg border border-white/10 shadow-xl overflow-hidden z-20 hover:-translate-y-2 transition-transform duration-500">
                   <img 
-                    src="https://images.unsplash.com/photo-1586770163243-f7bbaf453ad7?auto=format&fit=crop&q=80&w=600" 
+                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" 
                     alt="Mobile Interface" 
                     className="w-full h-full object-cover opacity-80"
                   />
@@ -110,7 +110,7 @@ function Index() {
                 <div className="absolute bottom-0 right-10 w-[20%] aspect-[9/19] bg-slate-950 rounded-2xl border-4 border-slate-800 shadow-2xl overflow-hidden z-30 hover:-translate-y-2 transition-transform duration-500">
                   <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-3 bg-black rounded-full z-40" />
                   <img 
-                    src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400" 
+                    src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=400" 
                     alt="Smartphone App" 
                     className="w-full h-full object-cover"
                   />

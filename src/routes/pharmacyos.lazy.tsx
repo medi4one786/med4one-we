@@ -91,7 +91,7 @@ function PharmacyOS() {
             >
               <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[16/10]">
                 <img 
-                  src="https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
                   alt="Pharmacist using Med4One" 
                   className="w-full h-full object-cover opacity-90"
                 />
