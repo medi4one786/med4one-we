@@ -189,7 +189,7 @@ function Index() {
             <p className="text-muted-foreground max-w-2xl mx-auto">Intelligent digital workflows tailored for diverse healthcare operational needs.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Independent Pharmacies", desc: "Modern tools to manage everyday pharmacy operations.", icon: Building2 },
               { title: "Pharmacy Chains", desc: "Centralized control across multiple stores.", icon: LayoutDashboard },
@@ -203,7 +203,7 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow"
+                className="p-8 rounded-2xl border bg-background hover:shadow-lg transition-shadow flex flex-col items-center text-center sm:text-left sm:items-start"
               >
                 <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <item.icon className="h-6 w-6" />
@@ -272,7 +272,7 @@ function Index() {
             <p className="text-muted-foreground max-w-2xl mx-auto">Med4One PharmacyOS is a modern operating system designed to simplify operations while providing real-time visibility.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: "Billing & POS", desc: "Fast and accurate pharmacy billing with WhatsApp/SMS receipts.", icon: LayoutDashboard },
               { title: "Inventory Management", desc: "Real-time inventory with batch, expiry and stock level control.", icon: Package },
@@ -281,11 +281,11 @@ function Index() {
               { title: "AI Business Assistant", desc: "Get answers to your business questions in natural language.", icon: Bot },
               { title: "GST & Tax Ready", desc: "GST-ready reports, HSN information and automated tax reconciliation.", icon: ShieldCheck },
             ].map((feature, i) => (
-              <div key={i} className="group p-8 rounded-2xl border bg-background hover:border-primary/50 transition-all">
+              <div key={i} className="group p-6 md:p-8 rounded-2xl border bg-background hover:border-primary/50 transition-all shadow-sm">
                 <div className="h-12 w-12 rounded-xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
               </div>
             ))}
