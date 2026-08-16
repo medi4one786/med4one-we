@@ -92,7 +92,7 @@ function Index() {
                   <img 
                     src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1200" 
                     alt="PharmacyOS Dashboard" 
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/20 rounded-full" />
                 </div>
@@ -102,7 +102,7 @@ function Index() {
                   <img 
                     src="https://images.unsplash.com/photo-1586770163243-f7bbaf453ad7?auto=format&fit=crop&q=80&w=600" 
                     alt="Mobile Interface" 
-                    className="w-full h-full object-cover opacity-80 pointer-events-none"
+                    className="w-full h-full object-cover opacity-80"
                   />
                 </div>
                 
@@ -112,7 +112,7 @@ function Index() {
                   <img 
                     src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400" 
                     alt="Smartphone App" 
-                    className="w-full h-full object-cover pointer-events-none"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
@@ -141,7 +141,7 @@ function Index() {
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1600" 
                 alt="Med4One PharmacyOS Interface" 
-                className="w-full h-full object-cover opacity-80 pointer-events-none"
+                className="w-full h-full object-cover opacity-80"
               />
               
               {/* Overlay UI Elements */}
@@ -240,7 +240,7 @@ function Index() {
                          i === 1 ? "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=800" :
                          "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"} 
                     alt={item.title} 
-                    className="w-full h-full object-cover pointer-events-none"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="relative z-10 flex flex-col items-center text-center sm:text-left sm:items-start">
