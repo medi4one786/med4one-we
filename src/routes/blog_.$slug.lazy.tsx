@@ -16,12 +16,13 @@ import { motion } from "framer-motion";
 import { BLOG_POSTS } from "@/lib/blog/data";
 import { useEffect, useState } from "react";
 
-export const Route = createLazyFileRoute("/blog_/$slug")({
+export const Route = createLazyFileRoute("/blog/$slug")({
   component: ArticlePage,
 });
 
 function ArticlePage() {
-  const { slug } = Route.useParams();
+  const params = Route.useParams() as { slug: string };
+  const slug = params.slug;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   const [activeId, setActiveId] = useState<string>("");
 
