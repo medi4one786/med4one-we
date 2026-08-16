@@ -109,68 +109,38 @@ function Index() {
         </div>
       </section>
 
-      {/* 2. Hero Product Visual */}
+      {/* 2. Hero Product Visual - Minimal Version */}
       <section className="py-12 bg-muted/30">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto max-w-6xl rounded-2xl overflow-hidden border shadow-2xl bg-slate-950"
+            className="relative mx-auto max-w-6xl rounded-2xl border shadow-2xl bg-slate-950 p-8 md:p-12 overflow-hidden"
           >
-            <div className="relative w-full aspect-[16/9] bg-slate-900">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <LayoutDashboard className="h-32 w-32 text-primary opacity-10" />
-              </div>
-              
-              {/* Overlay UI Elements */}
-              <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <BarChart3 className="h-5 w-5 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-white">Revenue Insights</h4>
-                    </div>
-                    <div className="h-24 w-full bg-white/5 rounded-lg border border-white/10 flex items-end p-2 gap-1">
-                      {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
-                        <div key={i} className="flex-1 bg-primary/40 rounded-t-sm" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl hidden md:block">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center">
-                        <Bot className="h-5 w-5 text-accent" />
-                      </div>
-                      <h4 className="font-semibold text-white">AI Inventory Forecast</h4>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                        <div className="h-full bg-accent w-[85%]" />
-                      </div>
-                      <p className="text-xs text-white/60 italic">"Stock optimization recommended for 12 categories based on next month's predicted demand."</p>
-                    </div>
-                  </div>
-
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl hidden md:block">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <Package className="h-5 w-5 text-green-500" />
-                      </div>
-                      <h4 className="font-semibold text-white">Live Operations</h4>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-xs text-white/80"><span>Active POS Sessions</span><span className="text-green-500">● 4 Live</span></div>
-                      <div className="flex justify-between text-xs text-white/80"><span>Pending Prescriptions</span><span>18</span></div>
-                      <div className="flex justify-between text-xs text-white/80"><span>Inventory Value</span><span>₹14.2L</span></div>
-                    </div>
-                  </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-3xl rounded-full -mr-32 -mt-32" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+                  <BarChart3 className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold text-white">Revenue Insights</h3>
+                <p className="text-slate-400 text-sm">Real-time tracking of sales and margins across all outlets.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent">
+                  <Bot className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">AI Forecasting</h3>
+                <p className="text-slate-400 text-sm">Predictive inventory management to prevent stockouts.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-500">
+                  <Package className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Live Operations</h3>
+                <p className="text-slate-400 text-sm">Monitor POS sessions and inventory sync in real-time.</p>
               </div>
             </div>
           </motion.div>
