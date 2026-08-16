@@ -52,67 +52,67 @@ const BiRoute = BiRouteImport.update({
   id: '/bi',
   path: '/bi',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/bi.lazy').then((d) => d.Route))
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/blog.lazy').then((d) => d.Route))
 const BookDemoRoute = BookDemoRouteImport.update({
   id: '/book-demo',
   path: '/book-demo',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/book-demo.lazy').then((d) => d.Route))
 const CareersRoute = CareersRouteImport.update({
   id: '/careers',
   path: '/careers',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/careers.lazy').then((d) => d.Route))
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/contact.lazy').then((d) => d.Route))
 const DocsRoute = DocsRouteImport.update({
   id: '/docs',
   path: '/docs',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/docs.lazy').then((d) => d.Route))
 const EnterpriseRoute = EnterpriseRouteImport.update({
   id: '/enterprise',
   path: '/enterprise',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/enterprise.lazy').then((d) => d.Route))
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/faq.lazy').then((d) => d.Route))
 const GetStartedRoute = GetStartedRouteImport.update({
   id: '/get-started',
   path: '/get-started',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/get-started.lazy').then((d) => d.Route))
 const HelpRoute = HelpRouteImport.update({
   id: '/help',
   path: '/help',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/help.lazy').then((d) => d.Route))
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 const MultiStoreRoute = MultiStoreRouteImport.update({
   id: '/multi-store',
   path: '/multi-store',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/multi-store.lazy').then((d) => d.Route))
 const PharmacyosRoute = PharmacyosRouteImport.update({
   id: '/pharmacyos',
   path: '/pharmacyos',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/pharmacyos.lazy').then((d) => d.Route))
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -122,22 +122,22 @@ const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/privacy.lazy').then((d) => d.Route))
 const ProductTourRoute = ProductTourRouteImport.update({
   id: '/product-tour',
   path: '/product-tour',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/product-tour.lazy').then((d) => d.Route))
 const RefundRoute = RefundRouteImport.update({
   id: '/refund',
   path: '/refund',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/refund.lazy').then((d) => d.Route))
 const SecurityRoute = SecurityRouteImport.update({
   id: '/security',
   path: '/security',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/security.lazy').then((d) => d.Route))
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -147,7 +147,7 @@ const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
