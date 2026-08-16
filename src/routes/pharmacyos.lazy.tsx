@@ -45,7 +45,7 @@ function PharmacyOS() {
           <img 
             src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000" 
             alt="Modern Healthcare Facility" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-20 pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
         </div>
@@ -93,7 +93,7 @@ function PharmacyOS() {
                 <img 
                   src="https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=1200" 
                   alt="Pharmacist using Med4One" 
-                  className="w-full h-full object-cover opacity-90"
+                  className="w-full h-full object-cover opacity-90 pointer-events-none"
                 />
                 {/* Floating UI Element */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[70%] bg-slate-950/80 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl p-6 hidden md:block">
@@ -159,7 +159,7 @@ function PharmacyOS() {
                 <img 
                   src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1200" 
                   alt="PharmacyOS Dashboard" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover pointer-events-none"
                 />
               </div>
               {/* Floating Statistic */}
