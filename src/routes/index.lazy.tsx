@@ -425,6 +425,10 @@ function Index() {
                   <span className="text-4xl font-bold">₹{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-primary mb-6">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  7 DAYS FREE TRIAL
+                </div>
                 <div className="space-y-4 mb-8 flex-1">
                   {plan.features.map((f, j) => (
                     <div key={j} className="flex items-center gap-3 text-sm">
