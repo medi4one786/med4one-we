@@ -15,7 +15,9 @@ export const Route = createFileRoute("/")({
         content:
           "Connect pharmacy, healthcare, business and AI in one intelligent ecosystem.",
       },
+      { property: "og:url", content: "https://med4oneai.lovable.app" },
     ],
+    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app" }],
   }),
 });
 
