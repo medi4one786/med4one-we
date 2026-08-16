@@ -8,6 +8,8 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
@@ -32,6 +34,9 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as BlogRouteImport } from './routes/blog_.'
+
+const BlogLazyRouteImport = createFileRoute('/blog_')()
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +63,11 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/blog.lazy').then((d) => d.Route))
+const BlogLazyRoute = BlogLazyRouteImport.update({
+  id: '/blog_',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/blog_..lazy').then((d) => d.Route))
 const BookDemoRoute = BookDemoRouteImport.update({
   id: '/book-demo',
   path: '/book-demo',
@@ -148,13 +158,18 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
+const BlogRoute = BlogRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogLazyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogLazyRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -173,6 +188,7 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/blog/': typeof BlogRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -224,6 +240,8 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/blog_': typeof BlogLazyRouteWithChildren
+  '/blog_/': typeof BlogRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -251,6 +269,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -301,6 +320,8 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/blog_'
+    | '/blog_/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -327,6 +348,7 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
+  BlogLazyRoute: typeof BlogLazyRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -364,6 +386,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog_': {
+      id: '/blog_'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book-demo': {
@@ -492,8 +521,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/': {
+      id: '/blog_/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof BlogLazyRoute
+    }
   }
 }
+
+interface BlogLazyRouteChildren {
+  BlogRoute: typeof BlogRoute
+}
+
+const BlogLazyRouteChildren: BlogLazyRouteChildren = {
+  BlogRoute: BlogRoute,
+}
+
+const BlogLazyRouteWithChildren = BlogLazyRoute._addFileChildren(
+  BlogLazyRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -519,6 +567,7 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
+  BlogLazyRoute: BlogLazyRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
