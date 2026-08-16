@@ -8,8 +8,6 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
@@ -34,10 +32,8 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as BlogRouteImport } from './routes/blog_.'
+import { Route as BlogRouteImport } from './routes/blog.'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
-
-const BlogLazyRouteImport = createFileRoute('/blog_')()
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -63,12 +59,7 @@ const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/blog.lazy').then((d) => d.Route))
-const BlogLazyRoute = BlogLazyRouteImport.update({
-  id: '/blog_',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/blog_..lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/blog..lazy').then((d) => d.Route))
 const BookDemoRoute = BookDemoRouteImport.update({
   id: '/book-demo',
   path: '/book-demo',
@@ -162,12 +153,12 @@ const TermsRoute = TermsRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => BlogLazyRoute,
+  getParentRoute: () => BlogRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogLazyRoute,
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/blog_.$slug.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
@@ -175,7 +166,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogLazyRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -202,7 +193,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRoute
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -221,6 +211,7 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/blog': typeof BlogRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
@@ -229,7 +220,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -248,8 +239,7 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
-  '/blog_': typeof BlogLazyRouteWithChildren
-  '/blog_/': typeof BlogRoute
+  '/blog/': typeof BlogRoute
   '/blog_/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
@@ -286,7 +276,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai'
     | '/bi'
-    | '/blog'
     | '/book-demo'
     | '/careers'
     | '/contact'
@@ -305,6 +294,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/blog'
     | '/blog/$slug'
   id:
     | '__root__'
@@ -331,8 +321,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
-    | '/blog_'
-    | '/blog_/'
+    | '/blog/'
     | '/blog_/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -341,7 +330,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
   BiRoute: typeof BiRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BookDemoRoute: typeof BookDemoRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
@@ -360,7 +349,7 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
-  BlogLazyRoute: typeof BlogLazyRouteWithChildren
+  BlogSlugRoute: typeof BlogSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -398,13 +387,6 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog_': {
-      id: '/blog_'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book-demo': {
@@ -533,43 +515,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog_/': {
-      id: '/blog_/'
+    '/blog/': {
+      id: '/blog/'
       path: '/'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof BlogLazyRoute
+      parentRoute: typeof BlogRoute
     }
     '/blog_/$slug': {
       id: '/blog_/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogLazyRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface BlogLazyRouteChildren {
+interface BlogRouteChildren {
   BlogRoute: typeof BlogRoute
-  BlogSlugRoute: typeof BlogSlugRoute
 }
 
-const BlogLazyRouteChildren: BlogLazyRouteChildren = {
+const BlogRouteChildren: BlogRouteChildren = {
   BlogRoute: BlogRoute,
-  BlogSlugRoute: BlogSlugRoute,
 }
 
-const BlogLazyRouteWithChildren = BlogLazyRoute._addFileChildren(
-  BlogLazyRouteChildren,
-)
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
   BiRoute: BiRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   BookDemoRoute: BookDemoRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
@@ -588,7 +566,7 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
-  BlogLazyRoute: BlogLazyRouteWithChildren,
+  BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
