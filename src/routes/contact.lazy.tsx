@@ -77,31 +77,31 @@ function Contact() {
           <div className="grid lg:grid-cols-5 gap-16">
             
             {/* Contact Info Sidebar */}
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-12 order-2 lg:order-1">
               <div className="space-y-8">
-                <h2 className="text-3xl font-bold tracking-tight">Talk to Med4One</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-center lg:text-left">Talk to Med4One</h2>
                 
-                <div className="space-y-6">
-                  <div className="flex gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8">
+                  <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start text-center lg:text-left">
                     <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h4 className="font-bold text-lg mb-1">Sales & Business Enquiries</h4>
-                      <a href="mailto:sales@med4one.com" className="text-primary font-semibold hover:underline block mb-2">sales@med4one.com</a>
+                      <a href="mailto:sales@med4one.com" className="text-primary font-semibold hover:underline block mb-2 break-all">sales@med4one.com</a>
                       <p className="text-sm text-muted-foreground">For: PharmacyOS, Demonstrations, Pricing, Enterprise & Partnerships.</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start text-center lg:text-left">
                     <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
                       <Phone className="h-6 w-6 text-accent" />
                     </div>
                     <div>
                       <h4 className="font-bold text-lg mb-1">Call Us</h4>
                       <p className="text-primary font-bold text-xl mb-1">9980681844</p>
-                      <p className="text-sm text-muted-foreground mb-3">Speak with our team about Med4One solutions and requirements.</p>
-                      <Button variant="outline" size="sm" asChild>
+                      <p className="text-sm text-muted-foreground mb-3">Speak with our team about Med4One solutions.</p>
+                      <Button variant="outline" size="lg" className="h-12 w-full lg:w-auto" asChild>
                         <a href="tel:9980681844">Call Med4One</a>
                       </Button>
                     </div>
@@ -110,12 +110,12 @@ function Contact() {
               </div>
 
               <div className="space-y-8 pt-8 border-t">
-                <h2 className="text-3xl font-bold tracking-tight">Visit Our Office</h2>
-                <div className="flex gap-4">
+                <h2 className="text-3xl font-bold tracking-tight text-center lg:text-left">Visit Our Office</h2>
+                <div className="flex flex-col lg:flex-row gap-4 items-center lg:items-start text-center lg:text-left">
                   <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-4 w-full">
                     <h4 className="font-bold text-lg">Med4One Health Services Pvt Ltd</h4>
                     <p className="text-muted-foreground leading-relaxed">
                       Aspire Coworks<br />
@@ -124,7 +124,7 @@ function Contact() {
                       AVS Layout, 4th Block, Koramangala<br />
                       Bangalore – 560095, Karnataka, India
                     </p>
-                    <Button variant="link" className="px-0 h-auto" asChild>
+                    <Button variant="default" className="w-full lg:w-auto h-12" asChild>
                       <a href="https://maps.google.com/?q=Aspire+Coworks+Koramangala" target="_blank" rel="noopener noreferrer">
                         Get Directions <ArrowRight className="ml-1 h-4 w-4" />
                       </a>

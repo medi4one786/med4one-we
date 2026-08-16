@@ -140,12 +140,12 @@ function About() {
                 We believe technology should <span className="text-white font-semibold">work for healthcare businesses</span> — not create more work for them.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {[
                   "Pharmacy Operations", "AI & Automation", "Business Intelligence", "Customer Engagement",
                   "Multi-Store Management", "Digital Healthcare", "Connected Technology", "One Evolving Ecosystem"
                 ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm text-slate-400">
+                  <div key={i} className="flex items-center gap-3 text-sm text-slate-400 justify-center md:justify-start">
                     <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
                     <span>{text}</span>
                   </div>
@@ -266,13 +266,27 @@ function About() {
                 { label: "Customer Technology", role: "powers engagement" },
                 { label: "Connected Healthcare", role: "powers the future" },
               ].map((step, i, arr) => (
+              {/* Step progression - Vertical on Mobile, Grid/Vertical on Desktop */}
+              {[
+                { label: "PharmacyOS", role: "powers operations" },
+                { label: "AI", role: "powers intelligence" },
+                { label: "Business Intelligence", role: "powers decisions" },
+                { label: "Customer Technology", role: "powers engagement" },
+                { label: "Connected Healthcare", role: "powers the future" },
+              ].map((step, i, arr) => (
                 <div key={i} className="flex flex-col items-center gap-4 w-full">
-                  <div className="w-full max-w-md p-4 rounded-2xl bg-white/5 border border-white/10 flex justify-between items-center group hover:bg-white/10 transition-colors">
-                    <span className="font-bold text-lg">{step.label}</span>
-                    <span className="text-accent text-sm font-medium">{step.role}</span>
+                  <div className="w-full max-w-lg p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2 group hover:bg-white/10 transition-colors">
+                    <span className="font-bold text-lg md:text-xl">{step.label}</span>
+                    <span className="text-accent text-sm md:text-base font-medium">{step.role}</span>
                   </div>
-                  {i < arr.length - 1 && <div className="h-8 w-px bg-white/20" />}
+                  {i < arr.length - 1 && (
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="h-8 w-px bg-gradient-to-b from-primary/50 to-transparent" />
+                      <div className="text-primary text-[10px]">▼</div>
+                    </div>
+                  )}
                 </div>
+              ))}
               ))}
             </div>
 
