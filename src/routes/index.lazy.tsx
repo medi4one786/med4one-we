@@ -84,38 +84,22 @@ function Index() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="flex-1 w-full max-w-lg lg:max-w-2xl relative"
             >
-              {/* Premium Device Composition Mockup */}
-              <div className="relative w-full h-[400px] lg:h-[500px]">
-                {/* Main Desktop Mockup */}
-                <div className="absolute top-0 right-0 w-[85%] aspect-[16/10] bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden z-10 group hover:-translate-y-2 transition-transform duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none" />
-                  <img 
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-                    alt="PharmacyOS Dashboard" 
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/20 rounded-full" />
+              <div className="relative w-full aspect-[16/10] bg-slate-900 rounded-2xl border border-primary/20 shadow-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <LayoutDashboard className="h-20 w-20 text-primary opacity-20 group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                {/* Abstract dashboard lines */}
+                <div className="absolute inset-0 p-8 flex flex-col gap-6 opacity-30">
+                  <div className="h-8 w-1/3 bg-primary/20 rounded" />
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="h-24 bg-primary/10 rounded" />
+                    <div className="h-24 bg-primary/10 rounded" />
+                    <div className="h-24 bg-primary/10 rounded" />
+                  </div>
+                  <div className="h-32 w-full bg-primary/5 rounded" />
                 </div>
                 
-                {/* Tablet Mockup */}
-                <div className="absolute bottom-10 left-0 w-[45%] aspect-[3/4] bg-slate-800 rounded-lg border border-white/10 shadow-xl overflow-hidden z-20 hover:-translate-y-2 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" 
-                    alt="Mobile Interface" 
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                </div>
-                
-                {/* Smartphone Mockup */}
-                <div className="absolute bottom-0 right-10 w-[20%] aspect-[9/19] bg-slate-950 rounded-2xl border-4 border-slate-800 shadow-2xl overflow-hidden z-30 hover:-translate-y-2 transition-transform duration-500">
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-3 bg-black rounded-full z-40" />
-                  <img 
-                    src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=400" 
-                    alt="Smartphone App" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
                 {/* Decorative Elements */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 blur-3xl rounded-full -z-10" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/20 blur-3xl rounded-full -z-10" />
@@ -125,71 +109,38 @@ function Index() {
         </div>
       </section>
 
-      {/* 2. Hero Product Visual */}
+      {/* 2. Hero Product Visual - Minimal Version */}
       <section className="py-12 bg-muted/30">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto max-w-6xl rounded-2xl overflow-hidden border shadow-2xl bg-slate-950"
+            className="relative mx-auto max-w-6xl rounded-2xl border shadow-2xl bg-slate-950 p-8 md:p-12 overflow-hidden"
           >
-            {/* Realistic Dashboard Mockup */}
-            <div className="relative w-full aspect-[16/9]">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10" />
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1600" 
-                alt="Med4One PharmacyOS Interface" 
-                className="w-full h-full object-cover opacity-80"
-              />
-              
-              {/* Overlay UI Elements */}
-              <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <BarChart3 className="h-5 w-5 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-white">Revenue Insights</h4>
-                    </div>
-                    <div className="h-24 w-full bg-white/5 rounded-lg border border-white/10 flex items-end p-2 gap-1">
-                      {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
-                        <div key={i} className="flex-1 bg-primary/40 rounded-t-sm" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl hidden md:block">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center">
-                        <Bot className="h-5 w-5 text-accent" />
-                      </div>
-                      <h4 className="font-semibold text-white">AI Inventory Forecast</h4>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                        <div className="h-full bg-accent w-[85%]" />
-                      </div>
-                      <p className="text-xs text-white/60 italic">"Stock optimization recommended for 12 categories based on next month's predicted demand."</p>
-                    </div>
-                  </div>
-
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl hidden md:block">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <Package className="h-5 w-5 text-green-500" />
-                      </div>
-                      <h4 className="font-semibold text-white">Live Operations</h4>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-xs text-white/80"><span>Active POS Sessions</span><span className="text-green-500">● 4 Live</span></div>
-                      <div className="flex justify-between text-xs text-white/80"><span>Pending Prescriptions</span><span>18</span></div>
-                      <div className="flex justify-between text-xs text-white/80"><span>Inventory Value</span><span>₹14.2L</span></div>
-                    </div>
-                  </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-3xl rounded-full -mr-32 -mt-32" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+                  <BarChart3 className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold text-white">Revenue Insights</h3>
+                <p className="text-slate-400 text-sm">Real-time tracking of sales and margins across all outlets.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent">
+                  <Bot className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">AI Forecasting</h3>
+                <p className="text-slate-400 text-sm">Predictive inventory management to prevent stockouts.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="h-12 w-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-500">
+                  <Package className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Live Operations</h3>
+                <p className="text-slate-400 text-sm">Monitor POS sessions and inventory sync in real-time.</p>
               </div>
             </div>
           </motion.div>
@@ -234,15 +185,7 @@ function Index() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative p-8 rounded-2xl border bg-background hover:shadow-lg transition-all overflow-hidden flex flex-col items-center text-center sm:text-left sm:items-start"
               >
-                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity">
-                  <img 
-                    src={i === 0 ? "https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&q=80&w=800" : 
-                         i === 1 ? "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=800" :
-                         "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <div className="absolute inset-0 z-0 opacity-10 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
                 <div className="relative z-10 flex flex-col items-center text-center sm:text-left sm:items-start">
                   <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                     <item.icon className="h-6 w-6" />

@@ -84,35 +84,36 @@ function AI() {
               className="flex-1 w-full max-w-sm lg:max-w-md relative"
             >
               <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-4 shadow-2xl backdrop-blur-xl">
-                <div className="bg-slate-900 rounded-[2rem] overflow-hidden aspect-[9/19] flex flex-col">
-                  {/* AI Mobile Mockup Content */}
-                  <div className="p-6 flex-1 space-y-6">
+                <div className="bg-slate-900 rounded-[2rem] overflow-hidden aspect-[9/19] flex flex-col relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none z-10" />
+                  {/* AI Mobile Mockup Content - CSS Version */}
+                  <div className="p-6 flex-1 space-y-6 relative z-20">
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center text-accent-foreground">
+                      <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center text-accent-foreground shadow-lg shadow-accent/20">
                         <Bot className="h-6 w-6" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-white">Med4One AI</div>
-                        <div className="text-[10px] text-white/60">Ready to assist</div>
+                        <div className="text-[10px] text-white/60">System Ready</div>
                       </div>
                     </div>
                     
                     <div className="space-y-4">
                       <div className="flex justify-end">
-                        <div className="bg-primary/20 rounded-2xl rounded-tr-none px-4 py-3 text-sm max-w-[85%] text-slate-200">
-                          "Which medicines should I reorder this week?"
+                        <div className="bg-primary/20 rounded-2xl rounded-tr-none px-4 py-3 text-[11px] max-w-[85%] text-slate-200 border border-white/5">
+                          "Which medicines should I reorder?"
                         </div>
                       </div>
                       <div className="flex justify-start">
-                        <div className="bg-white/10 rounded-2xl rounded-tl-none px-4 py-3 text-sm max-w-[85%] text-slate-300">
-                          Based on velocity and lead times, I recommend reordering:
+                        <div className="bg-white/10 rounded-2xl rounded-tl-none px-4 py-3 text-[11px] max-w-[85%] text-slate-300 border border-white/5">
+                          I recommend reordering:
                           <div className="mt-2 space-y-2">
-                            <div className="p-2 rounded bg-white/5 text-xs border border-white/5 flex justify-between">
-                              <span>Paracetamol 500mg</span>
+                            <div className="p-2 rounded bg-white/5 text-[10px] border border-white/5 flex justify-between">
+                              <span>Paracetamol</span>
                               <span className="text-accent">+24 units</span>
                             </div>
-                            <div className="p-2 rounded bg-white/5 text-xs border border-white/5 flex justify-between">
-                              <span>Amoxicillin 250mg</span>
+                            <div className="p-2 rounded bg-white/5 text-[10px] border border-white/5 flex justify-between">
+                              <span>Amoxicillin</span>
                               <span className="text-accent">+12 units</span>
                             </div>
                           </div>
@@ -120,8 +121,8 @@ function AI() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 border-t border-white/10 bg-white/5">
-                    <div className="h-10 w-full rounded-full bg-white/10 flex items-center px-4 text-xs text-slate-400">
+                  <div className="p-4 border-t border-white/10 bg-white/5 relative z-20">
+                    <div className="h-10 w-full rounded-full bg-white/10 flex items-center px-4 text-[10px] text-slate-400">
                       Ask Med4One AI...
                     </div>
                   </div>

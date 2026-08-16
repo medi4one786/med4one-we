@@ -42,19 +42,30 @@ function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
+              className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight text-foreground leading-tight"
             >
-              We’re Building the <span className="text-primary">Digital Future</span> of Healthcare.
+              Building the <span className="text-primary relative inline-block">Digital Future<span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/20 rounded-full"></span></span> of Healthcare.
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl"
+              className="text-lg md:text-2xl text-muted-foreground max-w-3xl leading-relaxed"
             >
               Connecting pharmacy, healthcare, technology and AI to create a smarter, simpler and more connected healthcare ecosystem.
             </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex gap-4 pt-4"
+            >
+              <div className="h-1 w-12 bg-primary rounded-full" />
+              <div className="h-1 w-12 bg-primary/20 rounded-full" />
+              <div className="h-1 w-12 bg-primary/20 rounded-full" />
+            </motion.div>
           </div>
         </div>
       </section>
