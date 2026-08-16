@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as BiRouteImport } from './routes/bi'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -54,11 +53,6 @@ const BiRoute = BiRouteImport.update({
   path: '/bi',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/bi.lazy').then((d) => d.Route))
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/blog.lazy').then((d) => d.Route))
 const BookDemoRoute = BookDemoRouteImport.update({
   id: '/book-demo',
   path: '/book-demo',
@@ -150,9 +144,9 @@ const TermsRoute = TermsRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/blog.$slug.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
@@ -160,7 +154,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -186,7 +179,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -213,7 +205,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
-  '/blog': typeof BlogRouteWithChildren
   '/book-demo': typeof BookDemoRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
@@ -241,7 +232,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai'
     | '/bi'
-    | '/blog'
     | '/book-demo'
     | '/careers'
     | '/contact'
@@ -267,7 +257,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai'
     | '/bi'
-    | '/blog'
     | '/book-demo'
     | '/careers'
     | '/contact'
@@ -293,7 +282,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai'
     | '/bi'
-    | '/blog'
     | '/book-demo'
     | '/careers'
     | '/contact'
@@ -320,7 +308,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
   BiRoute: typeof BiRoute
-  BlogRoute: typeof BlogRouteWithChildren
   BookDemoRoute: typeof BookDemoRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
@@ -339,6 +326,7 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -369,13 +357,6 @@ declare module '@tanstack/react-router' {
       path: '/bi'
       fullPath: '/bi'
       preLoaderRoute: typeof BiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/book-demo': {
@@ -506,30 +487,19 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
   BiRoute: BiRoute,
-  BlogRoute: BlogRouteWithChildren,
   BookDemoRoute: BookDemoRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
@@ -548,6 +518,7 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
+  BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
