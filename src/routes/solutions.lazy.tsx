@@ -8,7 +8,6 @@ import {
   LineChart, 
   LayoutGrid, 
   Building2,
-  CheckCircle2,
   Database
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -18,56 +17,79 @@ export const Route = createLazyFileRoute("/solutions")({
 });
 
 function Solutions() {
+  const narrative = [
+    { stage: "Run", solution: "PharmacyOS", note: "Operations", icon: Layers, color: "text-blue-500" },
+    { stage: "Understand", solution: "Business Intelligence", note: "Decisions", icon: LineChart, color: "text-indigo-500" },
+    { stage: "Predict", solution: "AI Solutions", note: "Intelligence", icon: BrainCircuit, color: "text-teal-500" },
+    { stage: "Scale", solution: "Multi-Store", note: "Network", icon: LayoutGrid, color: "text-cyan-500" },
+    { stage: "Transform", solution: "Enterprise", note: "Growth", icon: Building2, color: "text-slate-500" },
+  ];
+
   const solutions = [
     {
       id: "pharmacyos",
       title: "PharmacyOS",
+      stage: "Run",
+      stageNote: "It starts here — every daily operation in one place.",
       tagline: "The Operating System for the Modern Pharmacy.",
       desc: "Run your entire pharmacy from one intelligent platform.",
       icon: Layers,
       href: "/pharmacyos",
       color: "text-blue-500",
-      bgColor: "bg-blue-500/10"
+      bgColor: "bg-blue-500/10",
+      highlights: ["Billing & POS", "Inventory", "Purchasing", "Reports"],
     },
     {
       id: "ai",
       title: "AI Solutions",
+      stage: "Predict",
+      stageNote: "Once you understand today, Med4One predicts tomorrow.",
       tagline: "Intelligence Behind Every Decision.",
       desc: "Turn your pharmacy data into intelligent actions.",
       icon: BrainCircuit,
       href: "/ai",
       color: "text-teal-500",
-      bgColor: "bg-teal-500/10"
+      bgColor: "bg-teal-500/10",
+      highlights: ["Business Assistant", "Inventory Forecast", "Sales Forecast", "Prescription OCR"],
     },
     {
       id: "bi",
       title: "Business Intelligence",
+      stage: "Understand",
+      stageNote: "Operations create data. Data creates understanding.",
       tagline: "From Data to Decisions.",
       desc: "See what is happening in your business — and understand why.",
       icon: LineChart,
       href: "/bi",
       color: "text-indigo-500",
-      bgColor: "bg-indigo-500/10"
+      bgColor: "bg-indigo-500/10",
+      highlights: ["Sales trends", "Gross margin", "Product performance", "Inventory value"],
     },
     {
       id: "multi-store",
       title: "Multi-Store",
+      stage: "Scale",
+      stageNote: "What works in one pharmacy now works across your network.",
       tagline: "One Command Centre. Every Pharmacy.",
       desc: "Manage your entire pharmacy network from one connected platform.",
       icon: LayoutGrid,
       href: "/multi-store",
       color: "text-cyan-500",
-      bgColor: "bg-cyan-500/10"
+      bgColor: "bg-cyan-500/10",
+      highlights: ["Central dashboard", "Store comparison", "Centralized inventory", "Role-based access"],
     },
     {
       id: "enterprise",
       title: "Enterprise",
+      stage: "Transform",
+      stageNote: "The final step — technology that reshapes the organization.",
       tagline: "Technology That Grows With Your Business.",
       desc: "Built for ambitious healthcare organizations.",
       icon: Building2,
       href: "/enterprise",
       color: "text-slate-500",
-      bgColor: "bg-slate-500/10"
+      bgColor: "bg-slate-500/10",
+      highlights: ["Scalable architecture", "Advanced permissions", "API connectivity", "Enterprise support"],
     }
   ];
 
@@ -180,6 +202,42 @@ function Solutions() {
       {/* Solutions List */}
       <section className="py-24 bg-background">
         <div className="container px-4 md:px-6 mx-auto">
+          {/* Narrative flow rail */}
+          <div className="max-w-6xl mx-auto mb-20 md:mb-28">
+            <div className="text-center space-y-3 mb-12">
+              <div className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">The Med4One Journey</div>
+              <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+                Run <span className="text-muted-foreground/40">→</span> Understand <span className="text-muted-foreground/40">→</span> Predict <span className="text-muted-foreground/40">→</span> Scale <span className="text-muted-foreground/40">→</span> Transform
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Five solutions, one continuous story. Each stage builds on the one before it.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-blue-500/30 via-teal-500/40 to-slate-400/30" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative">
+                {narrative.map((step, i) => (
+                  <motion.div
+                    key={step.stage}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="flex flex-col items-center text-center gap-3"
+                  >
+                    <div className={`h-14 w-14 rounded-2xl bg-card border shadow-sm flex items-center justify-center ${step.color} relative z-10`}>
+                      <step.icon className="h-6 w-6" />
+                    </div>
+                    <div className="text-lg font-bold">{step.stage}</div>
+                    <div className="text-sm font-medium text-foreground/70">{step.solution}</div>
+                    <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{step.note}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 gap-20">
             {solutions.map((solution, i) => (
               <motion.div 
@@ -188,12 +246,22 @@ function Solutions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="group"
+                className="group relative"
               >
+                {i > 0 && (
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 h-10 w-0.5 bg-gradient-to-b from-transparent to-border" />
+                )}
                 <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className="flex-1 space-y-6">
-                    <div className={`h-16 w-16 rounded-2xl ${solution.bgColor} ${solution.color} flex items-center justify-center`}>
-                      <solution.icon className="h-8 w-8" />
+                    <div className="flex items-center gap-4">
+                      <div className={`h-16 w-16 rounded-2xl ${solution.bgColor} ${solution.color} flex items-center justify-center shrink-0`}>
+                        <solution.icon className="h-8 w-8" />
+                      </div>
+                      <div className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] ${solution.bgColor} ${solution.color}`}>
+                        <span>Stage {i + 1}</span>
+                        <span className="opacity-40">/</span>
+                        <span>{solution.stage}</span>
+                      </div>
                     </div>
                     <div className="space-y-4">
                       <h2 className="text-3xl md:text-5xl font-bold tracking-tight group-hover:text-primary transition-colors">
@@ -203,6 +271,9 @@ function Solutions() {
                       <p className="text-lg text-muted-foreground leading-relaxed">
                         {solution.desc}
                       </p>
+                      <p className="text-sm font-medium text-foreground/60 border-l-2 border-border pl-4 italic">
+                        {solution.stageNote}
+                      </p>
                     </div>
                     <Button size="lg" className="h-12 px-8" asChild>
                       <Link to={solution.href} className="flex items-center gap-2">
@@ -211,9 +282,24 @@ function Solutions() {
                     </Button>
                   </div>
                   <div className="flex-1 w-full aspect-video bg-muted/30 rounded-[2rem] border border-slate-200 overflow-hidden relative group-hover:shadow-2xl transition-all">
-                    {/* Placeholder for visual mockups */}
-                    <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium italic">
-                      [Premium {solution.title} Visual]
+                    <div className={`absolute inset-0 ${solution.bgColor} opacity-60`} />
+                    <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
+                      <div className="flex items-center justify-between">
+                        <div className={`text-[10px] font-bold uppercase tracking-[0.3em] ${solution.color}`}>
+                          {solution.stage}
+                        </div>
+                        <solution.icon className={`h-5 w-5 ${solution.color}`} />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {solution.highlights.map((item) => (
+                          <div
+                            key={item}
+                            className="rounded-xl bg-background/80 border border-white/40 px-3 py-2.5 text-xs font-semibold text-foreground/80 backdrop-blur-sm"
+                          >
+                            {item}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -233,6 +319,9 @@ function Solutions() {
             className="max-w-3xl mx-auto space-y-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">One Platform. Multiple Possibilities.</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-accent">
+              Run → Understand → Predict → Scale → Transform
+            </p>
             <p className="text-lg text-slate-300">
               Whether you're running a single pharmacy, managing multiple locations or building a larger healthcare organization, Med4One is designed to evolve with you.
             </p>
