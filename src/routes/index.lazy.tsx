@@ -42,7 +42,7 @@ function Index() {
               className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary"
             >
               <Zap className="mr-2 h-4 w-4" />
-              <span>Connect pharmacy, healthcare, business and AI</span>
+              <span>Building the Digital Future of Healthcare</span>
             </motion.div>
             
             <motion.h1 
@@ -51,7 +51,7 @@ function Index() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
             >
-              The Intelligent Healthcare Platform for the <span className="text-primary">Next Generation</span>
+              We’re Building the <span className="text-primary">Digital Future</span> of Healthcare.
             </motion.h1>
             
             <motion.p 
@@ -60,7 +60,7 @@ function Index() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl"
             >
-              Med4One empowers pharmacies and healthcare businesses with intelligent technology for billing, inventory, purchasing, customer engagement, analytics and AI-powered decision making.
+              Connecting pharmacy, healthcare, technology and AI to create a smarter, simpler and more connected healthcare ecosystem.
             </motion.p>
             
             <motion.div 
