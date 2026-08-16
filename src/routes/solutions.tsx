@@ -5,7 +5,7 @@ export const Route = createFileRoute("/solutions")({
     meta: [
       { title: "Solutions | Med4One" },
       { name: "description", content: "Intelligent healthcare solutions for pharmacies, clinics, and enterprises." },
-      { property: "og:url", content: "https://med4oneai.lovable.app/solutions/" if False else "https://med4oneai.lovable.app/solutions" },
+      { property: "og:url", content: "https://med4oneai.lovable.app/solutions" },
     ],
     links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/solutions" }],
   }),
