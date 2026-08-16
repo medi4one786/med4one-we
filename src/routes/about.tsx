@@ -3,13 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | Med4One - Building the Digital Future of Healthcare" },
+      { title: "About Us | Med4One - A Smarter, More Connected Future for Healthcare" },
       { 
         name: "description", 
-        content: "Med4One is a healthcare technology company focused on making everyday healthcare operations simpler, smarter and more connected through AI and innovation." 
+        content: "We envision a healthcare ecosystem where technology connects every part of the journey. Med4One is building the digital infrastructure for the next generation of healthcare." 
       },
-      { property: "og:title", content: "About Med4One | The Future of Healthcare Technology" },
-      { property: "og:description", content: "We're not just building another pharmacy software platform. We're building the technology infrastructure for a smarter future of healthcare." },
+      { property: "og:title", content: "About Med4One | Smarter Healthcare Ecosystem" },
+      { property: "og:description", content: "Med4One — Building the technology behind a smarter healthcare ecosystem. From PharmacyOS to AI-powered intelligence." },
     ],
   }),
 });
