@@ -363,9 +363,9 @@ function GetStarted() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-14">
             <Button size="lg" className="h-14 px-8" asChild>
-              <Link to="/book-demo">
+              <a href="/#demo">
                 <CalendarCheck className="mr-2 h-5 w-5" /> Book a demo instead
-              </Link>
+              </a>
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-8" asChild>
               <a href="mailto:sales@med4one.com">
