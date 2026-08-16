@@ -231,7 +231,7 @@ function AI() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" variant="secondary" className="h-14 px-10 text-lg" asChild>
-              <Link to="/book-demo text-lg">Book a Demo</Link>
+              <Link to="/book-demo">Book a Demo</Link>
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-white/20 hover:bg-white/10" asChild>
               <Link to="/contact">Contact Sales</Link>

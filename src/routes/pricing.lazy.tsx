@@ -1,5 +1,175 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Zap, ShieldCheck, Globe, Bot, LayoutDashboard } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+
 export const Route = createLazyFileRoute("/pricing")({
-  component: () => <div>Pricing Page Placeholder</div>,
+  component: Pricing,
 });
+
+function Pricing() {
+  const tiers = [
+    {
+      name: "Basic",
+      price: "999",
+      description: "Essential tools for independent pharmacies.",
+      features: [
+        "Digital Billing & POS",
+        "Inventory Management",
+        "GST Ready Reports",
+        "WhatsApp Receipts",
+        "Mobile Support"
+      ],
+      icon: LayoutDashboard,
+      color: "border-slate-200"
+    },
+    {
+      name: "Premium",
+      price: "2,999",
+      description: "Advanced intelligence for growing businesses.",
+      popular: true,
+      features: [
+        "Everything in Basic",
+        "AI Inventory Forecasting",
+        "Multi-User Access",
+        "Supplier Management",
+        "Customer Loyalty Program",
+        "Advanced Analytics"
+      ],
+      icon: Zap,
+      color: "border-primary shadow-xl shadow-primary/5"
+    },
+    {
+      name: "Pro",
+      price: "7,999",
+      description: "Full ecosystem control for enterprise groups.",
+      features: [
+        "Everything in Premium",
+        "Multi-Store Control Centre",
+        "AI Business Advisor",
+        "Custom API Access",
+        "Enterprise Security",
+        "Priority 24/7 Support"
+      ],
+      icon: Globe,
+      color: "border-slate-200"
+    }
+  ];
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-20 pointer-events-none">
+          <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-accent/20 blur-[120px] rounded-full" />
+        </div>
+
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-bold tracking-tight"
+            >
+              Simple, Transparent <span className="text-primary">Pricing.</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-muted-foreground"
+            >
+              Choose the plan that fits your healthcare business. From independent pharmacies to enterprise groups.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 md:mt-24 items-start">
+            {tiers.map((tier, i) => (
+              <motion.div 
+                key={tier.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className={`relative p-8 rounded-3xl border bg-card flex flex-col h-full ${tier.color}`}
+              >
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    Most Popular
+                  </div>
+                )}
+                
+                <div className="mb-8">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-6">
+                    <tier.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold">{tier.name}</h3>
+                  <div className="flex items-baseline gap-1 mt-4">
+                    <span className="text-4xl font-bold">₹{tier.price}</span>
+                    <span className="text-muted-foreground">/month</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-4">{tier.description}</p>
+                </div>
+
+                <ul className="space-y-4 mb-8 flex-1">
+                  {tier.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm">
+                      <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button 
+                  className={`w-full h-12 text-base font-semibold rounded-xl ${tier.popular ? 'bg-primary' : 'variant-outline'}`}
+                  variant={tier.popular ? 'default' : 'outline'}
+                  asChild
+                >
+                  <Link to="/get-started">Get Started</Link>
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise CTA */}
+      <section className="py-24 bg-muted/30">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-slate-950 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-4 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold">Need a custom solution for your enterprise?</h2>
+              <p className="text-slate-400">Specialized pricing and dedicated infrastructure for large hospital groups and nationwide pharmacy chains.</p>
+            </div>
+            <Button size="lg" className="h-14 px-8 text-lg font-bold shrink-0" asChild>
+              <Link to="/contact">Contact Sales</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Preview */}
+      <section className="py-24 bg-background">
+        <div className="container px-4 md:px-6 mx-auto text-center space-y-16">
+          <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+          <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+            {[
+              { q: "Is there a setup fee?", a: "No, we believe in transparent pricing. There are no hidden setup or onboarding fees." },
+              { q: "Can I upgrade my plan later?", a: "Yes, you can upgrade your plan at any time as your business grows." },
+              { q: "Is my data secure?", a: "Absolutely. We use enterprise-grade encryption and secure cloud infrastructure to protect your business data." },
+              { q: "Do you offer offline billing?", a: "Yes, PharmacyOS supports offline billing to ensure your business never stops, even without internet." }
+            ].map((faq, i) => (
+              <div key={i} className="space-y-2">
+                <h4 className="font-bold">{faq.q}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+

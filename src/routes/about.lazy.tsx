@@ -67,9 +67,9 @@ function About() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 text-center lg:text-left"
             >
-              <div className="flex items-center gap-2 text-primary font-bold tracking-wider uppercase text-sm">
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-primary font-bold tracking-wider uppercase text-sm">
                 <Eye className="h-5 w-5" />
                 <span>Our Vision</span>
               </div>
@@ -88,7 +88,7 @@ function About() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
             >
               {[
                 { title: "Connect", desc: "Bring healthcare businesses, people, data and technology together.", icon: Network },
@@ -96,11 +96,11 @@ function About() {
                 { title: "Intelligent", desc: "Turn data into meaningful insights and better decisions through AI.", icon: Bot },
                 { title: "Impact", desc: "Use technology to create measurable value for healthcare businesses and patients.", icon: Target },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-background border shadow-sm space-y-3 hover:shadow-md transition-shadow">
-                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-primary" />
+                <div key={i} className="p-6 md:p-8 rounded-2xl bg-background border shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                  <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h4 className="font-bold text-lg">{item.title}</h4>
+                  <h4 className="font-bold text-xl">{item.title}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
