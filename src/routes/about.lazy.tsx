@@ -194,11 +194,11 @@ function About() {
               <p>Every purchase, every sale, every customer interaction and every business decision creates valuable information.</p>
               
               <div className="flex flex-col items-center gap-4 py-8">
-                <div className="flex items-center gap-4 text-primary font-bold text-2xl">
+                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-primary font-bold text-lg sm:text-2xl">
                   <span>Connect</span>
-                  <ArrowRight className="h-6 w-6" />
+                  <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
                   <span>Understand</span>
-                  <ArrowRight className="h-6 w-6" />
+                  <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
                   <span>Intelligence</span>
                 </div>
               </div>
