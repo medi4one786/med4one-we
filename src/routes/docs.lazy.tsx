@@ -166,7 +166,7 @@ function DocsPage() {
   }, []);
 
   const currentIndex = allDocItems.findIndex(item => item.id === activeItem);
-  const currentItem = allDocItems[currentIndex] || allDocItems[0];
+  const currentItem = allDocItems[currentIndex] || allDocItems[0]!;
   const prevItem = currentIndex > 0 ? allDocItems[currentIndex - 1] : null;
   const nextItem = currentIndex < allDocItems.length - 1 ? allDocItems[currentIndex + 1] : null;
 
