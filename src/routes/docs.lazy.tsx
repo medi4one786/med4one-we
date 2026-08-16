@@ -166,9 +166,9 @@ function DocsPage() {
   }, []);
 
   const currentIndex = allDocItems.findIndex(item => item.id === activeItem);
+  const currentItem = allDocItems[currentIndex] || allDocItems[0];
   const prevItem = currentIndex > 0 ? allDocItems[currentIndex - 1] : null;
   const nextItem = currentIndex < allDocItems.length - 1 ? allDocItems[currentIndex + 1] : null;
-  const currentItem = allDocItems[currentIndex] || allDocItems[0];
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText("GET /api/v1/inventory\nAuthorization: Bearer <token>");
