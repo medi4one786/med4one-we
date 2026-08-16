@@ -84,38 +84,22 @@ function Index() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="flex-1 w-full max-w-lg lg:max-w-2xl relative"
             >
-              {/* Premium Device Composition Mockup */}
-              <div className="relative w-full h-[400px] lg:h-[500px]">
-                {/* Main Desktop Mockup */}
-                <div className="absolute top-0 right-0 w-[85%] aspect-[16/10] bg-slate-900 rounded-xl border border-white/10 shadow-2xl overflow-hidden z-10 group hover:-translate-y-2 transition-transform duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent pointer-events-none" />
-                  <img 
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-                    alt="PharmacyOS Dashboard" 
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/20 rounded-full" />
+              <div className="relative w-full aspect-[16/10] bg-slate-900 rounded-2xl border border-primary/20 shadow-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <LayoutDashboard className="h-20 w-20 text-primary opacity-20 group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                {/* Abstract dashboard lines */}
+                <div className="absolute inset-0 p-8 flex flex-col gap-6 opacity-30">
+                  <div className="h-8 w-1/3 bg-primary/20 rounded" />
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="h-24 bg-primary/10 rounded" />
+                    <div className="h-24 bg-primary/10 rounded" />
+                    <div className="h-24 bg-primary/10 rounded" />
+                  </div>
+                  <div className="h-32 w-full bg-primary/5 rounded" />
                 </div>
                 
-                {/* Tablet Mockup */}
-                <div className="absolute bottom-10 left-0 w-[45%] aspect-[3/4] bg-slate-800 rounded-lg border border-white/10 shadow-xl overflow-hidden z-20 hover:-translate-y-2 transition-transform duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" 
-                    alt="Mobile Interface" 
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                </div>
-                
-                {/* Smartphone Mockup */}
-                <div className="absolute bottom-0 right-10 w-[20%] aspect-[9/19] bg-slate-950 rounded-2xl border-4 border-slate-800 shadow-2xl overflow-hidden z-30 hover:-translate-y-2 transition-transform duration-500">
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-3 bg-black rounded-full z-40" />
-                  <img 
-                    src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=400" 
-                    alt="Smartphone App" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
                 {/* Decorative Elements */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 blur-3xl rounded-full -z-10" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/20 blur-3xl rounded-full -z-10" />
