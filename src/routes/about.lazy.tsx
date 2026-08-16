@@ -266,14 +266,6 @@ function About() {
                 { label: "Customer Technology", role: "powers engagement" },
                 { label: "Connected Healthcare", role: "powers the future" },
               ].map((step, i, arr) => (
-              {/* Step progression - Vertical on Mobile, Grid/Vertical on Desktop */}
-              {[
-                { label: "PharmacyOS", role: "powers operations" },
-                { label: "AI", role: "powers intelligence" },
-                { label: "Business Intelligence", role: "powers decisions" },
-                { label: "Customer Technology", role: "powers engagement" },
-                { label: "Connected Healthcare", role: "powers the future" },
-              ].map((step, i, arr) => (
                 <div key={i} className="flex flex-col items-center gap-4 w-full">
                   <div className="w-full max-w-lg p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2 group hover:bg-white/10 transition-colors">
                     <span className="font-bold text-lg md:text-xl">{step.label}</span>
@@ -286,7 +278,6 @@ function About() {
                     </div>
                   )}
                 </div>
-              ))}
               ))}
             </div>
 
