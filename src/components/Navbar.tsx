@@ -111,7 +111,7 @@ export function Navbar() {
           {/* Tablet/Mobile Actions */}
           <div className="flex lg:hidden items-center gap-2 md:gap-4">
             <Button variant="default" size="sm" className="hidden sm:flex h-9 px-4 text-xs font-semibold" asChild>
-              <a href="/#demo">Book a Demo</a>
+              <a href="/#demo" className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 rounded-md text-xs font-semibold transition-colors">Book a Demo</a>
             </Button>
             <button
               className="p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
@@ -165,7 +165,7 @@ export function Navbar() {
                 Login
               </Link>
               <Button className="h-14 text-lg font-bold rounded-xl" asChild>
-                <a href="/#demo" onClick={() => setIsOpen(false)}>Book a Demo</a>
+                <a href="/#demo" onClick={() => setIsOpen(false)} className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-xl text-lg font-bold transition-colors">Book a Demo</a>
               </Button>
             </div>
           </div>
