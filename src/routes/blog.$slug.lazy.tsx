@@ -21,8 +21,8 @@ export const Route = createLazyFileRoute("/blog/$slug")({
 });
 
 function ArticlePage() {
-  const params = Route.useParams() as { slug: string };
-  const slug = params.slug;
+  const params = Route.useParams();
+  const slug = (params as any).slug;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   const [activeId, setActiveId] = useState<string>("");
 
@@ -166,7 +166,8 @@ function ArticlePage() {
               {relatedArticles.map((article) => (
                 <Link 
                   key={article.id} 
-                  to={`/blog/${article.slug}`}
+                  to="/blog/$slug" 
+                  params={{ slug: article.slug }}
                   className="group block space-y-4"
                 >
                   <div className="aspect-[16/10] rounded-2xl overflow-hidden border border-primary/5">
