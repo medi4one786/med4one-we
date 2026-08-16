@@ -21,8 +21,7 @@ export const Route = createLazyFileRoute("/blog/$slug")({
 });
 
 function ArticlePage() {
-  const params = Route.useParams();
-  const slug = (params as any).slug;
+  const { slug } = Route.useParams();
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   const [activeId, setActiveId] = useState<string>("");
 

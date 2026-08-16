@@ -39,8 +39,7 @@ function BlogPage() {
   }, [searchQuery, activeCategory]);
 
   const featuredPost = useMemo(() => {
-    const post = BLOG_POSTS.find(p => p.isFeatured) || BLOG_POSTS[0];
-    return post || null;
+    return BLOG_POSTS.find(p => p.isFeatured) || BLOG_POSTS[0] || null;
   }, []);
 
   const latestPosts = useMemo(() => {
@@ -50,7 +49,6 @@ function BlogPage() {
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-background">
-      {/* Hero Section */}
       <section className="container mx-auto px-4 mb-16">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <motion.h1 
@@ -88,7 +86,6 @@ function BlogPage() {
         </div>
       </section>
 
-      {/* Category Filters */}
       <section className="container mx-auto px-4 mb-12">
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {CATEGORIES.map((category) => (
@@ -107,7 +104,6 @@ function BlogPage() {
         </div>
       </section>
 
-      {/* Featured Article */}
       {featuredPost && activeCategory === "All" && !searchQuery && (
         <section className="container mx-auto px-4 mb-20">
           <motion.div 
@@ -150,7 +146,6 @@ function BlogPage() {
         </section>
       )}
 
-      {/* Articles Grid */}
       <section className="container mx-auto px-4 mb-24">
         <div className="flex items-center justify-between mb-8">
           <h3 className="text-2xl font-bold flex items-center gap-2">
@@ -219,10 +214,8 @@ function BlogPage() {
         )}
       </section>
 
-      {/* Newsletter Section */}
       <section className="container mx-auto px-4 mb-24">
         <div className="relative rounded-[2.5rem] bg-[#0f172a] overflow-hidden p-10 md:p-20 text-center">
-          {/* Background effects */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 blur-[100px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-1/3 h-full bg-teal-500/10 blur-[100px] pointer-events-none" />
           
@@ -250,7 +243,6 @@ function BlogPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="container mx-auto px-4 text-center pb-12">
         <div className="max-w-xl mx-auto space-y-8">
           <h3 className="text-2xl font-bold">Have a question about Med4One?</h3>
