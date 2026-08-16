@@ -85,10 +85,22 @@ function Index() {
               className="flex-1 w-full max-w-lg lg:max-w-xl"
             >
               {/* Product Visual: Device Composition */}
-              <div className="relative aspect-[4/3] w-full">
-                <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl flex items-center justify-center p-4">
-                  <div className="text-center text-muted-foreground italic text-sm">PharmacyOS Dashboard & AI Interface</div>
+              <div className="relative aspect-[4/3] w-full group">
+                <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl overflow-hidden">
+                  <picture>
+                    <source srcSet={(await import("@/assets/pharmacyos-ai-interface.png.asset.json")).default.url} type="image/png" />
+                    <img 
+                      src={(await import("@/assets/pharmacyos-ai-interface.png.asset.json")).default.url}
+                      alt="PharmacyOS Dashboard & AI Interface"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                 </div>
+                
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 blur-3xl rounded-full -z-10 animate-pulse" />
               </div>
             </motion.div>
           </div>
