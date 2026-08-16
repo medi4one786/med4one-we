@@ -165,7 +165,7 @@ export function Navbar() {
                 Login
               </Link>
               <Button className="h-14 text-lg font-bold rounded-xl" asChild>
-                <Link to="/book-demo" onClick={() => setIsOpen(false)}>Book a Demo</Link>
+                <a href="/#demo" onClick={() => setIsOpen(false)}>Book a Demo</a>
               </Button>
             </div>
           </div>
