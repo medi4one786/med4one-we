@@ -1,0 +1,13 @@
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/")({
+  loader: () => ({}),
+  component: Index,
+});
+
+function Index() {
+  const { Route: IndexContent } = import.meta.glob("./index.lazy.tsx", { eager: false });
+  // This is a placeholder for manual implementation of code splitting.
+  // TanStack Router handles it via file system routing if we use the correct patterns.
+  return null;
+}
