@@ -42,7 +42,7 @@ function Index() {
               className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary"
             >
               <Zap className="mr-2 h-4 w-4" />
-              <span>Building the Digital Future of Healthcare</span>
+              <span>Building the Technology Behind a Smarter Healthcare Ecosystem</span>
             </motion.div>
             
             <motion.h1 
