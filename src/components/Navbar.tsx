@@ -38,7 +38,7 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <picture>
-              <source srcSet={med4oneLogoWebp} type="image/webp" />
+              <source srcSet={med4oneLogoWebp} type="image/webp" sizes="(max-width: 768px) 150px, 200px" />
               <img
                 src={med4oneLogo}
                 alt="Med4One Health Services logo"

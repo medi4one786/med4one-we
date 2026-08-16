@@ -12,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
               <picture>
-                <source srcSet={med4oneLogoWebp} type="image/webp" />
+                <source srcSet={med4oneLogoWebp} type="image/webp" sizes="(max-width: 768px) 150px, 200px" />
                 <img
                   src={med4oneLogo}
                   alt="Med4One Health Services logo"
