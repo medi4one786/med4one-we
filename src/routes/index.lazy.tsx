@@ -419,8 +419,8 @@ function Index() {
       <section className="py-24 border-t">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="max-w-4xl mx-auto rounded-3xl bg-primary/5 border border-primary/20 p-8 md:p-16 text-center space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Ready to Build the Future of Healthcare Together?</h2>
-            <p className="text-lg text-muted-foreground">Join thousands of pharmacies and healthcare businesses using Med4One to operate smarter.</p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">We’re Not Just Building Software. We’re Building What Comes Next.</h2>
+            <p className="text-lg text-muted-foreground">Med4One — Building the technology infrastructure for a smarter, more connected future of healthcare.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" className="h-12 px-10" asChild>
                 <Link to="/get-started">Get Started Now</Link>
