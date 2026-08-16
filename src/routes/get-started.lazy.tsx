@@ -110,7 +110,7 @@ function routeLead(size: TrialValues["size"]): Onboarding {
       "RBAC, integrations and data migration plan",
       "Phased rollout with dedicated success manager",
     ],
-    cta: { label: "Book an enterprise demo", to: "/book-demo" },
+    cta: { label: "Book an enterprise demo", to: "/#demo" },
     icon: Building2,
   };
 }
@@ -363,9 +363,9 @@ function GetStarted() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-14">
             <Button size="lg" className="h-14 px-8" asChild>
-              <Link to="/book-demo">
+              <a href="/#demo">
                 <CalendarCheck className="mr-2 h-5 w-5" /> Book a demo instead
-              </Link>
+              </a>
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-8" asChild>
               <a href="mailto:sales@med4one.com">
@@ -430,9 +430,12 @@ function TrialResult({
 
       <div className="space-y-3">
         <Button size="lg" className="w-full h-13" asChild>
-          <Link to={onboarding.cta.to}>
+          <a 
+            href={onboarding.cta.to} 
+            className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 w-full h-13 rounded-md text-sm font-medium transition-colors"
+          >
             {onboarding.cta.label} <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+          </a>
         </Button>
         <Button size="lg" variant="outline" className="w-full h-13 bg-white/5 border-white/15 text-white hover:bg-white/10" asChild>
           <a href={whatsappHref} target="_blank" rel="noopener noreferrer">

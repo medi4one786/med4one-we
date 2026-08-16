@@ -134,13 +134,12 @@ function Pricing() {
                   >
                     <Link to="/get-started">Start 7 Days Free Trial</Link>
                   </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-muted-foreground hover:text-primary"
-                    asChild
+                  <a 
+                    href="/#demo" 
+                    className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground rounded-xl text-muted-foreground hover:text-primary"
                   >
-                    <Link to="/get-started">Book a Demo</Link>
-                  </Button>
+                    Book a Demo
+                  </a>
                 </div>
               </motion.div>
             ))}
