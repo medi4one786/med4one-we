@@ -1,34 +1,42 @@
 # Performance Optimization Plan: Code Splitting & Lazy Loading
 
-Implement route-level code splitting and lazy loading of non-critical components to reduce initial JavaScript bundle size and improve page load speed.
+Implement route-level code splitting and lazy-loading of non-critical components to reduce the initial JavaScript bundle size and improve page load performance for Med4One.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> This change will convert all existing route components to lazy-loaded modules. While this significantly improves initial load performance, it may cause a brief flash of "loading" (or empty space) when navigating to a new route for the first time if the network is slow.
+> This change splits the application into smaller chunks. The initial page load will be faster, and other parts of the app will load on-demand as you navigate.
 
-- Do you have a preferred loading indicator (spinner, progress bar) for route transitions?
-- Should any specific routes (e.g., /login) be kept in the main bundle for immediate access?
+- **Initial Load**: Only the core layout and the homepage will load initially.
+- **On-Demand Loading**: Pages like "About", "AI Solutions", and "Pricing" will load only when a user clicks on them.
+- **Component Lazy Loading**: Non-essential features like the floating WhatsApp button and toast notifications will load in the background after the main content.
 
 ## Proposed Changes
 
-### 1. Route-Level Code Splitting
-- Refactor all content routes in `src/routes/*.tsx` to use TanStack Router's `lazyRouteComponent`.
-- Move the UI component logic of each route to a separate `.lazy.tsx` file (e.g., `src/routes/about.lazy.tsx`).
-- Keep the `Route` declaration and `head` metadata in the original route files to maintain SEO and fast metadata resolution.
+### Routing Strategy
+- Refactor all content routes in `src/routes/*.tsx` to use TanStack Router's `lazyRouteComponent` pattern.
+- Move heavy component logic into corresponding `.lazy.tsx` files.
+- Keep SEO metadata and route definitions in the primary route files for optimal search engine visibility.
 
-### 2. Component Lazy Loading
-- Identify non-critical components that aren't immediately visible (e.g., `WhatsAppButton`, `Toaster`).
-- Use `React.lazy` to load these components only after the initial page hydration.
-- Wrap lazy components in `<Suspense>` with appropriate fallbacks.
+### Component Optimization
+- Use `React.lazy` for non-critical UI components:
+    - `WhatsAppButton`: Floating interaction element.
+    - `Toaster`: Post-action feedback notifications.
+- Implement loading boundaries with `Suspense` to ensure a smooth transition while chunks are being fetched.
 
-### 3. Optimization Checklist
-- [ ] Verify that `createServerFn` usage remains intact and follows the "thin wrapper" rule.
-- [ ] Ensure that metadata (titles, descriptions) remains in the non-lazy part of the route for SEO.
-- [ ] Validate that navigation remains smooth and handles loading states gracefully.
+### Technical Details
+- Update `src/routes/index.tsx` to split the massive homepage component.
+- Convert 20+ placeholder routes to the lazy pattern to prevent them from bloating the main bundle.
+- Ensure `src/routeTree.gen.ts` correctly reflects the lazy route structure.
+- Verify that metadata (titles/descriptions) remains in the eager part of the route for SEO crawlers.
 
-## Technical Details
+## Verification Plan
 
-- **Framework**: TanStack Start v1 / React 19.
-- **Pattern**: `lazyRouteComponent` for routes, `React.lazy` for components.
-- **Bundle Strategy**: Split large components like `Navbar`, `Footer`, and page-specific content into separate chunks.
+### Automated Tests
+- Run build check to ensure code splitting didn't break route generation.
+- Execute Playwright script to verify homepage rendering and navigation to lazy-loaded routes.
+- Check browser console for any chunk loading errors.
+
+### Manual Verification
+- Inspect Network tab in browser dev tools to confirm that separate JS chunks are created and loaded only when needed.
+- Verify that SEO metadata is still present in the document head on initial load.

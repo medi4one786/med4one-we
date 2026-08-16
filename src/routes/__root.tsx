@@ -8,12 +8,13 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { lazy, Suspense } from "react";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton").then(m => ({ default: m.WhatsAppButton })));
+const Toaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
+
 
 
 import appCss from "../styles.css?url";
@@ -144,7 +145,10 @@ function RootComponent() {
         <WhatsAppButton />
       </Suspense>
 
-      <Toaster />
+      <Suspense fallback={null}>
+        <Toaster />
+      </Suspense>
+
     </QueryClientProvider>
   );
 }
