@@ -14,12 +14,14 @@ import {
   Stethoscope,
   Users,
   Briefcase,
-  Layers
+  Layers,
+  Sparkles
 } from "lucide-react";
 import { motion } from "framer-motion";
 import promoAsset from "@/assets/med4one-promo.png.asset.json";
 import med4oneLogo from "@/assets/med4one-logo.png";
 import med4oneLogoWebp from "@/assets/med4one-logo.webp";
+import { BookDemoForm } from "@/components/BookDemoForm";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
