@@ -35,7 +35,7 @@ function About() {
               className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary"
             >
               <Zap className="mr-2 h-4 w-4" />
-              <span>Technology That Makes Healthcare Smarter</span>
+              <span>Healthcare Is Evolving. We’re Building What Comes Next.</span>
             </motion.div>
             
             <motion.h1 
@@ -53,13 +53,13 @@ function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl"
             >
-              Med4One brings pharmacy, healthcare, technology and artificial intelligence together to create a smarter, simpler and more connected healthcare ecosystem.
+              Connecting pharmacy, healthcare, technology and AI to create a smarter, simpler and more connected healthcare ecosystem.
             </motion.p>
           </div>
         </div>
       </section>
 
-      {/* 2. Who We Are Section */}
+      {/* 2. Vision Section */}
       <section className="py-24 bg-muted/30">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -69,19 +69,18 @@ function About() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technology Built Around Real Healthcare.</h2>
+              <div className="flex items-center gap-2 text-primary font-bold tracking-wider uppercase text-sm">
+                <Eye className="h-5 w-5" />
+                <span>Our Vision</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">A Smarter, More Connected Future for Healthcare.</h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  Med4One is a healthcare technology company focused on making everyday healthcare operations simpler, smarter and more connected.
+                  We envision a healthcare ecosystem where technology connects every part of the journey — from pharmacy and healthcare businesses to professionals and customers — making healthcare simpler, smarter and more accessible.
                 </p>
                 <p>
-                  We combine modern software, automation, analytics and AI to help pharmacies and healthcare businesses spend less time managing complexity and more time serving people.
+                  Our vision is to build the digital infrastructure that powers the next generation of healthcare, where intelligent technology works seamlessly behind the scenes to help businesses make better decisions, serve people better and grow sustainably.
                 </p>
-              </div>
-              <div className="pt-4">
-                <Button size="lg" asChild>
-                  <Link to="/pharmacyos">Explore Our Ecosystem</Link>
-                </Button>
               </div>
             </motion.div>
             
@@ -89,59 +88,89 @@ function About() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-8 rounded-3xl bg-background border shadow-xl"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Cpu className="h-6 w-6 text-primary" />
+              {[
+                { title: "Connect", desc: "Bring healthcare businesses, people, data and technology together.", icon: Network },
+                { title: "Simplify", desc: "Remove unnecessary complexity from everyday healthcare operations.", icon: Zap },
+                { title: "Intelligent", desc: "Turn data into meaningful insights and better decisions through AI.", icon: Bot },
+                { title: "Impact", desc: "Use technology to create measurable value for healthcare businesses and patients.", icon: Target },
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-background border shadow-sm space-y-3 hover:shadow-md transition-shadow">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Intelligence First</h4>
-                    <p className="text-muted-foreground">We don't just process data; we create actionable intelligence for better patient care.</p>
-                  </div>
+                  <h4 className="font-bold text-lg">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
-                    <Network className="h-6 w-6 text-accent" />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Mission Section */}
+      <section className="py-24 bg-background">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center space-y-4"
+            >
+              <div className="flex items-center justify-center gap-2 text-accent font-bold tracking-wider uppercase text-sm">
+                <Target className="h-5 w-5" />
+                <span>Our Mission</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Make Powerful Healthcare Technology Simple for Everyone.</h2>
+              <p className="text-xl text-muted-foreground">
+                Our mission is to empower pharmacies and healthcare businesses with intelligent, connected and easy-to-use technology that reduces complexity, improves efficiency and enables better decisions.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 md:p-12 rounded-3xl bg-slate-950 text-white space-y-8"
+            >
+              <p className="text-center text-lg md:text-xl text-slate-300">
+                We believe technology should <span className="text-white font-semibold">work for healthcare businesses</span> — not create more work for them.
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  "Pharmacy Operations", "AI & Automation", "Business Intelligence", "Customer Engagement",
+                  "Multi-Store Management", "Digital Healthcare", "Connected Technology", "One Evolving Ecosystem"
+                ].map((text, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-slate-400">
+                    <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
+                    <span>{text}</span>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Connected Ecosystem</h4>
-                    <p className="text-muted-foreground">Breaking down silos between pharmacies, clinics, and patients.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Bot className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Automation for Care</h4>
-                    <p className="text-muted-foreground">Automating complexity so you can focus on the human side of healthcare.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 3. Mission & Vision */}
-      <section className="py-24 bg-background overflow-hidden relative">
+      {/* 4. What We Are Building */}
+      <section className="py-24 bg-muted/30">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div 
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 md:p-12 rounded-3xl bg-primary/5 border border-primary/10 space-y-6"
+              className="space-y-4"
             >
-              <div className="h-14 w-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
-                <Target className="h-8 w-8" />
+              <div className="flex items-center justify-center gap-2 text-primary font-bold tracking-wider uppercase text-sm">
+                <Cpu className="h-5 w-5" />
+                <span>What We Are Building</span>
               </div>
-              <h3 className="text-2xl font-bold">Make Healthcare Technology Simple. Intelligent. Accessible.</h3>
-              <p className="text-lg text-muted-foreground italic">
-                “Our mission is simple: make powerful healthcare technology accessible, intuitive and useful for every healthcare business.”
-              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">From Operations to Intelligence.</h2>
             </motion.div>
             
             <motion.div 
@@ -149,61 +178,120 @@ function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-8 md:p-12 rounded-3xl bg-accent/5 border border-accent/10 space-y-6"
+              className="space-y-6 text-xl text-muted-foreground"
             >
-              <div className="h-14 w-14 rounded-2xl bg-accent text-accent-foreground flex items-center justify-center">
-                <Eye className="h-8 w-8" />
+              <p>Every purchase, every sale, every customer interaction and every business decision creates valuable information.</p>
+              
+              <div className="flex flex-col items-center gap-4 py-8">
+                <div className="flex items-center gap-4 text-primary font-bold text-2xl">
+                  <span>Connect</span>
+                  <ArrowRight className="h-6 w-6" />
+                  <span>Understand</span>
+                  <ArrowRight className="h-6 w-6" />
+                  <span>Intelligence</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold">A Connected Healthcare Ecosystem, Powered by Intelligence.</h3>
-              <p className="text-lg text-muted-foreground italic">
-                “Our vision is to create a connected healthcare ecosystem where technology quietly works behind the scenes, helping every decision become faster, smarter and better.”
+
+              <p className="text-foreground font-medium">
+                This is where we differentiate Med4One from traditional pharmacy software.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 4. Transactions to Intelligence */}
-      <section className="py-24 bg-slate-950 text-white overflow-hidden">
+      {/* 5. Why We Exist */}
+      <section className="py-24 bg-background">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold tracking-tight"
-            >
-              From Transactions to Intelligence.
-            </motion.h2>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-6 text-xl text-slate-300"
+              className="space-y-8"
             >
-              <p>Every purchase, every sale, every customer interaction and every business decision creates valuable information.</p>
-              <p className="text-accent font-semibold text-2xl">Med4One connects that information, turns it into intelligence and puts it to work.</p>
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-primary">Why We Exist</h2>
+                <h3 className="text-2xl md:text-3xl font-semibold">Because Healthcare Should Be Easier to Run — and Better to Experience.</h3>
+              </div>
+              
+              <div className="space-y-4 text-lg text-muted-foreground">
+                <p>Healthcare businesses manage enormous amounts of information every day. We believe technology can bring all of this together.</p>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-2 py-4">
+                  {["Products", "Prescriptions", "Customers", "Purchases", "Inventory", "Sales", "Employees", "Reports"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-primary/5 rounded-3xl p-8 md:p-12 border border-primary/10 grid grid-cols-1 gap-6"
+            >
+              {[
+                "Less manual work.", "Less complexity.", "More visibility.", "Better decisions.", "Better experiences."
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-4 text-xl font-medium text-foreground">
+                  <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
+                  <span>{text}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 5. Closing CTA */}
-      <section className="py-24 border-t">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-primary/5 border border-primary/20 p-8 md:p-16 text-center space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">We’re Not Just Building Software. We’re Building What Comes Next.</h2>
-            <p className="text-lg text-muted-foreground">
-              We’re not just building another pharmacy software platform. We’re building the technology infrastructure for a smarter, more connected future of healthcare.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="h-12 px-10" asChild>
-                <Link to="/get-started">Join the Future</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="h-12 px-10" asChild>
-                <Link to="/contact">Contact Sales</Link>
-              </Button>
+      {/* 6. Long-Term Ambition & Closing */}
+      <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/10 opacity-50 blur-[120px]" />
+        
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Our Long-Term Ambition</h2>
+              <p className="text-xl text-slate-400">From Pharmacy Software to a Healthcare Technology Ecosystem.</p>
+            </div>
+
+            <div className="flex flex-col items-center space-y-6">
+              {[
+                { label: "PharmacyOS", role: "powers operations" },
+                { label: "AI", role: "powers intelligence" },
+                { label: "Business Intelligence", role: "powers decisions" },
+                { label: "Customer Technology", role: "powers engagement" },
+                { label: "Connected Healthcare", role: "powers the future" },
+              ].map((step, i, arr) => (
+                <div key={i} className="flex flex-col items-center gap-4 w-full">
+                  <div className="w-full max-w-md p-4 rounded-2xl bg-white/5 border border-white/10 flex justify-between items-center group hover:bg-white/10 transition-colors">
+                    <span className="font-bold text-lg">{step.label}</span>
+                    <span className="text-accent text-sm font-medium">{step.role}</span>
+                  </div>
+                  {i < arr.length - 1 && <div className="h-8 w-px bg-white/20" />}
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center pt-12 space-y-8">
+              <p className="text-2xl font-bold text-slate-200 italic">
+                “Med4One — Building the technology behind a smarter healthcare ecosystem.”
+              </p>
+              
+              <div className="space-y-6">
+                <h3 className="text-3xl md:text-4xl font-bold">We’re Not Just Building Software. We’re Building What Comes Next.</h3>
+                <div className="flex flex-wrap justify-center gap-4 pt-4">
+                  <Button size="lg" className="h-12 px-10 bg-primary hover:bg-primary/90" asChild>
+                    <Link to="/get-started">Join the Future</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" className="h-12 px-10 border-white/20 hover:bg-white/10" asChild>
+                    <Link to="/contact">Contact Sales</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
