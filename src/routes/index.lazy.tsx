@@ -18,6 +18,8 @@ import {
   Briefcase
 } from "lucide-react";
 import { motion } from "framer-motion";
+import dashboardAsset from "@/assets/pharmacyos-dashboard.png.asset.json";
+import aiAsset from "@/assets/pharmacyos-ai-interface.png.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
