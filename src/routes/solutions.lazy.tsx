@@ -18,56 +18,79 @@ export const Route = createLazyFileRoute("/solutions")({
 });
 
 function Solutions() {
+  const narrative = [
+    { stage: "Run", solution: "PharmacyOS", note: "Operations", icon: Layers, color: "text-blue-500" },
+    { stage: "Understand", solution: "Business Intelligence", note: "Decisions", icon: LineChart, color: "text-indigo-500" },
+    { stage: "Predict", solution: "AI Solutions", note: "Intelligence", icon: BrainCircuit, color: "text-teal-500" },
+    { stage: "Scale", solution: "Multi-Store", note: "Network", icon: LayoutGrid, color: "text-cyan-500" },
+    { stage: "Transform", solution: "Enterprise", note: "Growth", icon: Building2, color: "text-slate-500" },
+  ];
+
   const solutions = [
     {
       id: "pharmacyos",
       title: "PharmacyOS",
+      stage: "Run",
+      stageNote: "It starts here — every daily operation in one place.",
       tagline: "The Operating System for the Modern Pharmacy.",
       desc: "Run your entire pharmacy from one intelligent platform.",
       icon: Layers,
       href: "/pharmacyos",
       color: "text-blue-500",
-      bgColor: "bg-blue-500/10"
+      bgColor: "bg-blue-500/10",
+      highlights: ["Billing & POS", "Inventory", "Purchasing", "Reports"],
     },
     {
       id: "ai",
       title: "AI Solutions",
+      stage: "Predict",
+      stageNote: "Once you understand today, Med4One predicts tomorrow.",
       tagline: "Intelligence Behind Every Decision.",
       desc: "Turn your pharmacy data into intelligent actions.",
       icon: BrainCircuit,
       href: "/ai",
       color: "text-teal-500",
-      bgColor: "bg-teal-500/10"
+      bgColor: "bg-teal-500/10",
+      highlights: ["Business Assistant", "Inventory Forecast", "Sales Forecast", "Prescription OCR"],
     },
     {
       id: "bi",
       title: "Business Intelligence",
+      stage: "Understand",
+      stageNote: "Operations create data. Data creates understanding.",
       tagline: "From Data to Decisions.",
       desc: "See what is happening in your business — and understand why.",
       icon: LineChart,
       href: "/bi",
       color: "text-indigo-500",
-      bgColor: "bg-indigo-500/10"
+      bgColor: "bg-indigo-500/10",
+      highlights: ["Sales trends", "Gross margin", "Product performance", "Inventory value"],
     },
     {
       id: "multi-store",
       title: "Multi-Store",
+      stage: "Scale",
+      stageNote: "What works in one pharmacy now works across your network.",
       tagline: "One Command Centre. Every Pharmacy.",
       desc: "Manage your entire pharmacy network from one connected platform.",
       icon: LayoutGrid,
       href: "/multi-store",
       color: "text-cyan-500",
-      bgColor: "bg-cyan-500/10"
+      bgColor: "bg-cyan-500/10",
+      highlights: ["Central dashboard", "Store comparison", "Centralized inventory", "Role-based access"],
     },
     {
       id: "enterprise",
       title: "Enterprise",
+      stage: "Transform",
+      stageNote: "The final step — technology that reshapes the organization.",
       tagline: "Technology That Grows With Your Business.",
       desc: "Built for ambitious healthcare organizations.",
       icon: Building2,
       href: "/enterprise",
       color: "text-slate-500",
-      bgColor: "bg-slate-500/10"
+      bgColor: "bg-slate-500/10",
+      highlights: ["Scalable architecture", "Advanced permissions", "API connectivity", "Enterprise support"],
     }
   ];
 
