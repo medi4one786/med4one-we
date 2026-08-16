@@ -40,10 +40,12 @@ function BlogPage() {
   }, [searchQuery, activeCategory]);
 
   const featuredPost = useMemo(() => {
-    return BLOG_POSTS.find(p => p.isFeatured) || BLOG_POSTS[0];
+    const post = BLOG_POSTS.find(p => p.isFeatured) || BLOG_POSTS[0];
+    return post || null;
   }, []);
 
   const latestPosts = useMemo(() => {
+    if (!featuredPost) return filteredPosts;
     return filteredPosts.filter(p => p.id !== (activeCategory === "All" && !searchQuery ? featuredPost.id : null));
   }, [filteredPosts, featuredPost, activeCategory, searchQuery]);
 
@@ -106,8 +108,8 @@ function BlogPage() {
         </div>
       </section>
 
-      {/* Featured Article - Only show when no active search/category filter that excludes it */}
-      {activeCategory === "All" && !searchQuery && (
+      {/* Featured Article */}
+      {featuredPost && activeCategory === "All" && !searchQuery && (
         <section className="container mx-auto px-4 mb-20">
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
