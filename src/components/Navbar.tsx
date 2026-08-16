@@ -103,7 +103,7 @@ export function Navbar() {
                 <Link to="/login">Login</Link>
               </Button>
               <Button size="sm" className="bg-primary hover:bg-primary/90 text-sm px-5" asChild>
-                <Link to="/book-demo">Book a Demo</Link>
+                <a href="/#demo">Book a Demo</a>
               </Button>
             </div>
           </div>
