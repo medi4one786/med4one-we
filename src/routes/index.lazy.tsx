@@ -447,7 +447,7 @@ function Index() {
           </div>
           
           <div className="mt-12 text-center text-muted-foreground text-sm">
-            Interested in a free trial? <Link to="/get-started" className="text-primary font-semibold hover:underline">Start your 15-day trial now.</Link>
+            Ready to transform your business? <Link to="/get-started" className="text-primary font-semibold hover:underline">Start your 7-day free trial now.</Link>
           </div>
         </div>
       </section>
