@@ -83,22 +83,15 @@ function PharmacyOS() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[16/10]">
-                <img 
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Pharmacist using Med4One" 
-                  className="w-full h-full object-cover opacity-90"
-                />
-                {/* Floating UI Element */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[70%] bg-slate-950/80 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl p-6 hidden md:block">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="h-6 w-32 bg-white/10 rounded" />
-                    <div className="h-8 w-8 rounded-full bg-primary/20" />
-                  </div>
+              <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[16/10] flex items-center justify-center">
+                <LayoutGrid className="h-24 w-24 text-primary opacity-20" />
+                {/* Abstract UI Elements */}
+                <div className="absolute inset-0 p-8 flex flex-col gap-4 opacity-30">
+                  <div className="h-4 w-1/4 bg-primary/20 rounded" />
+                  <div className="h-20 w-full bg-primary/10 rounded" />
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-20 bg-white/5 rounded-lg border border-white/5" />
-                    <div className="h-20 bg-white/5 rounded-lg border border-white/5" />
-                    <div className="h-32 col-span-2 bg-white/5 rounded-lg border border-white/5" />
+                    <div className="h-16 bg-primary/5 rounded" />
+                    <div className="h-16 bg-primary/5 rounded" />
                   </div>
                 </div>
               </div>
@@ -149,25 +142,25 @@ function PharmacyOS() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 -z-10" />
-              <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900 aspect-video">
-                <img 
-                  src="https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=1200" 
-                  alt="PharmacyOS Dashboard" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center">
+                <Database className="h-32 w-32 text-primary opacity-10" />
+                <div className="absolute inset-0 p-12 flex flex-col gap-6 opacity-20">
+                  <div className="h-8 w-1/2 bg-primary/20 rounded" />
+                  <div className="h-32 w-full bg-primary/10 rounded" />
+                </div>
               </div>
-              {/* Floating Statistic */}
-              <div className="absolute -bottom-6 -right-6 backdrop-blur-xl bg-white/90 border border-white/20 p-6 rounded-2xl shadow-xl hidden md:block w-64">
+              {/* Floating Statistic (CSS only) */}
+              <div className="absolute -bottom-6 -right-6 backdrop-blur-xl bg-slate-950/90 border border-white/10 p-6 rounded-2xl shadow-xl hidden md:block w-64">
                 <div className="flex items-center gap-4 mb-2">
-                  <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-900">Inventory Sync</div>
-                    <div className="text-xs text-slate-500">Last updated 2s ago</div>
+                    <div className="text-sm font-semibold text-white">Inventory Sync</div>
+                    <div className="text-xs text-slate-400">System Ready</div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-slate-900">99.9% Accuracy</div>
+                <div className="text-2xl font-bold text-white">99.9% Accuracy</div>
               </div>
             </div>
             
