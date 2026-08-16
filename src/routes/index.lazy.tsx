@@ -329,7 +329,64 @@ function Index() {
         </div>
       </section>
 
-      {/* 7. Final Call to Action */}
+      {/* 7. Book a Demo Section (Lead Capture) */}
+      <section id="demo" className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full" />
+        </div>
+        
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Experience the Future
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                  Ready to Transform Your <span className="text-primary">Pharmacy Operations?</span>
+                </h2>
+                <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
+                  Schedule a personalized walkthrough with our experts and discover how Med4One's intelligent ecosystem can drive efficiency, growth, and better patient outcomes.
+                </p>
+                
+                <div className="space-y-4 pt-4">
+                  {[
+                    "Personalized feature walkthrough",
+                    "Custom workflow consultation",
+                    "Implementation roadmap discussion",
+                    "7-day trial setup support"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="h-5 w-5 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 shrink-0">
+                        <CheckCircle2 className="h-3 w-3" />
+                      </div>
+                      <span className="text-slate-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl -z-10" />
+              <BookDemoForm />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Final Call to Action */}
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-slate-950/20" />
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center space-y-8">
@@ -340,7 +397,7 @@ function Index() {
               <Link to="/get-started">Start Free Trial</Link>
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-xl border-white/20 hover:bg-white/10" asChild>
-              <Link to="/book-demo">Book a Demo</Link>
+              <a href="#demo">Book a Demo</a>
             </Button>
           </div>
         </div>
