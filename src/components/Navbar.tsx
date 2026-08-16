@@ -19,12 +19,11 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Solutions", href: "/solutions", dropdown: [
-      { name: "PharmacyOS", href: "/pharmacyos" },
-      { name: "AI Solutions", href: "/ai" },
-      { name: "Business Intelligence", href: "/bi" },
-      { name: "Multi-Store", href: "/multi-store" },
-      { name: "Customer Engagement", href: "/customer-engagement" },
-      { name: "Enterprise", href: "/enterprise" },
+      { name: "PharmacyOS", href: "/pharmacyos", desc: "Run your pharmacy smarter" },
+      { name: "AI Solutions", href: "/ai", desc: "Intelligence behind every decision" },
+      { name: "Business Intelligence", href: "/bi", desc: "Turn data into decisions" },
+      { name: "Multi-Store", href: "/multi-store", desc: "One command centre for every store" },
+      { name: "Enterprise", href: "/enterprise", desc: "Technology that grows with your business" },
     ]},
     { name: "Product Tour", href: "/product-tour" },
     { name: "Pricing", href: "/pricing" },
@@ -82,14 +81,15 @@ export function Navbar() {
                     {link.dropdown && <span className="text-[10px] opacity-50 group-hover:rotate-180 transition-transform">▼</span>}
                   </Link>
                   {link.dropdown && (
-                    <div className="absolute top-full left-0 w-48 bg-background border rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 py-2">
+                    <div className="absolute top-full left-0 w-80 bg-background border rounded-xl shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 py-3">
                       {link.dropdown.map((sub) => (
                         <Link
                           key={sub.name}
                           to={sub.href}
-                          className="block px-4 py-2 text-sm hover:bg-primary/5 hover:text-primary transition-colors"
+                          className="block px-6 py-2.5 hover:bg-primary/5 transition-colors group/item"
                         >
-                          {sub.name}
+                          <div className="text-sm font-semibold text-foreground group-hover/item:text-primary">{sub.name}</div>
+                          {"desc" in sub && <div className="text-xs text-muted-foreground mt-0.5">{sub.desc}</div>}
                         </Link>
                       ))}
                     </div>
