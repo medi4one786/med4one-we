@@ -149,7 +149,7 @@ function PharmacyOS() {
                   <div className="h-32 w-full bg-primary/10 rounded" />
                 </div>
               </div>
-              {/* Floating Statistic (CSS only) */}
+              {/* Minimal CSS Placeholder */}
               <div className="absolute -bottom-6 -right-6 backdrop-blur-xl bg-slate-950/90 border border-white/10 p-6 rounded-2xl shadow-xl hidden md:block w-64">
                 <div className="flex items-center gap-4 mb-2">
                   <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
