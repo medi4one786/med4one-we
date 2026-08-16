@@ -110,7 +110,7 @@ function routeLead(size: TrialValues["size"]): Onboarding {
       "RBAC, integrations and data migration plan",
       "Phased rollout with dedicated success manager",
     ],
-    cta: { label: "Book an enterprise demo", to: "/book-demo" },
+    cta: { label: "Book an enterprise demo", to: "/#demo" },
     icon: Building2,
   };
 }
