@@ -1,0 +1,28 @@
+{
+  "favicon": {
+    "width": 64,
+    "height": 64,
+    "fallback": "/favicon.png",
+    "webp": "/favicon.webp",
+    "srcSetWebp": "/favicon.webp 64w",
+    "srcSetFallback": "/favicon.png 64w",
+    "bytes": {
+      "before": 3574,
+      "afterFallback": 2125,
+      "afterWebp": 1816
+    }
+  },
+  "med4one-logo": {
+    "width": 513,
+    "height": 160,
+    "fallback": "/src/assets/med4one-logo.png",
+    "webp": "/src/assets/med4one-logo.webp",
+    "srcSetWebp": "/src/assets/med4one-logo-480w.webp 480w, /src/assets/med4one-logo.webp 513w",
+    "srcSetFallback": "/src/assets/med4one-logo-480w.png 480w, /src/assets/med4one-logo.png 513w",
+    "bytes": {
+      "before": 12475,
+      "afterFallback": 10766,
+      "afterWebp": 9302
+    }
+  }
+}
