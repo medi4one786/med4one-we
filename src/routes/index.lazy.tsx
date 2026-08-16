@@ -89,15 +89,12 @@ function Index() {
               {/* Product Visual: Device Composition */}
               <div className="relative aspect-[4/3] w-full group">
                 <div className="absolute inset-0 bg-primary/5 rounded-3xl border shadow-2xl overflow-hidden">
-                  <picture>
-                    <source srcSet={(await import("@/assets/pharmacyos-ai-interface.png.asset.json")).default.url} type="image/png" />
-                    <img 
-                      src={(await import("@/assets/pharmacyos-ai-interface.png.asset.json")).default.url}
-                      alt="PharmacyOS Dashboard & AI Interface"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </picture>
+                  <img 
+                    src={aiAsset.url}
+                    alt="PharmacyOS Dashboard & AI Interface"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                 </div>
                 
@@ -117,11 +114,17 @@ function Index() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto max-w-6xl aspect-video rounded-2xl overflow-hidden border shadow-2xl bg-background"
+            className="relative mx-auto max-w-6xl aspect-video rounded-2xl overflow-hidden border shadow-2xl bg-background group"
           >
-            <div className="flex h-full w-full">
-              <div className="w-64 border-r bg-muted/10 p-4 hidden md:block">
-                <div className="h-8 w-32 bg-muted rounded mb-8" />
+            <img 
+              src={dashboardAsset.url}
+              alt="PharmacyOS Enterprise Dashboard"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+            {/* Overlay for better integration */}
+            <div className="absolute inset-0 bg-primary/5 pointer-events-none mix-blend-overlay" />
+          </motion.div>
                 <div className="space-y-4">
                   {[1, 2, 3, 4, 5, 6].map(i => (
                     <div key={i} className="flex items-center gap-3">
