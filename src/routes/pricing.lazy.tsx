@@ -110,6 +110,10 @@ function Pricing() {
                     <span className="text-4xl font-bold">₹{tier.price}</span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
+                  <p className="text-sm font-medium text-primary mt-2 flex items-center gap-1.5">
+                    <ShieldCheck className="h-4 w-4" />
+                    7 Days Free Trial
+                  </p>
                   <p className="text-sm text-muted-foreground mt-4">{tier.description}</p>
                 </div>
 
