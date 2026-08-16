@@ -397,7 +397,7 @@ function Index() {
               <Link to="/get-started">Start Free Trial</Link>
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-xl border-white/20 hover:bg-white/10" asChild>
-              <a href="#demo">Book a Demo</a>
+              <a href="#demo" className="flex items-center justify-center w-full h-full">Book a Demo</a>
             </Button>
           </div>
         </div>
