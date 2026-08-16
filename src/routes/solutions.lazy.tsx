@@ -8,7 +8,6 @@ import {
   LineChart, 
   LayoutGrid, 
   Building2,
-  CheckCircle2,
   Database
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -320,6 +319,9 @@ function Solutions() {
             className="max-w-3xl mx-auto space-y-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">One Platform. Multiple Possibilities.</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-accent">
+              Run → Understand → Predict → Scale → Transform
+            </p>
             <p className="text-lg text-slate-300">
               Whether you're running a single pharmacy, managing multiple locations or building a larger healthcare organization, Med4One is designed to evolve with you.
             </p>
