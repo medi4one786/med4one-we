@@ -7,5 +7,4 @@ export const Route = createFileRoute("/pricing")({
       { name: "description", content: "Simple, transparent pricing for pharmacies of all sizes." },
     ],
   }),
-  component: () => <div>Pricing Page Placeholder</div>,
 });

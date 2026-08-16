@@ -1,5 +1,3 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/blog")({
-  component: () => <div>Blog Page Placeholder</div>,
-});
+export const Route = createFileRoute("/blog")({});

@@ -7,5 +7,4 @@ export const Route = createFileRoute("/solutions")({
       { name: "description", content: "Intelligent healthcare solutions for pharmacies, clinics, and enterprises." },
     ],
   }),
-  component: () => <div>Solutions Page Placeholder</div>,
 });

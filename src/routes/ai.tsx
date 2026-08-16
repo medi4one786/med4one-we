@@ -7,5 +7,4 @@ export const Route = createFileRoute("/ai")({
       { name: "description", content: "Intelligence built into every healthcare decision." },
     ],
   }),
-  component: () => <div>AI Page Placeholder</div>,
 });
