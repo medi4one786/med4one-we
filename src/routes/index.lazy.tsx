@@ -236,29 +236,52 @@ function Index() {
               </Button>
             </div>
             
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-8 rounded-full border border-primary/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-24 w-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-xl shadow-primary/20">
-                  Med4One
-                </div>
-              </div>
-              {[Bot, Smartphone, BarChart3, Package, Users, ShieldCheck].map((Icon, i) => (
-                <div 
-                  key={i}
-                  className="absolute"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    transform: `rotate(${i * 60}deg) translate(160px) rotate(-${i * 60}deg)`,
-                  }}
-                >
-                  <div className="h-12 w-12 bg-background border rounded-full flex items-center justify-center text-primary shadow-md">
-                    <Icon className="h-6 w-6" />
+            <div className="relative aspect-square max-w-md mx-auto scale-90 sm:scale-100">
+              {/* Circular flow for Desktop, Vertical for Mobile */}
+              <div className="hidden sm:block absolute inset-0">
+                <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-[spin_30s_linear_infinite]" />
+                <div className="absolute inset-8 rounded-full border border-primary/10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-24 w-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-xl shadow-primary/20">
+                    Med4One
                   </div>
                 </div>
-              ))}
+                {[Bot, Smartphone, BarChart3, Package, Users, ShieldCheck].map((Icon, i) => (
+                  <div 
+                    key={i}
+                    className="absolute"
+                    style={{
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${i * 60}deg) translate(160px) rotate(-${i * 60}deg)`,
+                    }}
+                  >
+                    <div className="h-12 w-12 bg-background border rounded-full flex items-center justify-center text-primary shadow-md">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Vertical flow for Mobile */}
+              <div className="sm:hidden flex flex-col items-center gap-6 py-8">
+                <div className="h-20 w-20 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">Med4One</div>
+                {[
+                  { icon: LayoutDashboard, label: "PharmacyOS" },
+                  { icon: Bot, label: "AI Intelligence" },
+                  { icon: BarChart3, label: "Business BI" },
+                  { icon: Smartphone, label: "Customer Exp" },
+                  { icon: Globe, label: "Connected Future" }
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center gap-4">
+                    <div className="h-0.5 w-6 bg-primary/20" />
+                    <div className="flex items-center gap-3 bg-background border rounded-lg px-4 py-3 w-48 shadow-sm">
+                      <item.icon className="h-5 w-5 text-primary" />
+                      <span className="text-sm font-semibold">{item.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
