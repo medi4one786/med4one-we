@@ -70,7 +70,7 @@ export function PharmacyOSScreen({ compact = false }: { compact?: boolean }) {
             ),
           )}
         </aside>
-        <div className="min-w-0 space-y-3 p-3 sm:p-4">
+        <div className="flex min-w-0 flex-col gap-3 p-3 sm:p-4">
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {[
               { k: "Today's Sales", v: "₹1,24,850" },
@@ -109,7 +109,7 @@ export function PharmacyOSScreen({ compact = false }: { compact?: boolean }) {
           </div>
 
           {!compact && (
-            <div className="rounded-lg border border-border/70 bg-card">
+            <div className="flex min-h-0 flex-1 flex-col rounded-lg border border-border/70 bg-card">
               <div className="grid grid-cols-4 gap-2 border-b border-border/70 px-3 py-2 text-[9px] uppercase tracking-wide text-muted-foreground">
                 <span>Item</span>
                 <span>Batch</span>
@@ -209,7 +209,7 @@ export function DesktopFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full">
       <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
-        <div className="aspect-[16/10]">{children}</div>
+        <div className="aspect-[16/9]">{children}</div>
       </div>
       <div className="mx-auto h-2 w-1/3 rounded-b-lg bg-muted" />
     </div>

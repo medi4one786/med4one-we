@@ -223,7 +223,7 @@ function Index() {
                 <PharmacyOSScreen />
               </DesktopFrame>
             </div>
-            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 items-end gap-6 sm:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:-mt-16 lg:max-w-5xl">
+            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 items-end gap-8 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:max-w-5xl">
               <div className="order-2 sm:order-1">
                 <TabletFrame>
                   <AnalyticsScreen />
