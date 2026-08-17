@@ -18,7 +18,6 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
     { name: "Solutions", href: "/solutions", dropdown: [
       { name: "PharmacyOS", href: "/pharmacyos", desc: "Run your pharmacy smarter" },
       { name: "AI Solutions", href: "/ai", desc: "Intelligence behind every decision" },
@@ -26,8 +25,11 @@ export function Navbar() {
       { name: "Multi-Store", href: "/multi-store", desc: "One command centre for every store" },
       { name: "Enterprise", href: "/enterprise", desc: "Technology that grows with your business" },
     ]},
-    { name: "Product Tour", href: "/product-tour" },
-    { name: "Pricing", href: "/pricing" },
+    { name: "Products", href: "/product-tour", dropdown: [
+      { name: "Product Tour", href: "/product-tour", desc: "See Med4One module by module" },
+      { name: "Pricing", href: "/pricing", desc: "Plans for every pharmacy size" },
+    ]},
+    { name: "AI", href: "/ai" },
     { name: "Resources", href: "/resources", dropdown: [
       { name: "Blog", href: "/blog" },
       { name: "FAQs", href: "/faq" },
@@ -39,8 +41,8 @@ export function Navbar() {
       { name: "Vision & Mission", href: "/about" },
       { name: "Security", href: "/security" },
       { name: "Careers", href: "/careers" },
+      { name: "Contact", href: "/contact" },
     ]},
-    { name: "Contact", href: "/contact" },
   ];
 
   return (

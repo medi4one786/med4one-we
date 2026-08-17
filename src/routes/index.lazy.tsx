@@ -1,403 +1,610 @@
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  Zap, 
-  BarChart3, 
-  ShieldCheck, 
-  Globe,
-  Bot,
-  Package,
+import {
+  ArrowRight,
+  ArrowDown,
   LayoutDashboard,
+  Bot,
+  BarChart3,
   Building2,
-  Stethoscope,
-  Users,
-  Briefcase,
   Layers,
-  Sparkles
+  ShieldCheck,
+  Zap,
+  Sparkles,
+  Network,
+  Boxes,
+  Stethoscope,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import promoAsset from "@/assets/med4one-promo.png.asset.json";
-import med4oneLogo from "@/assets/med4one-logo.png";
-import med4oneLogoWebp from "@/assets/med4one-logo.webp";
 import { BookDemoForm } from "@/components/BookDemoForm";
+import {
+  PharmacyOSScreen,
+  AnalyticsScreen,
+  PhoneScreen,
+  DesktopFrame,
+  TabletFrame,
+  PhoneFrame,
+  AIAssistantPanel,
+} from "@/components/home/Mockups";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
 });
 
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.5 },
+};
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = "center",
+  dark = false,
+}: {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: "center" | "left";
+  dark?: boolean;
+}) {
+  return (
+    <motion.div
+      {...fadeUp}
+      className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
+    >
+      {eyebrow && (
+        <p
+          className={`mb-4 text-xs font-semibold uppercase tracking-[0.18em] ${
+            dark ? "text-primary-foreground/50" : "text-muted-foreground"
+          }`}
+        >
+          {eyebrow}
+        </p>
+      )}
+      <h2
+        className={`text-balance text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.75rem] ${
+          dark ? "text-primary-foreground" : "text-foreground"
+        }`}
+      >
+        {title}
+      </h2>
+      {description && (
+        <p
+          className={`mt-5 text-base leading-relaxed sm:text-lg ${
+            dark ? "text-primary-foreground/65" : "text-muted-foreground"
+          }`}
+        >
+          {description}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+
+const products = [
+  {
+    icon: LayoutDashboard,
+    name: "PharmacyOS",
+    desc: "Billing, inventory, purchasing, GST, batch and expiry in one connected system.",
+    href: "/pharmacyos",
+  },
+  {
+    icon: Bot,
+    name: "AI Solutions",
+    desc: "Forecasting, prescription reading and an assistant that answers business questions.",
+    href: "/ai",
+  },
+  {
+    icon: BarChart3,
+    name: "Business Intelligence",
+    desc: "Sales, profit, margin and inventory intelligence in clear, decision-ready views.",
+    href: "/bi",
+  },
+  {
+    icon: Building2,
+    name: "Multi-Store",
+    desc: "One command centre for every store, with aggregated stock, staff and performance.",
+    href: "/multi-store",
+  },
+  {
+    icon: Layers,
+    name: "Enterprise",
+    desc: "Roles, controls and structure for pharmacy chains and healthcare groups.",
+    href: "/enterprise",
+  },
+];
+
+const osFeatures = [
+  "Billing",
+  "Inventory",
+  "Purchasing",
+  "GST",
+  "Batch & Expiry",
+  "Customers",
+  "Suppliers",
+  "Reports",
+  "Employees",
+  "Multi-Store",
+];
+
+const workflow = [
+  "Purchase",
+  "Inventory",
+  "Billing",
+  "Stock",
+  "Accounts",
+  "Reports",
+  "Business Intelligence",
+];
+
+const aiModules = [
+  { name: "AI Business Assistant", desc: "Ask questions about your pharmacy in plain language." },
+  { name: "AI Inventory Forecast", desc: "Anticipate demand before stock runs short." },
+  { name: "AI Sales Forecast", desc: "See where sales are heading across categories." },
+  { name: "AI Prescription OCR", desc: "Turn written prescriptions into structured data." },
+  { name: "AI SOP Assistant", desc: "Guided answers on standard operating procedures." },
+];
+
+const whyCards = [
+  { icon: Network, name: "Connected", desc: "Every module shares one operational source of truth." },
+  { icon: Sparkles, name: "Intelligent", desc: "Your own data turned into practical guidance." },
+  { icon: Boxes, name: "Scalable", desc: "From a single counter to a multi-city network." },
+  { icon: ShieldCheck, name: "Secure", desc: "Role-based access and disciplined data handling." },
+  { icon: Zap, name: "Simple", desc: "Designed around how pharmacy teams actually work." },
+  { icon: Stethoscope, name: "Future-ready", desc: "Built to extend into wider healthcare workflows." },
+];
+
 function Index() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-50/50">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[10%] right-[-5%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full" />
-        </div>
-
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 flex-1">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-3 px-1 pr-4 py-1 rounded-full bg-white border border-primary/10 shadow-sm"
-              >
-                <div className="bg-primary/10 p-1 rounded-full">
-                  <picture>
-                    <source srcSet={med4oneLogoWebp} type="image/webp" />
-                    <img src={med4oneLogo} alt="Med4One" className="h-4 w-auto object-contain" />
-                  </picture>
-                </div>
-                <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-primary">Intelligent Healthcare Ecosystem</span>
-              </motion.div>
-              
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.1]"
-              >
-                Powering the Future of <span className="text-primary">Pharmacy & Healthcare</span>
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed"
-              >
-                Med4One brings PharmacyOS, AI, Business Intelligence and connected healthcare solutions together in one intelligent ecosystem.
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2"
-              >
-                <Button size="lg" className="h-14 px-10 text-base font-bold w-full sm:w-auto rounded-xl shadow-lg shadow-primary/20" asChild>
-                  <Link to="/solutions">Explore Med4One</Link>
-                </Button>
-                <Button size="lg" variant="outline" className="h-14 px-10 text-base font-bold w-full sm:w-auto rounded-xl bg-white/50 backdrop-blur-sm" asChild>
-                  <a href="#demo" className="flex items-center justify-center w-full h-full">Book a Demo</a>
-                </Button>
-              </motion.div>
-            </div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex-1 w-full max-w-2xl lg:max-w-3xl"
+    <div className="flex min-h-screen flex-col">
+      {/* HERO */}
+      <section className="border-b border-border/60 bg-background pb-16 pt-28 lg:pb-24 lg:pt-36">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
             >
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border bg-white ring-1 ring-slate-900/5 transition-transform duration-500 hover:scale-[1.01]">
-                  <img 
-                    src={promoAsset.url} 
-                    alt="Med4One Ecosystem on Desktop, Laptop, Tablet and Mobile" 
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/5 to-transparent pointer-events-none" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Brand Value Proposition */}
-      <section className="py-16 bg-white border-y">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "One Platform", desc: "Unified Healthcare Stack", icon: Layers },
-              { label: "AI Powered", desc: "Predictive Intelligence", icon: Bot },
-              { label: "Real-time", desc: "Live Operations Data", icon: Zap },
-              { label: "Connected", desc: "Seamless Data Flow", icon: Globe },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center space-y-2">
-                <div className="h-10 w-10 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-2">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <h4 className="font-bold text-slate-900">{item.label}</h4>
-                <p className="text-xs text-slate-500">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Product Showcase - The Smart Pharmacy */}
-      <section className="py-24 bg-slate-50/50">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center space-y-4 mb-16">
+              Med4One Health Services
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 }}
+              className="text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+            >
+              The intelligent platform for modern pharmacies and healthcare.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.12 }}
+              className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
+              Run your pharmacy, understand your business and grow your healthcare network — all
+              from one connected platform.
+            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-tight mb-2"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18 }}
+              className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
             >
-              PRODUCT SHOWCASE
-            </motion.div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">Everything You Need to Run a Smarter Pharmacy</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">Integrated solutions designed to scale your healthcare business from operations to intelligence.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: "Med4One PharmacyOS", 
-                desc: "The core operating system for modern pharmacy management, billing, and inventory.", 
-                icon: LayoutDashboard,
-                link: "/pharmacyos"
-              },
-              { 
-                title: "Med4One AI", 
-                desc: "Intelligent automation, inventory forecasting, and AI-driven growth insights.", 
-                icon: Bot,
-                link: "/ai"
-              },
-              { 
-                title: "Business Intelligence", 
-                desc: "Deep analytics and data visualization to understand every margin and movement.", 
-                icon: BarChart3,
-                link: "/bi"
-              },
-              { 
-                title: "Multi-Store Management", 
-                desc: "Centralized control for pharmacy chains with real-time sync and reporting.", 
-                icon: Globe,
-                link: "/multi-store"
-              },
-              { 
-                title: "Enterprise Solutions", 
-                desc: "Scalable infrastructure and custom integrations for large healthcare groups.", 
-                icon: Building2,
-                link: "/enterprise"
-              },
-              {
-                title: "Connected Healthcare",
-                desc: "Bridging the gap between pharmacies, patients, and providers in one ecosystem.",
-                icon: Users,
-                link: "/solutions"
-              }
-            ].map((solution, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group flex flex-col p-8 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-14 w-14 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <solution.icon className="h-7 w-7" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{solution.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-1">{solution.desc}</p>
-                <Link to={solution.link} className="inline-flex items-center text-primary font-bold text-sm group/btn hover:underline">
-                  Explore Solution 
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+              <Button size="lg" className="h-12 px-7 text-sm font-semibold" asChild>
+                <Link to="/pharmacyos">
+                  Explore PharmacyOS <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </motion.div>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 px-7 text-sm font-semibold"
+                asChild
+              >
+                <a href="#demo">Book a Demo</a>
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Product showcase across devices */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.6 }}
+            className="mt-14 lg:mt-20"
+          >
+            <div className="mx-auto max-w-5xl">
+              <DesktopFrame>
+                <PharmacyOSScreen />
+              </DesktopFrame>
+            </div>
+            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 items-end gap-8 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:max-w-5xl">
+              <div className="order-2 sm:order-1">
+                <TabletFrame>
+                  <AnalyticsScreen />
+                </TabletFrame>
+              </div>
+              <div className="order-1 sm:order-2">
+                <PhoneFrame>
+                  <PhoneScreen />
+                </PhoneFrame>
+              </div>
+            </div>
+            <p className="mt-8 text-center text-xs text-muted-foreground">
+              Med4One on desktop, laptop, tablet and mobile — the same connected data everywhere.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ECOSYSTEM */}
+      <section className="bg-muted/30 py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="Med4One Ecosystem"
+            title="One platform. Every part of your pharmacy."
+            description="Five products designed to work as one: run operations, understand performance and scale across locations."
+          />
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((p, i) => (
+              <motion.article
+                key={p.name}
+                {...fadeUp}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="mb-5 overflow-hidden rounded-lg border border-border/70 bg-muted/30">
+                  <div className="flex h-24 items-center justify-center">
+                    <p.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">{p.name}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+                <Link
+                  to={p.href}
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                >
+                  Explore <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. One Platform Narrative */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">One Platform. Smarter Healthcare.</h2>
-                <p className="text-lg text-slate-600">AI-Powered solutions for Pharmacy Management, Business Intelligence, and Connected Healthcare.</p>
-              </div>
-              
-              <div className="grid sm:grid-cols-2 gap-6 pt-4">
+      {/* PHARMACYOS */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="PharmacyOS"
+            title="Everything your pharmacy needs. One connected system."
+            description="A single operating system for daily pharmacy work — from the counter to the back office."
+          />
+          <div className="mt-14 grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_minmax(0,1fr)]">
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+              {osFeatures.slice(0, 5).map((f, i) => (
+                <motion.div
+                  key={f}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  animate={{ y: [0, -3, 0] }}
+                  className="rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-foreground shadow-sm"
+                >
+                  {f}
+                </motion.div>
+              ))}
+            </div>
+            <motion.div {...fadeUp} className="order-first lg:order-none">
+              <DesktopFrame>
+                <PharmacyOSScreen />
+              </DesktopFrame>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+              {osFeatures.slice(5).map((f, i) => (
+                <motion.div
+                  key={f}
+                  initial={{ opacity: 0, x: 12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-foreground shadow-sm"
+                >
+                  {f}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONNECTED WORKFLOW */}
+      <section className="bg-muted/30 py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <SectionHeading
+              align="left"
+              eyebrow="Connected Workflow"
+              title="One transaction. Everything stays connected."
+              description="When a purchase, sale or return is recorded, the related records move with it. Connected workflows reduce unnecessary data re-entry and help keep operational information synchronized across the business."
+            />
+            <div className="mx-auto w-full max-w-sm">
+              {workflow.map((step, i) => (
+                <motion.div
+                  key={step}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <div
+                    className={`flex items-center justify-between rounded-lg border px-4 py-3.5 text-sm font-medium ${
+                      i === workflow.length - 1
+                        ? "border-primary/30 bg-primary/5 text-primary"
+                        : "border-border bg-card text-foreground"
+                    }`}
+                  >
+                    <span className="truncate">{step}</span>
+                    <span className="ml-3 shrink-0 text-[10px] tabular-nums text-muted-foreground">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  {i < workflow.length - 1 && (
+                    <div className="flex justify-center py-1.5">
+                      <ArrowDown className="h-3.5 w-3.5 text-muted-foreground/60" />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI — dark premium */}
+      <section className="bg-foreground py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            dark
+            eyebrow="Med4One AI"
+            title="Your pharmacy data. Now intelligent."
+            description="Ask questions in plain language and get answers grounded in your own operational data."
+          />
+          <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+            <motion.div {...fadeUp}>
+              <AIAssistantPanel />
+              <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {[
-                  { title: "PharmacyOS", desc: "Smart Pharmacy Management", icon: Package },
-                  { title: "AI Solutions", desc: "Intelligent Automation", icon: Bot },
-                  { title: "Business Intelligence", desc: "Real-time Growth Insights", icon: BarChart3 },
-                  { title: "Connected Healthcare", desc: "Bridging Providers & Patients", icon: Globe }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="h-10 w-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center shrink-0">
-                      <item.icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-slate-500">{item.desc}</p>
-                    </div>
+                  "What were my top-selling categories?",
+                  "Which products are approaching expiry?",
+                ].map((q) => (
+                  <p
+                    key={q}
+                    className="rounded-lg border border-primary-foreground/10 px-3 py-2.5 text-xs text-primary-foreground/60"
+                  >
+                    {q}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+            <div className="divide-y divide-primary-foreground/10">
+              {aiModules.map((m, i) => (
+                <motion.div
+                  key={m.name}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="py-5 first:pt-0"
+                >
+                  <h3 className="text-base font-semibold text-primary-foreground">{m.name}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-primary-foreground/60">
+                    {m.desc}
+                  </p>
+                </motion.div>
+              ))}
+              <div className="pt-6">
+                <Button variant="secondary" className="h-11 px-6 text-sm font-semibold" asChild>
+                  <Link to="/ai">
+                    Explore AI Solutions <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BUSINESS INTELLIGENCE */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="Business Intelligence"
+            title="Know your business before your business tells you."
+            description="Sales, profit, margin, inventory, expiry, purchasing and customer trends in one clean analytics workspace."
+          />
+          <motion.div {...fadeUp} className="mx-auto mt-14 max-w-5xl">
+            <DesktopFrame>
+              <AnalyticsScreen />
+            </DesktopFrame>
+          </motion.div>
+          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
+            {["Sales", "Profit", "Margin", "Inventory", "Expiry", "Purchasing", "Customer Trends"].map(
+              (t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground"
+                >
+                  {t}
+                </span>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* MULTI-STORE */}
+      <section className="bg-muted/30 py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="Multi-Store"
+            title="One pharmacy or one hundred. One command centre."
+            description="Aggregate performance across locations while each store keeps working the way it needs to."
+          />
+          <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
+            <motion.div
+              {...fadeUp}
+              className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Med4One Command Centre
+              </p>
+              <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {[
+                  ["Sales", "₹92.4L"],
+                  ["Stock", "₹31.8L"],
+                  ["Staff", "48"],
+                  ["Purchasing", "₹68.2L"],
+                  ["Performance", "+12.6%"],
+                  ["Stores", "04"],
+                ].map(([k, v]) => (
+                  <div key={k} className="rounded-lg border border-border/70 bg-muted/25 p-3">
+                    <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{k}</p>
+                    <p className="mt-1 truncate text-sm font-semibold text-foreground">{v}</p>
                   </div>
                 ))}
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="lg" className="rounded-xl h-12" asChild>
-                  <Link to="/get-started">Join the Future</Link>
-                </Button>
-                <Button size="lg" variant="ghost" className="rounded-xl h-12" asChild>
-                  <Link to="/about">Our Vision <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full group-hover:bg-accent/10 transition-colors duration-700" />
-              <div className="relative rounded-3xl overflow-hidden border bg-slate-50 p-4 shadow-xl">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border border-white">
-                  <img 
-                    src={promoAsset.url} 
-                    alt="Med4One Intelligent Dashboard" 
-                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" 
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Business Scale Section */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary blur-[160px] rounded-full -translate-y-1/2 translate-x-1/2" />
-        </div>
-        
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="text-center space-y-4 mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Built for Every Scale of Healthcare</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Intelligent workflows tailored for pharmacies, clinics, and enterprise healthcare groups.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-            {[
-              { title: "Independent Pharmacies", icon: Building2 },
-              { title: "Pharmacy Chains", icon: LayoutDashboard },
-              { title: "Clinics & Healthcare", icon: Stethoscope },
-              { title: "Healthcare Professionals", icon: Users },
-              { title: "Enterprise Groups", icon: Briefcase }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center group">
-                <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <item.icon className="h-8 w-8" />
-                </div>
-                <h4 className="font-bold text-sm tracking-wide">{item.title}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Pricing Strip (Compact) */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 md:px-6 mx-auto text-center space-y-12">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Start Your Digital Transformation</h2>
-            <p className="text-slate-600">Choose the plan that fits your business goals. All plans include a 7-day free trial.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { name: "Basic", price: "999", color: "slate" },
-              { name: "Premium", price: "2,999", color: "primary", popular: true },
-              { name: "Enterprise", price: "7,999+", color: "slate" }
-            ].map((plan, i) => (
-              <div key={i} className={`p-8 rounded-3xl border ${plan.popular ? 'border-primary shadow-xl ring-1 ring-primary/50' : 'border-slate-200'} bg-white flex flex-col`}>
-                {plan.popular && <span className="text-[10px] font-bold text-primary tracking-widest uppercase mb-4">Most Popular</span>}
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{plan.name}</h3>
-                <div className="flex items-baseline justify-center gap-1 my-6">
-                  <span className="text-4xl font-bold text-slate-900">₹{plan.price}</span>
-                  <span className="text-slate-500 text-sm">/mo</span>
-                </div>
-                <div className="flex items-center justify-center gap-1.5 text-[10px] font-bold text-primary uppercase tracking-wider mb-8">
-                  <ShieldCheck className="h-3.5 w-3.5" />
-                  7 Days Free Trial
-                </div>
-                <Button variant={plan.popular ? 'default' : 'outline'} className="w-full rounded-xl" asChild>
-                  <Link to="/get-started">Get Started</Link>
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Book a Demo Section (Lead Capture) */}
-      <section id="demo" className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none">
-          <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full" />
-        </div>
-        
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  Experience the Future
-                </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
-                  Ready to Transform Your <span className="text-primary">Pharmacy Operations?</span>
-                </h2>
-                <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
-                  Schedule a personalized walkthrough with our experts and discover how Med4One's intelligent ecosystem can drive efficiency, growth, and better patient outcomes.
-                </p>
-                
-                <div className="space-y-4 pt-4">
-                  {[
-                    "Personalized feature walkthrough",
-                    "Custom workflow consultation",
-                    "Implementation roadmap discussion",
-                    "7-day trial setup support"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="h-5 w-5 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 shrink-0">
-                        <CheckCircle2 className="h-3 w-3" />
-                      </div>
-                      <span className="text-slate-700 font-medium">{item}</span>
+            </motion.div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {["Store 01", "Store 02", "Store 03", "Store 04"].map((s, i) => (
+                <motion.div
+                  key={s}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="rounded-lg border border-border bg-card p-5"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="truncate text-sm font-semibold text-foreground">{s}</p>
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-primary/70" />
+                  </div>
+                  <div className="mt-4 space-y-2">
+                    <div className="h-1.5 w-full rounded-full bg-muted">
+                      <div
+                        className="h-1.5 rounded-full bg-primary/60"
+                        style={{ width: `${60 + i * 9}%` }}
+                      />
                     </div>
-                  ))}
-                </div>
-              </motion.div>
+                    <p className="text-[11px] text-muted-foreground">
+                      Sales, stock and staff synced to the command centre
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            
+          </div>
+        </div>
+      </section>
+
+      {/* KLINIK ECOSYSTEM */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="Klinik Ecosystem"
+            title="From consultation to pharmacy — connected."
+            description="The direction Med4One is building towards: a healthcare journey where clinical and pharmacy systems share the same thread."
+          />
+          <div className="mt-14 flex flex-col items-stretch justify-center gap-3 md:flex-row md:items-center">
+            {["Klinik", "Prescription", "PharmacyOS", "Billing", "Customer"].map((step, i, arr) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col items-center gap-3 md:flex-row"
+              >
+                <div className="w-full rounded-lg border border-border bg-card px-5 py-4 text-center text-sm font-semibold text-foreground md:w-auto">
+                  {step}
+                </div>
+                {i < arr.length - 1 && (
+                  <>
+                    <ArrowDown className="h-4 w-4 text-muted-foreground/60 md:hidden" />
+                    <ArrowRight className="hidden h-4 w-4 text-muted-foreground/60 md:block" />
+                  </>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY MED4ONE */}
+      <section className="bg-muted/30 py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            eyebrow="Why Med4One"
+            title="Built for the way healthcare businesses actually work."
+          />
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {whyCards.map((c, i) => (
+              <motion.div
+                key={c.name}
+                {...fadeUp}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                className="rounded-xl border border-border bg-card p-6"
+              >
+                <c.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                <h3 className="mt-4 text-base font-semibold text-foreground">{c.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DEMO FORM */}
+      <section id="demo" className="scroll-mt-24 bg-background py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
+            <SectionHeading
+              align="left"
+              eyebrow="Book a Demo"
+              title="See Med4One with your own pharmacy in mind."
+              description="Share a few details and our team will walk you through PharmacyOS, AI and Business Intelligence."
+            />
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative"
+              {...fadeUp}
+              className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
             >
-              <div className="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl -z-10" />
               <BookDemoForm />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 8. Final Call to Action */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-slate-950/20" />
-        <div className="container px-4 md:px-6 mx-auto relative z-10 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto leading-tight">We’re Not Just Building Software. We’re Building What Comes Next.</h2>
-          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto font-medium italic">“Med4One — Powering a smarter, more connected healthcare ecosystem.”</p>
-          <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <Button size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold rounded-xl shadow-xl" asChild>
-              <Link to="/get-started">Start Free Trial</Link>
+      {/* FINAL CTA */}
+      <section className="border-t border-border/60 bg-muted/40 py-20 lg:py-24">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <SectionHeading
+            title="Ready to build a smarter pharmacy?"
+            description="See how Med4One can transform your pharmacy operations."
+          />
+          <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <Button size="lg" className="h-12 px-7 text-sm font-semibold" asChild>
+              <a href="#demo">Book a Demo</a>
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-12 text-lg font-bold rounded-xl border-white/20 hover:bg-white/10" asChild>
-              <a href="#demo" className="flex items-center justify-center w-full h-full">Book a Demo</a>
+            <Button size="lg" variant="outline" className="h-12 px-7 text-sm font-semibold" asChild>
+              <Link to="/pharmacyos">Explore PharmacyOS</Link>
             </Button>
           </div>
         </div>

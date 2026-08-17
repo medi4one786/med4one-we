@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="bg-background border-t pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 xl:gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 xl:gap-12 mb-16">
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-block">
               <picture>
@@ -94,6 +94,20 @@ export function Footer() {
                 <li><Link to="/help" className="text-muted-foreground hover:text-primary transition-colors">Help Centre</Link></li>
                 <li><Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQs</Link></li>
                 <li><Link to="/docs" className="text-muted-foreground hover:text-primary transition-colors">Documentation</Link></li>
+              </ul>
+            </details>
+          </div>
+
+          <div className="space-y-6 md:space-y-0 border-t border-primary/5 pt-6 md:border-none md:pt-0">
+            <details className="md:block group" open>
+              <summary className="font-bold mb-6 list-none flex justify-between items-center cursor-pointer md:cursor-default pointer-events-auto md:pointer-events-none">
+                Legal
+                <span className="md:hidden transition-transform group-open:rotate-180">▼</span>
+              </summary>
+              <ul className="space-y-4 pt-2 md:pt-0">
+                <li><Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms &amp; Conditions</Link></li>
+                <li><Link to="/refund" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</Link></li>
               </ul>
             </details>
           </div>
