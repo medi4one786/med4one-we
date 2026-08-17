@@ -120,6 +120,9 @@ export function PharmacyOSScreen({ compact = false }: { compact?: boolean }) {
                 ["Amoxicillin 500mg", "B-2214", "08/2027", "142"],
                 ["Metformin 500mg", "M-8871", "01/2028", "76"],
                 ["Pantoprazole 40mg", "P-4402", "11/2026", "28"],
+                ["Atorvastatin 10mg", "A-1190", "05/2027", "204"],
+                ["Cetirizine 10mg", "C-6621", "03/2028", "318"],
+                ["Insulin Glargine", "I-7708", "09/2026", "12"],
               ].map((row) => (
                 <div
                   key={row[1]}
