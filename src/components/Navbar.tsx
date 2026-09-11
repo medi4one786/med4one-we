@@ -166,12 +166,12 @@ export function Navbar() {
                       }`}
                     />
                   </button>
-                  {(openAccordion === link.name || true) && (
-                    <div
-                      className={`flex flex-col gap-2 pl-4 border-l-2 border-primary/5 ${
-                        openAccordion === link.name ? "flex" : "hidden md:flex"
-                      }`}
-                    >
+                  <div
+                    className={`flex-col gap-2 pl-4 border-l-2 border-primary/5 ${
+                      openAccordion === link.name ? "flex" : "hidden md:flex"
+                    }`}
+                  >
+
                       <Link
                         to={link.href}
                         className="text-base text-muted-foreground py-1 active:text-primary"
