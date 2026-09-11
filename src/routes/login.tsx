@@ -8,9 +8,9 @@ export const Route = createFileRoute("/login")({
       { property: "og:title", content: "Login | Med4One PharmacyOS" },
       { property: "og:description", content: "Sign in to your Med4One PharmacyOS account to manage billing, inventory, analytics and your pharmacy operations." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://med4oneai.lovable.app/login" },
+      { property: "og:url", content: "https://www.med4one.com/login" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/login" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/login" }],
   }),
 });

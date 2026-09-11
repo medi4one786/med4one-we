@@ -11,11 +11,11 @@ import {
   Database
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import pharmacyosImg from "@/assets/solutions/pharmacyos.webp.asset.json";
-import aiImg from "@/assets/solutions/ai.webp.asset.json";
-import biImg from "@/assets/solutions/bi.webp.asset.json";
-import multistoreImg from "@/assets/solutions/multistore.webp.asset.json";
-import enterpriseImg from "@/assets/solutions/enterprise.webp.asset.json";
+import pharmacyosImg from "@/assets/solutions/pharmacyos.webp";
+import aiImg from "@/assets/solutions/ai.webp";
+import biImg from "@/assets/solutions/bi.webp";
+import multistoreImg from "@/assets/solutions/multistore.webp";
+import enterpriseImg from "@/assets/solutions/enterprise.webp";
 
 export const Route = createLazyFileRoute("/solutions")({
   component: Solutions,
@@ -40,7 +40,7 @@ function Solutions() {
       desc: "Run your entire pharmacy from one intelligent platform.",
       icon: Layers,
       href: "/pharmacyos",
-      image: pharmacyosImg.url,
+      image: pharmacyosImg,
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
       highlights: ["Billing & POS", "Inventory", "Purchasing", "Reports"],
@@ -54,7 +54,7 @@ function Solutions() {
       desc: "Turn your pharmacy data into intelligent actions.",
       icon: BrainCircuit,
       href: "/ai",
-      image: aiImg.url,
+      image: aiImg,
       color: "text-teal-500",
       bgColor: "bg-teal-500/10",
       highlights: ["Business Assistant", "Inventory Forecast", "Sales Forecast", "Prescription OCR"],
@@ -68,7 +68,7 @@ function Solutions() {
       desc: "See what is happening in your business — and understand why.",
       icon: LineChart,
       href: "/bi",
-      image: biImg.url,
+      image: biImg,
       color: "text-indigo-500",
       bgColor: "bg-indigo-500/10",
       highlights: ["Sales trends", "Gross margin", "Product performance", "Inventory value"],
@@ -82,7 +82,7 @@ function Solutions() {
       desc: "Manage your entire pharmacy network from one connected platform.",
       icon: LayoutGrid,
       href: "/multi-store",
-      image: multistoreImg.url,
+      image: multistoreImg,
       color: "text-cyan-500",
       bgColor: "bg-cyan-500/10",
       highlights: ["Central dashboard", "Store comparison", "Centralized inventory", "Role-based access"],
@@ -96,7 +96,7 @@ function Solutions() {
       desc: "Built for ambitious healthcare organizations.",
       icon: Building2,
       href: "/enterprise",
-      image: enterpriseImg.url,
+      image: enterpriseImg,
       color: "text-slate-500",
       bgColor: "bg-slate-500/10",
       highlights: ["Scalable architecture", "Advanced permissions", "API connectivity", "Enterprise support"],

@@ -8,9 +8,9 @@ export const Route = createFileRoute("/refund")({
       { property: "og:title", content: "Refund & Cancellation Policy | Med4One" },
       { property: "og:description", content: "Refund eligibility, subscription cancellation process and billing timelines for PharmacyOS plans and add-on modules." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://med4oneai.lovable.app/refund" },
+      { property: "og:url", content: "https://www.med4one.com/refund" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/refund" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/refund" }],
   }),
 });

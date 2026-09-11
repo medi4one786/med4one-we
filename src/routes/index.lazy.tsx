@@ -17,13 +17,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BookDemoForm } from "@/components/BookDemoForm";
-import heroAsset from "@/assets/home-v2/hero.webp.asset.json";
-import pharmacyosAsset from "@/assets/home-v2/pharmacyos.webp.asset.json";
-import aiAsset from "@/assets/home-v2/ai.webp.asset.json";
-import biAsset from "@/assets/home-v2/bi.webp.asset.json";
-import multistoreAsset from "@/assets/home-v2/multistore.webp.asset.json";
-import introVideoAsset from "@/assets/video/pharmacyos-intro.mp4.asset.json";
-import introPosterAsset from "@/assets/video/pharmacyos-intro-poster.jpg.asset.json";
+import heroAsset from "@/assets/home-v2/hero.webp";
+import pharmacyosAsset from "@/assets/home-v2/pharmacyos.webp";
+import aiAsset from "@/assets/home-v2/ai.webp";
+import biAsset from "@/assets/home-v2/bi.webp";
+import multistoreAsset from "@/assets/home-v2/multistore.webp";
+import introVideoAsset from "@/assets/video/pharmacyos-intro.mp4";
+import introPosterAsset from "@/assets/video/pharmacyos-intro-poster.jpg";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -241,7 +241,7 @@ function Index() {
           >
             <div className="mx-auto max-w-5xl">
               <ProductImage
-                src={heroAsset.url}
+                src={heroAsset}
                 alt="Med4One PharmacyOS dashboard across desktop monitor, laptop, tablet and mobile in a modern pharmacy"
                 priority
               />
@@ -265,8 +265,8 @@ function Index() {
           <motion.div {...fadeUp} className="mx-auto mt-12 max-w-4xl">
             <div className="overflow-hidden rounded-xl border border-primary-foreground/15 bg-primary-foreground/[0.03] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]">
               <video
-                src={introVideoAsset.url}
-                poster={introPosterAsset.url}
+                src={introVideoAsset}
+                poster={introPosterAsset}
                 controls
                 preload="metadata"
                 playsInline
@@ -342,7 +342,7 @@ function Index() {
             </div>
             <motion.div {...fadeUp} className="order-first lg:order-none">
               <ProductImage
-                src={pharmacyosAsset.url}
+                src={pharmacyosAsset}
                 alt="Pharmacist scanning medicine with Med4One PharmacyOS billing and inventory on screen"
               />
             </motion.div>
@@ -419,7 +419,7 @@ function Index() {
           <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <motion.div {...fadeUp}>
               <ProductImage
-                src={aiAsset.url}
+                src={aiAsset}
                 alt="Med4One AI assistant answering pharmacy business questions on screen"
               />
               <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -474,7 +474,7 @@ function Index() {
           />
           <motion.div {...fadeUp} className="mx-auto mt-14 max-w-5xl">
             <ProductImage
-              src={biAsset.url}
+              src={biAsset}
               alt="Med4One Business Intelligence analytics dashboard with sales, profit and inventory insights"
             />
           </motion.div>
@@ -504,7 +504,7 @@ function Index() {
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
             <motion.div {...fadeUp}>
               <ProductImage
-                src={multistoreAsset.url}
+                src={multistoreAsset}
                 alt="Med4One Multi-Store command centre overview across pharmacy locations"
               />
             </motion.div>

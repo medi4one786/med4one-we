@@ -18,6 +18,7 @@ const Toaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default
 
 
 import appCss from "../styles.css?url";
+import med4oneLogoWebp from "@/assets/med4one-logo.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -108,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preload", href: "/src/assets/med4one-logo.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: med4oneLogoWebp, as: "image", type: "image/webp" },
     ],
   }),
   shellComponent: RootShell,

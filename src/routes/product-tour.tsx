@@ -5,8 +5,8 @@ export const Route = createFileRoute("/product-tour")({
     meta: [
       { title: "Product Tour | Med4One" },
       { name: "description", content: "Take a visual tour of Med4One PharmacyOS." },
-      { property: "og:url", content: "https://med4oneai.lovable.app/product-tour" },
+      { property: "og:url", content: "https://www.med4one.com/product-tour" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/product-tour" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/product-tour" }],
   }),
 });
