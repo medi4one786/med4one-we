@@ -238,21 +238,11 @@ function Index() {
             className="mt-14 lg:mt-20"
           >
             <div className="mx-auto max-w-5xl">
-              <DesktopFrame>
-                <PharmacyOSScreen />
-              </DesktopFrame>
-            </div>
-            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 items-end gap-8 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:max-w-5xl">
-              <div className="order-2 sm:order-1">
-                <TabletFrame>
-                  <AnalyticsScreen />
-                </TabletFrame>
-              </div>
-              <div className="order-1 sm:order-2">
-                <PhoneFrame>
-                  <PhoneScreen />
-                </PhoneFrame>
-              </div>
+              <ProductImage
+                src={heroAsset.url}
+                alt="Med4One PharmacyOS dashboard across desktop monitor, laptop, tablet and mobile in a modern pharmacy"
+                priority
+              />
             </div>
             <p className="mt-8 text-center text-xs text-muted-foreground">
               Med4One on desktop, laptop, tablet and mobile — the same connected data everywhere.
@@ -323,9 +313,10 @@ function Index() {
               ))}
             </div>
             <motion.div {...fadeUp} className="order-first lg:order-none">
-              <DesktopFrame>
-                <PharmacyOSScreen />
-              </DesktopFrame>
+              <ProductImage
+                src={pharmacyosAsset.url}
+                alt="Pharmacist scanning medicine with Med4One PharmacyOS billing and inventory on screen"
+              />
             </motion.div>
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
               {osFeatures.slice(5).map((f, i) => (
