@@ -1,4 +1,6 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,53 +12,92 @@ export const Route = createLazyFileRoute("/pricing")({
 });
 
 function Pricing() {
+  const [annual, setAnnual] = useState(false);
+
   const tiers = [
     {
-      name: "Basic",
-      price: "999",
-      description: "Essential tools for independent pharmacies.",
-      features: [
-        "Digital Billing & POS",
-        "Inventory Management",
-        "GST Ready Reports",
-        "WhatsApp Receipts",
-        "Mobile Support"
+      name: "7-Day Free Trial",
+      monthly: 0,
+      description: "Experience the complete Med4One Pro experience for 7 days.",
+      limits: [
+        { label: "AI Actions", value: "50" },
+        { label: "Comm Credits", value: "50" },
       ],
-      icon: LayoutDashboard,
-      color: "border-slate-200"
+      features: [
+        "Full PharmacyOS Access",
+        "Billing & POS",
+        "Inventory & Purchase",
+        "All AI Assistants",
+        "Analytics & Insights",
+        "Offline Mode & Sync",
+      ],
+      icon: ShieldCheck,
+      cta: "Start Free Trial",
+      color: "border-border",
     },
     {
-      name: "Premium",
-      price: "2,999",
-      description: "Advanced intelligence for growing businesses.",
-      popular: true,
-      features: [
-        "Everything in Basic",
-        "AI Inventory Forecasting",
-        "Multi-User Access",
-        "Supplier Management",
-        "Customer Loyalty Program",
-        "Advanced Analytics"
+      name: "Basic",
+      monthly: 999,
+      description: "Everything you need to run one pharmacy professionally.",
+      limits: [
+        { label: "AI Actions", value: "100" },
+        { label: "Comm Credits", value: "200" },
       ],
-      icon: Zap,
-      color: "border-primary shadow-xl shadow-primary/5"
+      features: [
+        "Single Store Management",
+        "A4/A5/Thermal Billing",
+        "Basic AI Assistant",
+        "Stock Adjustment",
+        "Basic Financial Reports",
+        "Up to 3 Users",
+      ],
+      icon: LayoutDashboard,
+      cta: "Choose Basic",
+      color: "border-border",
     },
     {
       name: "Pro",
-      price: "7,999",
-      description: "Full ecosystem control for enterprise groups.",
+      monthly: 2499,
+      description: "The complete AI-powered PharmacyOS for growing pharmacies.",
+      popular: true,
+      limits: [
+        { label: "AI Actions", value: "500" },
+        { label: "Comm Credits", value: "1000" },
+      ],
       features: [
-        "Everything in Premium",
-        "Multi-Store Control Centre",
-        "AI Business Advisor",
-        "Custom API Access",
-        "Enterprise Security",
-        "Priority 24/7 Support"
+        "Everything in Basic",
+        "Unlimited Billing",
+        "Advanced AI Advisor",
+        "Smart Stock Reorder",
+        "Purchase Invoice OCR",
+        "Customer CRM & Loyalty",
+      ],
+      icon: Zap,
+      cta: "Choose Pro",
+      color: "border-primary shadow-xl shadow-primary/10",
+    },
+    {
+      name: "Enterprise Advanced",
+      monthly: 5999,
+      description: "Centralized control for pharmacy chains and healthcare groups.",
+      limits: [
+        { label: "AI Actions", value: "2000" },
+        { label: "Comm Credits", value: "5000" },
+      ],
+      features: [
+        "Everything in Pro",
+        "Multi-Store Command Center",
+        "Inter-Store Stock Transfer",
+        "Unlimited Users",
+        "Advanced Audit Logs",
+        "Priority 24/7 Support",
       ],
       icon: Globe,
-      color: "border-slate-200"
-    }
+      cta: "Talk to Sales",
+      color: "border-border",
+    },
   ];
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -86,8 +127,36 @@ function Pricing() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 md:mt-24 items-start">
-            {tiers.map((tier, i) => (
+          <div className="mt-12 flex justify-center">
+            <div className="inline-flex items-center rounded-full border bg-card p-1 shadow-sm">
+              {[
+                { key: false, label: "Monthly" },
+                { key: true, label: "Annual" },
+              ].map((opt) => (
+                <button
+                  key={opt.label}
+                  type="button"
+                  onClick={() => setAnnual(opt.key)}
+                  aria-pressed={annual === opt.key}
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors ${
+                    annual === opt.key
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            Annual billing is charged for 10 months — 2 months free.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-12 md:mt-16 items-start">
+            {tiers.map((tier, i) => {
+              const price = annual ? Math.round((tier.monthly * 10) / 12) : tier.monthly;
+              return (
               <motion.div 
                 key={tier.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -97,7 +166,7 @@ function Pricing() {
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                    Most Popular
+                    Best Value
                   </div>
                 )}
                 
@@ -107,16 +176,30 @@ function Pricing() {
                   </div>
                   <h3 className="text-2xl font-bold">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mt-4">
-                    <span className="text-4xl font-bold">₹{tier.price}</span>
-                    <span className="text-muted-foreground">/month</span>
+                    <span className="text-4xl font-bold">₹{price.toLocaleString("en-IN")}</span>
+                    <span className="text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm font-medium text-primary mt-2 flex items-center gap-1.5">
-                    <ShieldCheck className="h-4 w-4" />
-                    7 Days Free Trial
-                  </p>
+                  {annual && tier.monthly > 0 && (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Billed ₹{(tier.monthly * 10).toLocaleString("en-IN")} per year
+                    </p>
+                  )}
                   <p className="text-sm text-muted-foreground mt-4">{tier.description}</p>
                 </div>
 
+                <div className="mb-8">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Plan Limits</p>
+                  <ul className="space-y-2">
+                    {tier.limits.map((limit) => (
+                      <li key={limit.label} className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">{limit.label}</span>
+                        <span className="font-semibold">{limit.value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Key Features</p>
                 <ul className="space-y-4 mb-8 flex-1">
                   {tier.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm">
@@ -128,22 +211,28 @@ function Pricing() {
 
                 <div className="flex flex-col gap-3 mt-auto">
                   <Button 
-                    className={`w-full h-12 text-base font-semibold rounded-xl ${tier.popular ? 'bg-primary' : ''}`}
+                    className="w-full h-12 text-base font-semibold rounded-xl"
                     variant={tier.popular ? 'default' : 'outline'}
                     asChild
                   >
-                    <Link to="/get-started">Start 7 Days Free Trial</Link>
+                    {tier.name === "Enterprise Advanced" ? (
+                      <Link to="/contact">{tier.cta}</Link>
+                    ) : (
+                      <Link to="/get-started">{tier.cta}</Link>
+                    )}
                   </Button>
                   <a 
                     href="/#demo" 
-                    className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground rounded-xl text-muted-foreground hover:text-primary"
+                    className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors rounded-xl text-muted-foreground hover:text-primary"
                   >
                     Book a Demo
                   </a>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
+
         </div>
       </section>
 

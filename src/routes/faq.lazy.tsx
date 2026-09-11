@@ -129,7 +129,7 @@ const faqs = [
   {
     category: "pricing",
     question: "What plans are available?",
-    answer: "We offer three main tiers: Starter (₹999/mo), Professional (₹2,999/mo), and Enterprise (₹7,999/mo) to suit different business sizes."
+    answer: "We offer four plans: a 7-day free trial, Basic (₹999/mo), Pro (₹2,499/mo), and Enterprise Advanced (₹5,999/mo) to suit different business sizes."
   },
   {
     category: "pricing",

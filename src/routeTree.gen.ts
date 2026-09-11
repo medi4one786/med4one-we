@@ -137,7 +137,7 @@ const MediaKitRoute = MediaKitRouteImport.update({
   id: '/media-kit',
   path: '/media-kit',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/media-kit.lazy').then((d) => d.Route))
 const MultiStoreRoute = MultiStoreRouteImport.update({
   id: '/multi-store',
   path: '/multi-store',
@@ -152,7 +152,7 @@ const PressKitRoute = PressKitRouteImport.update({
   id: '/press-kit',
   path: '/press-kit',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/press-kit.lazy').then((d) => d.Route))
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
