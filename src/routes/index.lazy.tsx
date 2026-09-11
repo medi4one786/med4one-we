@@ -23,6 +23,7 @@ import aiAsset from "@/assets/home-v2/ai.webp.asset.json";
 import biAsset from "@/assets/home-v2/bi.webp.asset.json";
 import multistoreAsset from "@/assets/home-v2/multistore.webp.asset.json";
 import introVideoAsset from "@/assets/video/pharmacyos-intro.mp4.asset.json";
+import introPosterAsset from "@/assets/video/pharmacyos-intro-poster.jpg.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -265,6 +266,7 @@ function Index() {
             <div className="overflow-hidden rounded-xl border border-primary-foreground/15 bg-primary-foreground/[0.03] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]">
               <video
                 src={introVideoAsset.url}
+                poster={introPosterAsset.url}
                 controls
                 preload="metadata"
                 playsInline
