@@ -36,6 +36,7 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VisionMissionRouteImport } from './routes/vision-mission'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
@@ -175,6 +176,11 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/solutions.lazy').then((d) => d.Route))
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -278,6 +284,7 @@ export interface FileRoutesByFullPath {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -316,6 +323,7 @@ export interface FileRoutesByTo {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -356,6 +364,7 @@ export interface FileRoutesById {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -397,6 +406,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -435,6 +445,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -474,6 +485,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -514,6 +526,7 @@ export interface RootRouteChildren {
   RefundRoute: typeof RefundRoute
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
+  TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   VisionMissionRoute: typeof VisionMissionRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
@@ -696,6 +709,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -845,6 +865,7 @@ const rootRouteChildren: RootRouteChildren = {
   RefundRoute: RefundRoute,
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
+  TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   VisionMissionRoute: VisionMissionRoute,
   AdminLeadsRoute: AdminLeadsRoute,
