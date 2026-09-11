@@ -17,15 +17,11 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BookDemoForm } from "@/components/BookDemoForm";
-import {
-  PharmacyOSScreen,
-  AnalyticsScreen,
-  PhoneScreen,
-  DesktopFrame,
-  TabletFrame,
-  PhoneFrame,
-  AIAssistantPanel,
-} from "@/components/home/Mockups";
+import heroAsset from "@/assets/home-v2/hero.webp.asset.json";
+import pharmacyosAsset from "@/assets/home-v2/pharmacyos.webp.asset.json";
+import aiAsset from "@/assets/home-v2/ai.webp.asset.json";
+import biAsset from "@/assets/home-v2/bi.webp.asset.json";
+import multistoreAsset from "@/assets/home-v2/multistore.webp.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
