@@ -390,7 +390,10 @@ function Index() {
           />
           <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <motion.div {...fadeUp}>
-              <AIAssistantPanel />
+              <ProductImage
+                src={aiAsset.url}
+                alt="Med4One AI assistant answering pharmacy business questions on screen"
+              />
               <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {[
                   "What were my top-selling categories?",
@@ -442,9 +445,10 @@ function Index() {
             description="Sales, profit, margin, inventory, expiry, purchasing and customer trends in one clean analytics workspace."
           />
           <motion.div {...fadeUp} className="mx-auto mt-14 max-w-5xl">
-            <DesktopFrame>
-              <AnalyticsScreen />
-            </DesktopFrame>
+            <ProductImage
+              src={biAsset.url}
+              alt="Med4One Business Intelligence analytics dashboard with sales, profit and inventory insights"
+            />
           </motion.div>
           <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
             {["Sales", "Profit", "Margin", "Inventory", "Expiry", "Purchasing", "Customer Trends"].map(
