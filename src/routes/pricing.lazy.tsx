@@ -125,8 +125,36 @@ function Pricing() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 md:mt-24 items-start">
-            {tiers.map((tier, i) => (
+          <div className="mt-12 flex justify-center">
+            <div className="inline-flex items-center rounded-full border bg-card p-1 shadow-sm">
+              {[
+                { key: false, label: "Monthly" },
+                { key: true, label: "Annual" },
+              ].map((opt) => (
+                <button
+                  key={opt.label}
+                  type="button"
+                  onClick={() => setAnnual(opt.key)}
+                  aria-pressed={annual === opt.key}
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors ${
+                    annual === opt.key
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            Annual billing is charged for 10 months — 2 months free.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-12 md:mt-16 items-start">
+            {tiers.map((tier, i) => {
+              const price = annual ? Math.round((tier.monthly * 10) / 12) : tier.monthly;
+              return (
               <motion.div 
                 key={tier.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -136,7 +164,7 @@ function Pricing() {
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                    Most Popular
+                    Best Value
                   </div>
                 )}
                 
@@ -146,16 +174,30 @@ function Pricing() {
                   </div>
                   <h3 className="text-2xl font-bold">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mt-4">
-                    <span className="text-4xl font-bold">₹{tier.price}</span>
-                    <span className="text-muted-foreground">/month</span>
+                    <span className="text-4xl font-bold">₹{price.toLocaleString("en-IN")}</span>
+                    <span className="text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm font-medium text-primary mt-2 flex items-center gap-1.5">
-                    <ShieldCheck className="h-4 w-4" />
-                    7 Days Free Trial
-                  </p>
+                  {annual && tier.monthly > 0 && (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Billed ₹{(tier.monthly * 10).toLocaleString("en-IN")} per year
+                    </p>
+                  )}
                   <p className="text-sm text-muted-foreground mt-4">{tier.description}</p>
                 </div>
 
+                <div className="mb-8">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Plan Limits</p>
+                  <ul className="space-y-2">
+                    {tier.limits.map((limit) => (
+                      <li key={limit.label} className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">{limit.label}</span>
+                        <span className="font-semibold">{limit.value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Key Features</p>
                 <ul className="space-y-4 mb-8 flex-1">
                   {tier.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm">
@@ -167,22 +209,28 @@ function Pricing() {
 
                 <div className="flex flex-col gap-3 mt-auto">
                   <Button 
-                    className={`w-full h-12 text-base font-semibold rounded-xl ${tier.popular ? 'bg-primary' : ''}`}
+                    className="w-full h-12 text-base font-semibold rounded-xl"
                     variant={tier.popular ? 'default' : 'outline'}
                     asChild
                   >
-                    <Link to="/get-started">Start 7 Days Free Trial</Link>
+                    {tier.name === "Enterprise Advanced" ? (
+                      <Link to="/contact">{tier.cta}</Link>
+                    ) : (
+                      <Link to="/get-started">{tier.cta}</Link>
+                    )}
                   </Button>
                   <a 
                     href="/#demo" 
-                    className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground rounded-xl text-muted-foreground hover:text-primary"
+                    className="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium transition-colors rounded-xl text-muted-foreground hover:text-primary"
                   >
                     Book a Demo
                   </a>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
+
         </div>
       </section>
 
