@@ -27,6 +27,7 @@ import { Route as FoundersRouteImport } from './routes/founders'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MediaKitRouteImport } from './routes/media-kit'
 import { Route as MultiStoreRouteImport } from './routes/multi-store'
 import { Route as PharmacyosRouteImport } from './routes/pharmacyos'
 import { Route as PressKitRouteImport } from './routes/press-kit'
@@ -132,6 +133,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
+const MediaKitRoute = MediaKitRouteImport.update({
+  id: '/media-kit',
+  path: '/media-kit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MultiStoreRoute = MultiStoreRouteImport.update({
   id: '/multi-store',
   path: '/multi-store',
@@ -281,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
   '/press-kit': typeof PressKitRoute
@@ -322,6 +329,7 @@ export interface FileRoutesByTo {
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
   '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
@@ -363,6 +371,7 @@ export interface FileRoutesById {
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
   '/press-kit': typeof PressKitRoute
@@ -406,6 +415,7 @@ export interface FileRouteTypes {
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
     | '/pharmacyos'
     | '/press-kit'
@@ -447,6 +457,7 @@ export interface FileRouteTypes {
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
     | '/press-kit'
     | '/pricing'
@@ -487,6 +498,7 @@ export interface FileRouteTypes {
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
     | '/pharmacyos'
     | '/press-kit'
@@ -529,6 +541,7 @@ export interface RootRouteChildren {
   GetStartedRoute: typeof GetStartedRoute
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
+  MediaKitRoute: typeof MediaKitRoute
   MultiStoreRoute: typeof MultiStoreRoute
   PharmacyosRoute: typeof PharmacyosRouteWithChildren
   PressKitRoute: typeof PressKitRoute
@@ -657,6 +670,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media-kit': {
+      id: '/media-kit'
+      path: '/media-kit'
+      fullPath: '/media-kit'
+      preLoaderRoute: typeof MediaKitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/multi-store': {
@@ -876,6 +896,7 @@ const rootRouteChildren: RootRouteChildren = {
   GetStartedRoute: GetStartedRoute,
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
+  MediaKitRoute: MediaKitRoute,
   MultiStoreRoute: MultiStoreRoute,
   PharmacyosRoute: PharmacyosRouteWithChildren,
   PressKitRoute: PressKitRoute,
