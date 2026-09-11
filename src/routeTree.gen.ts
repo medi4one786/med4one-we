@@ -240,7 +240,9 @@ const PharmacyosStoreRoute = PharmacyosStoreRouteImport.update({
   id: '/store',
   path: '/store',
   getParentRoute: () => PharmacyosRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/pharmacyos.store.lazy').then((d) => d.Route),
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
