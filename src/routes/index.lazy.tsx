@@ -474,28 +474,11 @@ function Index() {
             description="Aggregate performance across locations while each store keeps working the way it needs to."
           />
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
-            <motion.div
-              {...fadeUp}
-              className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Med4One Command Centre
-              </p>
-              <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {[
-                  ["Sales", "₹92.4L"],
-                  ["Stock", "₹31.8L"],
-                  ["Staff", "48"],
-                  ["Purchasing", "₹68.2L"],
-                  ["Performance", "+12.6%"],
-                  ["Stores", "04"],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-lg border border-border/70 bg-muted/25 p-3">
-                    <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{k}</p>
-                    <p className="mt-1 truncate text-sm font-semibold text-foreground">{v}</p>
-                  </div>
-                ))}
-              </div>
+            <motion.div {...fadeUp}>
+              <ProductImage
+                src={multistoreAsset.url}
+                alt="Med4One Multi-Store command centre overview across pharmacy locations"
+              />
             </motion.div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {["Store 01", "Store 02", "Store 03", "Store 04"].map((s, i) => (
