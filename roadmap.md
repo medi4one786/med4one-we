@@ -6,4 +6,4 @@
 - [x] Med4One admin lead console (/admin/leads) with search, filters, status, CSV export
 - [x] PharmacyOS workspaces (billing, inventory, prescriptions, AI) backed by the database
 - [x] AI, Business Intelligence, Multi-Store as real software pages matching PharmacyOS
-- [ ] Cloudflare deployment configuration — verify generated Worker entry and static assets
+- [x] Cloudflare deployment configuration — generated Worker entry and static assets verified
