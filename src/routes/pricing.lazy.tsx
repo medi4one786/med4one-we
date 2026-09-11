@@ -10,53 +10,92 @@ export const Route = createLazyFileRoute("/pricing")({
 });
 
 function Pricing() {
+  const [annual, setAnnual] = useState(false);
+
   const tiers = [
     {
-      name: "Basic",
-      price: "999",
-      description: "Essential tools for independent pharmacies.",
-      features: [
-        "Digital Billing & POS",
-        "Inventory Management",
-        "GST Ready Reports",
-        "WhatsApp Receipts",
-        "Mobile Support"
+      name: "7-Day Free Trial",
+      monthly: 0,
+      description: "Experience the complete Med4One Pro experience for 7 days.",
+      limits: [
+        { label: "AI Actions", value: "50" },
+        { label: "Comm Credits", value: "50" },
       ],
-      icon: LayoutDashboard,
-      color: "border-slate-200"
+      features: [
+        "Full PharmacyOS Access",
+        "Billing & POS",
+        "Inventory & Purchase",
+        "All AI Assistants",
+        "Analytics & Insights",
+        "Offline Mode & Sync",
+      ],
+      icon: ShieldCheck,
+      cta: "Start Free Trial",
+      color: "border-border",
     },
     {
-      name: "Premium",
-      price: "2,999",
-      description: "Advanced intelligence for growing businesses.",
-      popular: true,
-      features: [
-        "Everything in Basic",
-        "AI Inventory Forecasting",
-        "Multi-User Access",
-        "Supplier Management",
-        "Customer Loyalty Program",
-        "Advanced Analytics"
+      name: "Basic",
+      monthly: 999,
+      description: "Everything you need to run one pharmacy professionally.",
+      limits: [
+        { label: "AI Actions", value: "100" },
+        { label: "Comm Credits", value: "200" },
       ],
-      icon: Zap,
-      color: "border-primary shadow-xl shadow-primary/5"
+      features: [
+        "Single Store Management",
+        "A4/A5/Thermal Billing",
+        "Basic AI Assistant",
+        "Stock Adjustment",
+        "Basic Financial Reports",
+        "Up to 3 Users",
+      ],
+      icon: LayoutDashboard,
+      cta: "Choose Basic",
+      color: "border-border",
     },
     {
       name: "Pro",
-      price: "7,999",
-      description: "Full ecosystem control for enterprise groups.",
+      monthly: 2499,
+      description: "The complete AI-powered PharmacyOS for growing pharmacies.",
+      popular: true,
+      limits: [
+        { label: "AI Actions", value: "500" },
+        { label: "Comm Credits", value: "1000" },
+      ],
       features: [
-        "Everything in Premium",
-        "Multi-Store Control Centre",
-        "AI Business Advisor",
-        "Custom API Access",
-        "Enterprise Security",
-        "Priority 24/7 Support"
+        "Everything in Basic",
+        "Unlimited Billing",
+        "Advanced AI Advisor",
+        "Smart Stock Reorder",
+        "Purchase Invoice OCR",
+        "Customer CRM & Loyalty",
+      ],
+      icon: Zap,
+      cta: "Choose Pro",
+      color: "border-primary shadow-xl shadow-primary/10",
+    },
+    {
+      name: "Enterprise Advanced",
+      monthly: 5999,
+      description: "Centralized control for pharmacy chains and healthcare groups.",
+      limits: [
+        { label: "AI Actions", value: "2000" },
+        { label: "Comm Credits", value: "5000" },
+      ],
+      features: [
+        "Everything in Pro",
+        "Multi-Store Command Center",
+        "Inter-Store Stock Transfer",
+        "Unlimited Users",
+        "Advanced Audit Logs",
+        "Priority 24/7 Support",
       ],
       icon: Globe,
-      color: "border-slate-200"
-    }
+      cta: "Talk to Sales",
+      color: "border-border",
+    },
   ];
+
 
   return (
     <div className="flex flex-col min-h-screen">
