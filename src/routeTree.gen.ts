@@ -29,6 +29,7 @@ import { Route as HelpRouteImport } from './routes/help'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MultiStoreRouteImport } from './routes/multi-store'
 import { Route as PharmacyosRouteImport } from './routes/pharmacyos'
+import { Route as PressKitRouteImport } from './routes/press-kit'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductTourRouteImport } from './routes/product-tour'
@@ -141,6 +142,11 @@ const PharmacyosRoute = PharmacyosRouteImport.update({
   path: '/pharmacyos',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/pharmacyos.lazy').then((d) => d.Route))
+const PressKitRoute = PressKitRouteImport.update({
+  id: '/press-kit',
+  path: '/press-kit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -277,6 +283,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -316,6 +323,7 @@ export interface FileRoutesByTo {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -357,6 +365,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -399,6 +408,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/multi-store'
     | '/pharmacyos'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -438,6 +448,7 @@ export interface FileRouteTypes {
     | '/help'
     | '/login'
     | '/multi-store'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -478,6 +489,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/multi-store'
     | '/pharmacyos'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -519,6 +531,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MultiStoreRoute: typeof MultiStoreRoute
   PharmacyosRoute: typeof PharmacyosRouteWithChildren
+  PressKitRoute: typeof PressKitRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductTourRoute: typeof ProductTourRoute
@@ -658,6 +671,13 @@ declare module '@tanstack/react-router' {
       path: '/pharmacyos'
       fullPath: '/pharmacyos'
       preLoaderRoute: typeof PharmacyosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/press-kit': {
+      id: '/press-kit'
+      path: '/press-kit'
+      fullPath: '/press-kit'
+      preLoaderRoute: typeof PressKitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -858,6 +878,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MultiStoreRoute: MultiStoreRoute,
   PharmacyosRoute: PharmacyosRouteWithChildren,
+  PressKitRoute: PressKitRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductTourRoute: ProductTourRoute,
