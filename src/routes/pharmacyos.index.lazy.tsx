@@ -2,8 +2,8 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import posHero from "@/assets/pharmacyos/pos-hero.webp.asset.json";
-import posShowcase from "@/assets/pharmacyos/pos-showcase.webp.asset.json";
+import posHero from "@/assets/pharmacyos/pos-hero.webp";
+import posShowcase from "@/assets/pharmacyos/pos-showcase.webp";
 
 import { 
   CheckCircle2, 
@@ -91,7 +91,7 @@ function PharmacyOS() {
             >
               <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 shadow-2xl overflow-hidden">
                 <img
-                  src={posHero.url}
+                  src={posHero}
                   alt="Med4One PharmacyOS billing and inventory software running on a desktop monitor and laptop at a pharmacy counter"
                   width={1440}
                   height={900}
@@ -182,7 +182,7 @@ function PharmacyOS() {
               <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 -z-10" />
               <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900">
                 <img
-                  src={posShowcase.url}
+                  src={posShowcase}
                   alt="Med4One PharmacyOS inventory, batch and expiry tracking dashboard on a pharmacy desk"
                   width={1440}
                   height={900}

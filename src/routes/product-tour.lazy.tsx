@@ -13,11 +13,11 @@ import {
   LayoutGrid,
   Check,
 } from "lucide-react";
-import posHero from "@/assets/pharmacyos/pos-hero.webp.asset.json";
-import posShowcase from "@/assets/pharmacyos/pos-showcase.webp.asset.json";
-import aiImg from "@/assets/solutions/ai.webp.asset.json";
-import biImg from "@/assets/solutions/bi.webp.asset.json";
-import multistoreImg from "@/assets/solutions/multistore.webp.asset.json";
+import posHero from "@/assets/pharmacyos/pos-hero.webp";
+import posShowcase from "@/assets/pharmacyos/pos-showcase.webp";
+import aiImg from "@/assets/solutions/ai.webp";
+import biImg from "@/assets/solutions/bi.webp";
+import multistoreImg from "@/assets/solutions/multistore.webp";
 
 export const Route = createLazyFileRoute("/product-tour")({
   component: ProductTour,
@@ -31,7 +31,7 @@ const steps = [
     title: "Start at the counter",
     desc: "Scan, bill and print in seconds. Every invoice updates stock, ledgers and reports the moment it is saved.",
     points: ["Barcode-fast billing", "GST-ready invoices", "Returns & credit notes", "Daily cash summary"],
-    image: posHero.url,
+    image: posHero,
     href: "/pharmacyos/billing" as const,
   },
   {
@@ -41,7 +41,7 @@ const steps = [
     title: "Know every batch and expiry",
     desc: "Track stock by batch, watch expiry windows and reorder before a shelf runs empty.",
     points: ["Batch & expiry tracking", "Low-stock alerts", "Supplier purchase orders", "Stock valuation"],
-    image: posShowcase.url,
+    image: posShowcase,
     href: "/pharmacyos/inventory" as const,
   },
   {
@@ -51,7 +51,7 @@ const steps = [
     title: "Keep prescriptions in order",
     desc: "Store prescriptions against patients, keep the dispensing queue clean and retrieve history instantly.",
     points: ["Patient history", "Dispensing queue", "Doctor records", "Refill tracking"],
-    image: posShowcase.url,
+    image: posShowcase,
     href: "/pharmacyos/prescriptions" as const,
   },
   {
@@ -61,7 +61,7 @@ const steps = [
     title: "Ask your business questions",
     desc: "The assistant reads your own operating data and answers in plain language, with reorder and margin guidance.",
     points: ["Plain-language answers", "Demand signals", "Reorder guidance", "Margin insight"],
-    image: aiImg.url,
+    image: aiImg,
     href: "/pharmacyos/ai" as const,
   },
   {
@@ -71,7 +71,7 @@ const steps = [
     title: "Understand the whole picture",
     desc: "Dashboards for sales trends, product performance and inventory value — the numbers behind the decisions.",
     points: ["Sales trends", "Product performance", "Gross margin", "Inventory value"],
-    image: biImg.url,
+    image: biImg,
     href: "/bi" as const,
   },
   {
@@ -81,7 +81,7 @@ const steps = [
     title: "Scale across your network",
     desc: "Compare branches side by side, share stock visibility and control access role by role.",
     points: ["Store comparison", "Central dashboard", "Shared stock view", "Role-based access"],
-    image: multistoreImg.url,
+    image: multistoreImg,
     href: "/multi-store" as const,
   },
 ];

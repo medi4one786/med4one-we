@@ -11,11 +11,11 @@ import {
   Check,
   PlayCircle,
 } from "lucide-react";
-import pharmacyosImg from "@/assets/solutions/pharmacyos.webp.asset.json";
-import aiImg from "@/assets/solutions/ai.webp.asset.json";
-import biImg from "@/assets/solutions/bi.webp.asset.json";
-import multistoreImg from "@/assets/solutions/multistore.webp.asset.json";
-import enterpriseImg from "@/assets/solutions/enterprise.webp.asset.json";
+import pharmacyosImg from "@/assets/solutions/pharmacyos.webp";
+import aiImg from "@/assets/solutions/ai.webp";
+import biImg from "@/assets/solutions/bi.webp";
+import multistoreImg from "@/assets/solutions/multistore.webp";
+import enterpriseImg from "@/assets/solutions/enterprise.webp";
 
 export const Route = createLazyFileRoute("/products")({
   component: ProductsOverview,
@@ -28,7 +28,7 @@ const products = [
     desc: "Billing, inventory, prescriptions and purchasing in one fast, reliable workspace built for daily counter work.",
     icon: Layers,
     href: "/pharmacyos" as const,
-    image: pharmacyosImg.url,
+    image: pharmacyosImg,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
     features: ["Billing & POS", "Batch & expiry inventory", "Prescription records", "Purchase & suppliers"],
@@ -39,7 +39,7 @@ const products = [
     desc: "An assistant that reads your own operating data to surface demand signals, reorder guidance and margin insight.",
     icon: BrainCircuit,
     href: "/ai" as const,
-    image: aiImg.url,
+    image: aiImg,
     color: "text-teal-500",
     bg: "bg-teal-500/10",
     features: ["Business assistant", "Inventory forecasting", "Sales forecasting", "Prescription reading"],
@@ -50,7 +50,7 @@ const products = [
     desc: "Dashboards and reports that explain what happened, why it happened and where the next opportunity sits.",
     icon: LineChart,
     href: "/bi" as const,
-    image: biImg.url,
+    image: biImg,
     color: "text-indigo-500",
     bg: "bg-indigo-500/10",
     features: ["Sales trends", "Gross margin", "Product performance", "Inventory value"],
@@ -61,7 +61,7 @@ const products = [
     desc: "Compare stores, move stock and apply the same standards across your whole network from a single console.",
     icon: LayoutGrid,
     href: "/multi-store" as const,
-    image: multistoreImg.url,
+    image: multistoreImg,
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
     features: ["Central dashboard", "Store comparison", "Shared inventory view", "Role-based access"],
@@ -72,7 +72,7 @@ const products = [
     desc: "Scalable architecture, granular permissions and integration paths for ambitious healthcare organisations.",
     icon: Building2,
     href: "/enterprise" as const,
-    image: enterpriseImg.url,
+    image: enterpriseImg,
     color: "text-slate-500",
     bg: "bg-slate-500/10",
     features: ["Scalable architecture", "Advanced permissions", "API connectivity", "Priority support"],
