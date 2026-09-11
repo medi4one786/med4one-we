@@ -25,8 +25,9 @@ const navLinks: NavLink[] = [
   },
   {
     name: "Products",
-    href: "/product-tour",
+    href: "/products",
     dropdown: [
+      { name: "Products Overview", href: "/products", desc: "Every Med4One product in one place" },
       { name: "Product Tour", href: "/product-tour", desc: "See Med4One module by module" },
       { name: "Pricing", href: "/pricing", desc: "Plans for every pharmacy size" },
     ],
