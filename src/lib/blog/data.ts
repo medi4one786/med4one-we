@@ -1,4 +1,14 @@
 import { BlogPost } from "./types";
+import imgFutureOfPharmacyManagement from "@/assets/blog/future-of-pharmacy-management.webp";
+import imgAiPharmacyInventoryDecisions from "@/assets/blog/ai-pharmacy-inventory-decisions.webp";
+import imgPharmacyInventoryBusinessGrowth from "@/assets/blog/pharmacy-inventory-business-growth.webp";
+import imgTechnologyTransformModernPharmacy from "@/assets/blog/technology-transform-modern-pharmacy.webp";
+import imgPharmacyosNextGenerationSoftware from "@/assets/blog/pharmacyos-next-generation-software.webp";
+import imgDataToDecisionsBiRole from "@/assets/blog/data-to-decisions-bi-role.webp";
+import imgMultiStorePharmacyManagementSimplicity from "@/assets/blog/multi-store-pharmacy-management-simplicity.webp";
+import imgFutureOfConnectedHealthcare from "@/assets/blog/future-of-connected-healthcare.webp";
+import imgDigitalCustomerEngagementTransformation from "@/assets/blog/digital-customer-engagement-transformation.webp";
+import imgMed4oneVisionIntroduction from "@/assets/blog/med4one-vision-introduction.webp";
 
 export const CATEGORIES = [
   "All",
@@ -22,7 +32,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Med4One Editorial", role: "Healthcare Technology Team" },
     publishedDate: "May 15, 2026",
     readingTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dad999fe?auto=format&fit=crop&q=80&w=1200",
+    image: imgFutureOfPharmacyManagement,
     isFeatured: true,
     content: `
       <h2>The Shift in Pharmacy Operations</h2>
@@ -50,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Med4One AI Lab", role: "Data Science Team" },
     publishedDate: "May 10, 2026",
     readingTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=800",
+    image: imgAiPharmacyInventoryDecisions,
     content: "<p>Placeholder content for AI inventory management article.</p>"
   },
   {
@@ -62,7 +72,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Business Strategy Team", role: "Operational Excellence" },
     publishedDate: "May 5, 2026",
     readingTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=800",
+    image: imgPharmacyInventoryBusinessGrowth,
     content: "<p>Placeholder content for inventory management business growth article.</p>"
   },
   {
@@ -74,7 +84,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Innovation Desk", role: "Product Strategy" },
     publishedDate: "April 28, 2026",
     readingTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+    image: imgTechnologyTransformModernPharmacy,
     content: "<p>Placeholder content for technology transformation article.</p>"
   },
   {
@@ -86,7 +96,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Engineering Team", role: "Platform Architecture" },
     publishedDate: "April 20, 2026",
     readingTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    image: imgPharmacyosNextGenerationSoftware,
     content: "<p>Placeholder content for PharmacyOS article.</p>"
   },
   {
@@ -98,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Analytics Team", role: "BI Specialists" },
     publishedDate: "April 15, 2026",
     readingTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1551288049-bbdac8626ad1?auto=format&fit=crop&q=80&w=800",
+    image: imgDataToDecisionsBiRole,
     content: "<p>Placeholder content for BI role article.</p>"
   },
   {
@@ -110,7 +120,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Operations Team", role: "Enterprise Solutions" },
     publishedDate: "April 10, 2026",
     readingTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
+    image: imgMultiStorePharmacyManagementSimplicity,
     content: "<p>Placeholder content for multi-store management article.</p>"
   },
   {
@@ -122,7 +132,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Founders", role: "Med4One Health Services" },
     publishedDate: "April 5, 2026",
     readingTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1504856707471-29255c70300a?auto=format&fit=crop&q=80&w=800",
+    image: imgFutureOfConnectedHealthcare,
     content: "<p>Placeholder content for connected healthcare article.</p>"
   },
   {
@@ -134,7 +144,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Customer Success", role: "Patient Experience" },
     publishedDate: "March 28, 2026",
     readingTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+    image: imgDigitalCustomerEngagementTransformation,
     content: "<p>Placeholder content for customer engagement article.</p>"
   },
   {
@@ -146,7 +156,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: { name: "Med4One Leadership", role: "Corporate Vision" },
     publishedDate: "March 20, 2026",
     readingTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=800",
+    image: imgMed4oneVisionIntroduction,
     content: "<p>Placeholder content for Med4One vision article.</p>"
   }
 ];
