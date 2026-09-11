@@ -114,7 +114,9 @@ function PharmacyOS() {
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
+              { name: "Live Dashboard", href: "/pharmacyos/dashboard" as const, desc: "Invoices, prescriptions and stock live." },
               { name: "Billing & POS", href: "/pharmacyos/billing" as const, desc: "Bill fast with live stock and GST." },
+
               { name: "Inventory", href: "/pharmacyos/inventory" as const, desc: "Batches, expiry and reorders." },
               { name: "Prescriptions", href: "/pharmacyos/prescriptions" as const, desc: "Review, verify, dispense." },
               { name: "AI Assist", href: "/pharmacyos/ai" as const, desc: "Actions from your own data." },

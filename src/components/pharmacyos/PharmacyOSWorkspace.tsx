@@ -1,14 +1,16 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Loader2, Lock, Receipt, Boxes, Stethoscope, Bot, ArrowLeft } from "lucide-react";
+import { Loader2, Lock, Receipt, Boxes, Stethoscope, Bot, ArrowLeft, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const modules = [
+  { name: "Dashboard", href: "/pharmacyos/dashboard", icon: LayoutDashboard },
   { name: "Billing", href: "/pharmacyos/billing", icon: Receipt },
   { name: "Inventory", href: "/pharmacyos/inventory", icon: Boxes },
   { name: "Prescriptions", href: "/pharmacyos/prescriptions", icon: Stethoscope },
   { name: "AI Assist", href: "/pharmacyos/ai", icon: Bot },
 ] as const;
+
 
 export function PanelHeader({
   title,
