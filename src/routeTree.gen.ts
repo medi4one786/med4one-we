@@ -117,7 +117,7 @@ const FoundersRoute = FoundersRouteImport.update({
   id: '/founders',
   path: '/founders',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/founders.lazy').then((d) => d.Route))
 const GetStartedRoute = GetStartedRouteImport.update({
   id: '/get-started',
   path: '/get-started',
