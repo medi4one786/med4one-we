@@ -20,6 +20,7 @@ function LoginPage() {
   const { session, loading } = useSession();
   const [mode, setMode] = useState<Mode>("signin");
   const [busy, setBusy] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -48,7 +49,7 @@ function LoginPage() {
         toast.success("Welcome back to Med4One.");
         navigate({ to: "/account" });
       } else {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email: form.email.trim(),
           password: form.password,
           options: {
@@ -61,6 +62,15 @@ function LoginPage() {
           },
         });
         if (error) throw error;
+        if (!data.session) {
+          setNotice(
+            "Account created. Please confirm your email address using the link we just sent, then sign in below.",
+          );
+          setMode("signin");
+          setForm((prev) => ({ ...prev, password: "" }));
+          toast.success("Check your inbox to confirm your email.");
+          return;
+        }
         toast.success("Account created. You are signed in.");
         navigate({ to: "/account" });
       }
@@ -88,6 +98,12 @@ function LoginPage() {
               : "Set up your pharmacy profile in a few seconds."}
           </p>
         </div>
+
+        {notice && (
+          <p className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
+            {notice}
+          </p>
+        )}
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           {mode === "signup" && (
