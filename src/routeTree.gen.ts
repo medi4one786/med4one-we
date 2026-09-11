@@ -44,6 +44,7 @@ import { Route as PharmacyosBillingRouteImport } from './routes/pharmacyos.billi
 import { Route as PharmacyosDashboardRouteImport } from './routes/pharmacyos.dashboard'
 import { Route as PharmacyosInventoryRouteImport } from './routes/pharmacyos.inventory'
 import { Route as PharmacyosPrescriptionsRouteImport } from './routes/pharmacyos.prescriptions'
+import { Route as PharmacyosStoreRouteImport } from './routes/pharmacyos.store'
 
 const PharmacyosIndexLazyRouteImport = createFileRoute('/pharmacyos/')()
 
@@ -229,6 +230,11 @@ const PharmacyosPrescriptionsRoute = PharmacyosPrescriptionsRouteImport.update({
 } as any).lazy(() =>
   import('./routes/pharmacyos.prescriptions.lazy').then((d) => d.Route),
 )
+const PharmacyosStoreRoute = PharmacyosStoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => PharmacyosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -264,6 +270,7 @@ export interface FileRoutesByFullPath {
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesByTo {
@@ -299,6 +306,7 @@ export interface FileRoutesByTo {
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesById {
@@ -336,6 +344,7 @@ export interface FileRoutesById {
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRouteTypes {
@@ -374,6 +383,7 @@ export interface FileRouteTypes {
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -409,6 +419,7 @@ export interface FileRouteTypes {
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos'
   id:
     | '__root__'
@@ -445,6 +456,7 @@ export interface FileRouteTypes {
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos/'
   fileRoutesById: FileRoutesById
 }
@@ -718,6 +730,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PharmacyosPrescriptionsRouteImport
       parentRoute: typeof PharmacyosRoute
     }
+    '/pharmacyos/store': {
+      id: '/pharmacyos/store'
+      path: '/store'
+      fullPath: '/pharmacyos/store'
+      preLoaderRoute: typeof PharmacyosStoreRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
   }
 }
 
@@ -737,6 +756,7 @@ interface PharmacyosRouteChildren {
   PharmacyosDashboardRoute: typeof PharmacyosDashboardRoute
   PharmacyosInventoryRoute: typeof PharmacyosInventoryRoute
   PharmacyosPrescriptionsRoute: typeof PharmacyosPrescriptionsRoute
+  PharmacyosStoreRoute: typeof PharmacyosStoreRoute
   PharmacyosIndexLazyRoute: typeof PharmacyosIndexLazyRoute
 }
 
@@ -746,6 +766,7 @@ const PharmacyosRouteChildren: PharmacyosRouteChildren = {
   PharmacyosDashboardRoute: PharmacyosDashboardRoute,
   PharmacyosInventoryRoute: PharmacyosInventoryRoute,
   PharmacyosPrescriptionsRoute: PharmacyosPrescriptionsRoute,
+  PharmacyosStoreRoute: PharmacyosStoreRoute,
   PharmacyosIndexLazyRoute: PharmacyosIndexLazyRoute,
 }
 
