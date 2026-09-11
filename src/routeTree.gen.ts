@@ -31,6 +31,7 @@ import { Route as PharmacyosRouteImport } from './routes/pharmacyos'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductTourRouteImport } from './routes/product-tour'
+import { Route as ProductsRouteImport } from './routes/products'
 import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
@@ -146,6 +147,11 @@ const ProductTourRoute = ProductTourRouteImport.update({
   path: '/product-tour',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/product-tour.lazy').then((d) => d.Route))
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/products.lazy').then((d) => d.Route))
 const RefundRoute = RefundRouteImport.update({
   id: '/refund',
   path: '/refund',
@@ -245,6 +251,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
+  '/products': typeof ProductsRoute
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
@@ -279,6 +286,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
+  '/products': typeof ProductsRoute
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
@@ -315,6 +323,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
+  '/products': typeof ProductsRoute
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
@@ -352,6 +361,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product-tour'
+    | '/products'
     | '/refund'
     | '/security'
     | '/solutions'
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product-tour'
+    | '/products'
     | '/refund'
     | '/security'
     | '/solutions'
@@ -421,6 +432,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product-tour'
+    | '/products'
     | '/refund'
     | '/security'
     | '/solutions'
@@ -457,6 +469,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductTourRoute: typeof ProductTourRoute
+  ProductsRoute: typeof ProductsRoute
   RefundRoute: typeof RefundRoute
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
@@ -607,6 +620,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductTourRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/refund': {
       id: '/refund'
       path: '/refund'
@@ -754,6 +774,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductTourRoute: ProductTourRoute,
+  ProductsRoute: ProductsRoute,
   RefundRoute: RefundRoute,
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
