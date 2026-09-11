@@ -18,6 +18,7 @@ const Toaster = lazy(() => import("@/components/ui/sonner").then(m => ({ default
 
 
 import appCss from "../styles.css?url";
+import med4oneLogoWebp from "@/assets/med4one-logo.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
