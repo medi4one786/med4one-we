@@ -23,6 +23,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FoundersRouteImport } from './routes/founders'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as LoginRouteImport } from './routes/login'
@@ -109,6 +110,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/faq.lazy').then((d) => d.Route))
+const FoundersRoute = FoundersRouteImport.update({
+  id: '/founders',
+  path: '/founders',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GetStartedRoute = GetStartedRouteImport.update({
   id: '/get-started',
   path: '/get-started',
@@ -259,6 +265,7 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
@@ -297,6 +304,7 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
@@ -335,6 +343,7 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
@@ -375,6 +384,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
@@ -413,6 +423,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
@@ -450,6 +461,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
@@ -489,6 +501,7 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   EnterpriseRoute: typeof EnterpriseRoute
   FaqRoute: typeof FaqRoute
+  FoundersRoute: typeof FoundersRoute
   GetStartedRoute: typeof GetStartedRoute
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
@@ -590,6 +603,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founders': {
+      id: '/founders'
+      path: '/founders'
+      fullPath: '/founders'
+      preLoaderRoute: typeof FoundersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/get-started': {
@@ -812,6 +832,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   EnterpriseRoute: EnterpriseRoute,
   FaqRoute: FaqRoute,
+  FoundersRoute: FoundersRoute,
   GetStartedRoute: GetStartedRoute,
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
