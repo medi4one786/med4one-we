@@ -17,15 +17,11 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BookDemoForm } from "@/components/BookDemoForm";
-import {
-  PharmacyOSScreen,
-  AnalyticsScreen,
-  PhoneScreen,
-  DesktopFrame,
-  TabletFrame,
-  PhoneFrame,
-  AIAssistantPanel,
-} from "@/components/home/Mockups";
+import heroAsset from "@/assets/home-v2/hero.webp.asset.json";
+import pharmacyosAsset from "@/assets/home-v2/pharmacyos.webp.asset.json";
+import aiAsset from "@/assets/home-v2/ai.webp.asset.json";
+import biAsset from "@/assets/home-v2/bi.webp.asset.json";
+import multistoreAsset from "@/assets/home-v2/multistore.webp.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -37,6 +33,29 @@ const fadeUp = {
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.5 },
 };
+
+function ProductImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
+      <img
+        src={src}
+        alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        decoding="async"
+        className="h-full w-full object-cover"
+      />
+    </div>
+  );
+}
 
 function SectionHeading({
   eyebrow,
@@ -219,21 +238,11 @@ function Index() {
             className="mt-14 lg:mt-20"
           >
             <div className="mx-auto max-w-5xl">
-              <DesktopFrame>
-                <PharmacyOSScreen />
-              </DesktopFrame>
-            </div>
-            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 items-end gap-8 sm:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:max-w-5xl">
-              <div className="order-2 sm:order-1">
-                <TabletFrame>
-                  <AnalyticsScreen />
-                </TabletFrame>
-              </div>
-              <div className="order-1 sm:order-2">
-                <PhoneFrame>
-                  <PhoneScreen />
-                </PhoneFrame>
-              </div>
+              <ProductImage
+                src={heroAsset.url}
+                alt="Med4One PharmacyOS dashboard across desktop monitor, laptop, tablet and mobile in a modern pharmacy"
+                priority
+              />
             </div>
             <p className="mt-8 text-center text-xs text-muted-foreground">
               Med4One on desktop, laptop, tablet and mobile — the same connected data everywhere.
@@ -304,9 +313,10 @@ function Index() {
               ))}
             </div>
             <motion.div {...fadeUp} className="order-first lg:order-none">
-              <DesktopFrame>
-                <PharmacyOSScreen />
-              </DesktopFrame>
+              <ProductImage
+                src={pharmacyosAsset.url}
+                alt="Pharmacist scanning medicine with Med4One PharmacyOS billing and inventory on screen"
+              />
             </motion.div>
             <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
               {osFeatures.slice(5).map((f, i) => (
@@ -380,7 +390,10 @@ function Index() {
           />
           <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
             <motion.div {...fadeUp}>
-              <AIAssistantPanel />
+              <ProductImage
+                src={aiAsset.url}
+                alt="Med4One AI assistant answering pharmacy business questions on screen"
+              />
               <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {[
                   "What were my top-selling categories?",
@@ -432,9 +445,10 @@ function Index() {
             description="Sales, profit, margin, inventory, expiry, purchasing and customer trends in one clean analytics workspace."
           />
           <motion.div {...fadeUp} className="mx-auto mt-14 max-w-5xl">
-            <DesktopFrame>
-              <AnalyticsScreen />
-            </DesktopFrame>
+            <ProductImage
+              src={biAsset.url}
+              alt="Med4One Business Intelligence analytics dashboard with sales, profit and inventory insights"
+            />
           </motion.div>
           <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
             {["Sales", "Profit", "Margin", "Inventory", "Expiry", "Purchasing", "Customer Trends"].map(
@@ -460,28 +474,11 @@ function Index() {
             description="Aggregate performance across locations while each store keeps working the way it needs to."
           />
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
-            <motion.div
-              {...fadeUp}
-              className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Med4One Command Centre
-              </p>
-              <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {[
-                  ["Sales", "₹92.4L"],
-                  ["Stock", "₹31.8L"],
-                  ["Staff", "48"],
-                  ["Purchasing", "₹68.2L"],
-                  ["Performance", "+12.6%"],
-                  ["Stores", "04"],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-lg border border-border/70 bg-muted/25 p-3">
-                    <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{k}</p>
-                    <p className="mt-1 truncate text-sm font-semibold text-foreground">{v}</p>
-                  </div>
-                ))}
-              </div>
+            <motion.div {...fadeUp}>
+              <ProductImage
+                src={multistoreAsset.url}
+                alt="Med4One Multi-Store command centre overview across pharmacy locations"
+              />
             </motion.div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {["Store 01", "Store 02", "Store 03", "Store 04"].map((s, i) => (
