@@ -82,6 +82,8 @@ export function Footer() {
                 <li><Link to="/media-kit" className="text-muted-foreground hover:text-primary transition-colors">Media Kit</Link></li>
                 <li><Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
                 <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link to="/security" className="text-muted-foreground hover:text-primary transition-colors">Security</Link></li>
+
 
               </ul>
             </details>
