@@ -22,6 +22,8 @@ import pharmacyosAsset from "@/assets/home-v2/pharmacyos.webp.asset.json";
 import aiAsset from "@/assets/home-v2/ai.webp.asset.json";
 import biAsset from "@/assets/home-v2/bi.webp.asset.json";
 import multistoreAsset from "@/assets/home-v2/multistore.webp.asset.json";
+import introVideoAsset from "@/assets/video/pharmacyos-intro.mp4.asset.json";
+import introPosterAsset from "@/assets/video/pharmacyos-intro-poster.jpg.asset.json";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -247,6 +249,32 @@ function Index() {
             <p className="mt-8 text-center text-xs text-muted-foreground">
               Med4One on desktop, laptop, tablet and mobile — the same connected data everywhere.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PRODUCT TOUR VIDEO */}
+      <section className="bg-foreground py-20 lg:py-28">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading
+            dark
+            eyebrow="Product Tour"
+            title="See How PharmacyOS Works"
+            description="A one-minute tour of billing, scanning, inventory and PharmacyOS AI — on desktop, tablet and mobile."
+          />
+          <motion.div {...fadeUp} className="mx-auto mt-12 max-w-4xl">
+            <div className="overflow-hidden rounded-xl border border-primary-foreground/15 bg-primary-foreground/[0.03] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]">
+              <video
+                src={introVideoAsset.url}
+                poster={introPosterAsset.url}
+                controls
+                preload="metadata"
+                playsInline
+                className="aspect-video w-full"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </motion.div>
         </div>
       </section>
