@@ -16,9 +16,9 @@ export const Route = createFileRoute("/products")({
           "One connected platform for pharmacy operations, intelligence and growth. See every Med4One product in one place.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://med4oneai.lovable.app/products" },
+      { property: "og:url", content: "https://www.med4one.com/products" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/products" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/products" }],
   }),
 });

@@ -8,9 +8,9 @@ export const Route = createFileRoute("/multi-store")({
       { property: "og:title", content: "Multi-Store Management | Med4One" },
       { property: "og:description", content: "Run multiple pharmacy branches on one platform with centralised stock visibility, transfers, pricing control and consolidated reporting." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://med4oneai.lovable.app/multi-store" },
+      { property: "og:url", content: "https://www.med4one.com/multi-store" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/multi-store" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/multi-store" }],
   }),
 });

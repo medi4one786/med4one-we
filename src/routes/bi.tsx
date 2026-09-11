@@ -8,9 +8,9 @@ export const Route = createFileRoute("/bi")({
       { property: "og:title", content: "Business Intelligence | Med4One Pharmacy Analytics" },
       { property: "og:description", content: "Turn pharmacy data into decisions with Med4One Business Intelligence — sales, margin, inventory and customer analytics in one dashboard." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://med4oneai.lovable.app/bi" },
+      { property: "og:url", content: "https://www.med4one.com/bi" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://med4oneai.lovable.app/bi" }],
+    links: [{ rel: "canonical", href: "https://www.med4one.com/bi" }],
   }),
 });
