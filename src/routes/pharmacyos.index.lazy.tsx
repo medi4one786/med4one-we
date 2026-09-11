@@ -2,6 +2,9 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
+import posHero from "@/assets/pharmacyos/pos-hero.webp.asset.json";
+import posShowcase from "@/assets/pharmacyos/pos-showcase.webp.asset.json";
+
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -86,18 +89,16 @@ function PharmacyOS() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[16/10] flex items-center justify-center">
-                <LayoutGrid className="h-24 w-24 text-primary opacity-20" />
-                {/* Abstract UI Elements */}
-                <div className="absolute inset-0 p-8 flex flex-col gap-4 opacity-30">
-                  <div className="h-4 w-1/4 bg-primary/20 rounded" />
-                  <div className="h-20 w-full bg-primary/10 rounded" />
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="h-16 bg-primary/5 rounded" />
-                    <div className="h-16 bg-primary/5 rounded" />
-                  </div>
-                </div>
+              <div className="relative rounded-2xl border border-white/10 bg-slate-900/50 shadow-2xl overflow-hidden">
+                <img
+                  src={posHero.url}
+                  alt="Med4One PharmacyOS billing and inventory software running on a desktop monitor and laptop at a pharmacy counter"
+                  width={1440}
+                  height={900}
+                  className="w-full h-auto"
+                />
               </div>
+
             </motion.div>
           </div>
         </div>
@@ -177,13 +178,17 @@ function PharmacyOS() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 -z-10" />
-              <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center">
-                <Database className="h-32 w-32 text-primary opacity-10" />
-                <div className="absolute inset-0 p-12 flex flex-col gap-6 opacity-20">
-                  <div className="h-8 w-1/2 bg-primary/20 rounded" />
-                  <div className="h-32 w-full bg-primary/10 rounded" />
-                </div>
+              <div className="rounded-2xl border shadow-2xl overflow-hidden bg-slate-900">
+                <img
+                  src={posShowcase.url}
+                  alt="Med4One PharmacyOS inventory, batch and expiry tracking dashboard on a pharmacy desk"
+                  width={1440}
+                  height={900}
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
               </div>
+
               {/* Minimal CSS Placeholder */}
               <div className="absolute -bottom-6 -right-6 backdrop-blur-xl bg-slate-950/90 border border-white/10 p-6 rounded-2xl shadow-xl hidden md:block w-64">
                 <div className="flex items-center gap-4 mb-2">
