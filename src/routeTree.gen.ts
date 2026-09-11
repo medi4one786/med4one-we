@@ -23,11 +23,14 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FoundersRouteImport } from './routes/founders'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MediaKitRouteImport } from './routes/media-kit'
 import { Route as MultiStoreRouteImport } from './routes/multi-store'
 import { Route as PharmacyosRouteImport } from './routes/pharmacyos'
+import { Route as PressKitRouteImport } from './routes/press-kit'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductTourRouteImport } from './routes/product-tour'
@@ -35,6 +38,7 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VisionMissionRouteImport } from './routes/vision-mission'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
@@ -43,7 +47,9 @@ import { Route as PharmacyosAiRouteImport } from './routes/pharmacyos.ai'
 import { Route as PharmacyosBillingRouteImport } from './routes/pharmacyos.billing'
 import { Route as PharmacyosDashboardRouteImport } from './routes/pharmacyos.dashboard'
 import { Route as PharmacyosInventoryRouteImport } from './routes/pharmacyos.inventory'
+import { Route as PharmacyosOrdersRouteImport } from './routes/pharmacyos.orders'
 import { Route as PharmacyosPrescriptionsRouteImport } from './routes/pharmacyos.prescriptions'
+import { Route as PharmacyosStoreRouteImport } from './routes/pharmacyos.store'
 
 const PharmacyosIndexLazyRouteImport = createFileRoute('/pharmacyos/')()
 
@@ -107,6 +113,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/faq.lazy').then((d) => d.Route))
+const FoundersRoute = FoundersRouteImport.update({
+  id: '/founders',
+  path: '/founders',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/founders.lazy').then((d) => d.Route))
 const GetStartedRoute = GetStartedRouteImport.update({
   id: '/get-started',
   path: '/get-started',
@@ -122,6 +133,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
+const MediaKitRoute = MediaKitRouteImport.update({
+  id: '/media-kit',
+  path: '/media-kit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MultiStoreRoute = MultiStoreRouteImport.update({
   id: '/multi-store',
   path: '/multi-store',
@@ -132,6 +148,11 @@ const PharmacyosRoute = PharmacyosRouteImport.update({
   path: '/pharmacyos',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/pharmacyos.lazy').then((d) => d.Route))
+const PressKitRoute = PressKitRouteImport.update({
+  id: '/press-kit',
+  path: '/press-kit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -167,6 +188,11 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/solutions.lazy').then((d) => d.Route))
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/team.lazy').then((d) => d.Route))
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -222,12 +248,26 @@ const PharmacyosInventoryRoute = PharmacyosInventoryRouteImport.update({
 } as any).lazy(() =>
   import('./routes/pharmacyos.inventory.lazy').then((d) => d.Route),
 )
+const PharmacyosOrdersRoute = PharmacyosOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.orders.lazy').then((d) => d.Route),
+)
 const PharmacyosPrescriptionsRoute = PharmacyosPrescriptionsRouteImport.update({
   id: '/prescriptions',
   path: '/prescriptions',
   getParentRoute: () => PharmacyosRoute,
 } as any).lazy(() =>
   import('./routes/pharmacyos.prescriptions.lazy').then((d) => d.Route),
+)
+const PharmacyosStoreRoute = PharmacyosStoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.store.lazy').then((d) => d.Route),
 )
 
 export interface FileRoutesByFullPath {
@@ -243,11 +283,14 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -255,6 +298,7 @@ export interface FileRoutesByFullPath {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -263,7 +307,9 @@ export interface FileRoutesByFullPath {
   '/pharmacyos/billing': typeof PharmacyosBillingRoute
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/orders': typeof PharmacyosOrdersRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesByTo {
@@ -279,10 +325,13 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -290,6 +339,7 @@ export interface FileRoutesByTo {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -298,7 +348,9 @@ export interface FileRoutesByTo {
   '/pharmacyos/billing': typeof PharmacyosBillingRoute
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/orders': typeof PharmacyosOrdersRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesById {
@@ -315,11 +367,14 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/enterprise': typeof EnterpriseRoute
   '/faq': typeof FaqRoute
+  '/founders': typeof FoundersRoute
   '/get-started': typeof GetStartedRoute
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/media-kit': typeof MediaKitRoute
   '/multi-store': typeof MultiStoreRoute
   '/pharmacyos': typeof PharmacyosRouteWithChildren
+  '/press-kit': typeof PressKitRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -327,6 +382,7 @@ export interface FileRoutesById {
   '/refund': typeof RefundRoute
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
+  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vision-mission': typeof VisionMissionRoute
   '/admin/leads': typeof AdminLeadsRoute
@@ -335,7 +391,9 @@ export interface FileRoutesById {
   '/pharmacyos/billing': typeof PharmacyosBillingRoute
   '/pharmacyos/dashboard': typeof PharmacyosDashboardRoute
   '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/orders': typeof PharmacyosOrdersRoute
   '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/store': typeof PharmacyosStoreRoute
   '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRouteTypes {
@@ -353,11 +411,14 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
     | '/pharmacyos'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -365,6 +426,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -373,7 +435,9 @@ export interface FileRouteTypes {
     | '/pharmacyos/billing'
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
+    | '/pharmacyos/orders'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -389,10 +453,13 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -400,6 +467,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -408,7 +476,9 @@ export interface FileRouteTypes {
     | '/pharmacyos/billing'
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
+    | '/pharmacyos/orders'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos'
   id:
     | '__root__'
@@ -424,11 +494,14 @@ export interface FileRouteTypes {
     | '/docs'
     | '/enterprise'
     | '/faq'
+    | '/founders'
     | '/get-started'
     | '/help'
     | '/login'
+    | '/media-kit'
     | '/multi-store'
     | '/pharmacyos'
+    | '/press-kit'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -436,6 +509,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/security'
     | '/solutions'
+    | '/team'
     | '/terms'
     | '/vision-mission'
     | '/admin/leads'
@@ -444,7 +518,9 @@ export interface FileRouteTypes {
     | '/pharmacyos/billing'
     | '/pharmacyos/dashboard'
     | '/pharmacyos/inventory'
+    | '/pharmacyos/orders'
     | '/pharmacyos/prescriptions'
+    | '/pharmacyos/store'
     | '/pharmacyos/'
   fileRoutesById: FileRoutesById
 }
@@ -461,11 +537,14 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   EnterpriseRoute: typeof EnterpriseRoute
   FaqRoute: typeof FaqRoute
+  FoundersRoute: typeof FoundersRoute
   GetStartedRoute: typeof GetStartedRoute
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
+  MediaKitRoute: typeof MediaKitRoute
   MultiStoreRoute: typeof MultiStoreRoute
   PharmacyosRoute: typeof PharmacyosRouteWithChildren
+  PressKitRoute: typeof PressKitRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductTourRoute: typeof ProductTourRoute
@@ -473,6 +552,7 @@ export interface RootRouteChildren {
   RefundRoute: typeof RefundRoute
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
+  TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   VisionMissionRoute: typeof VisionMissionRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
@@ -564,6 +644,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/founders': {
+      id: '/founders'
+      path: '/founders'
+      fullPath: '/founders'
+      preLoaderRoute: typeof FoundersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/get-started': {
       id: '/get-started'
       path: '/get-started'
@@ -585,6 +672,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/media-kit': {
+      id: '/media-kit'
+      path: '/media-kit'
+      fullPath: '/media-kit'
+      preLoaderRoute: typeof MediaKitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/multi-store': {
       id: '/multi-store'
       path: '/multi-store'
@@ -597,6 +691,13 @@ declare module '@tanstack/react-router' {
       path: '/pharmacyos'
       fullPath: '/pharmacyos'
       preLoaderRoute: typeof PharmacyosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/press-kit': {
+      id: '/press-kit'
+      path: '/press-kit'
+      fullPath: '/press-kit'
+      preLoaderRoute: typeof PressKitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -646,6 +747,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -711,11 +819,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PharmacyosInventoryRouteImport
       parentRoute: typeof PharmacyosRoute
     }
+    '/pharmacyos/orders': {
+      id: '/pharmacyos/orders'
+      path: '/orders'
+      fullPath: '/pharmacyos/orders'
+      preLoaderRoute: typeof PharmacyosOrdersRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
     '/pharmacyos/prescriptions': {
       id: '/pharmacyos/prescriptions'
       path: '/prescriptions'
       fullPath: '/pharmacyos/prescriptions'
       preLoaderRoute: typeof PharmacyosPrescriptionsRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
+    '/pharmacyos/store': {
+      id: '/pharmacyos/store'
+      path: '/store'
+      fullPath: '/pharmacyos/store'
+      preLoaderRoute: typeof PharmacyosStoreRouteImport
       parentRoute: typeof PharmacyosRoute
     }
   }
@@ -736,7 +858,9 @@ interface PharmacyosRouteChildren {
   PharmacyosBillingRoute: typeof PharmacyosBillingRoute
   PharmacyosDashboardRoute: typeof PharmacyosDashboardRoute
   PharmacyosInventoryRoute: typeof PharmacyosInventoryRoute
+  PharmacyosOrdersRoute: typeof PharmacyosOrdersRoute
   PharmacyosPrescriptionsRoute: typeof PharmacyosPrescriptionsRoute
+  PharmacyosStoreRoute: typeof PharmacyosStoreRoute
   PharmacyosIndexLazyRoute: typeof PharmacyosIndexLazyRoute
 }
 
@@ -745,7 +869,9 @@ const PharmacyosRouteChildren: PharmacyosRouteChildren = {
   PharmacyosBillingRoute: PharmacyosBillingRoute,
   PharmacyosDashboardRoute: PharmacyosDashboardRoute,
   PharmacyosInventoryRoute: PharmacyosInventoryRoute,
+  PharmacyosOrdersRoute: PharmacyosOrdersRoute,
   PharmacyosPrescriptionsRoute: PharmacyosPrescriptionsRoute,
+  PharmacyosStoreRoute: PharmacyosStoreRoute,
   PharmacyosIndexLazyRoute: PharmacyosIndexLazyRoute,
 }
 
@@ -766,11 +892,14 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   EnterpriseRoute: EnterpriseRoute,
   FaqRoute: FaqRoute,
+  FoundersRoute: FoundersRoute,
   GetStartedRoute: GetStartedRoute,
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
+  MediaKitRoute: MediaKitRoute,
   MultiStoreRoute: MultiStoreRoute,
   PharmacyosRoute: PharmacyosRouteWithChildren,
+  PressKitRoute: PressKitRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductTourRoute: ProductTourRoute,
@@ -778,6 +907,7 @@ const rootRouteChildren: RootRouteChildren = {
   RefundRoute: RefundRoute,
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
+  TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   VisionMissionRoute: VisionMissionRoute,
   AdminLeadsRoute: AdminLeadsRoute,
