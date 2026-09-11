@@ -132,7 +132,7 @@ export function usePharmacyStore() {
       if (!store) throw new Error("Store not ready");
       const { data, error: updateError } = await supabase
         .from("pharmacies")
-        .update({ ...draft, onboarded: true })
+        .update({ ...draft, onboarded: true } as never)
         .eq("id", store.id)
         .select(STORE_FIELDS)
         .maybeSingle();
@@ -189,7 +189,7 @@ export function usePharmacyStore() {
         _items: input.items,
         _expected_date: input.expectedDate || null,
         _notes: input.notes || null,
-      });
+      } as never);
       if (rpcError) throw new Error(rpcError.message);
       await refresh();
       const row = Array.isArray(data) ? data[0] : data;
