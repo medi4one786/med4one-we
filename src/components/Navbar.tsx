@@ -5,6 +5,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import med4oneLogo from "@/assets/med4one-logo.png";
 import med4oneLogoWebp from "@/assets/med4one-logo.webp";
+import { useSession } from "@/hooks/useSession";
 
 type SubLink = { name: string; href: string; desc?: string };
 type NavLink = { name: string; href: string; dropdown?: SubLink[] };
@@ -55,6 +56,7 @@ const navLinks: NavLink[] = [
 ];
 
 export function Navbar() {
+  const { session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDesktop, setOpenDesktop] = useState<string | null>(null);
@@ -209,19 +211,19 @@ export function Navbar() {
 
         <div className="mt-4 flex flex-col gap-4 border-t pt-6">
           <Link
-            to="/login"
+            to={session ? "/account" : "/login"}
             className="text-lg font-medium py-3 border rounded-xl px-4 text-center hover:bg-muted transition-colors"
             onClick={closeMenu}
           >
-            Login
+            {session ? "My Account" : "Login"}
           </Link>
-          <a
-            href="/#demo"
+          <Link
+            to="/book-demo"
             onClick={closeMenu}
             className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-xl text-lg font-bold transition-colors"
           >
             Book a Demo
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -324,14 +326,14 @@ export function Navbar() {
               </div>
               <div className="flex items-center gap-3 xl:gap-4">
                 <Button variant="ghost" size="sm" className="text-sm" asChild>
-                  <Link to="/login">Login</Link>
+                  <Link to={session ? "/account" : "/login"}>{session ? "My Account" : "Login"}</Link>
                 </Button>
-                <a
-                  href="/#demo"
+                <Link
+                  to="/book-demo"
                   className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-5 rounded-md text-sm font-medium transition-colors"
                 >
                   Book a Demo
-                </a>
+                </Link>
               </div>
             </div>
 

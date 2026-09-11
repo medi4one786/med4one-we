@@ -75,7 +75,7 @@ export function Footer() {
               </summary>
               <ul className="space-y-4 pt-2 md:pt-0">
                 <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">Vision & Mission</Link></li>
+                <li><Link to="/vision-mission" className="text-muted-foreground hover:text-primary transition-colors">Vision &amp; Mission</Link></li>
                 <li><Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
                 <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
                 <li><Link to="/security" className="text-muted-foreground hover:text-primary transition-colors">Security</Link></li>

@@ -8,9 +8,12 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as BiRouteImport } from './routes/bi'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -32,7 +35,15 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as VisionMissionRouteImport } from './routes/vision-mission'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as PharmacyosAiRouteImport } from './routes/pharmacyos.ai'
+import { Route as PharmacyosBillingRouteImport } from './routes/pharmacyos.billing'
+import { Route as PharmacyosInventoryRouteImport } from './routes/pharmacyos.inventory'
+import { Route as PharmacyosPrescriptionsRouteImport } from './routes/pharmacyos.prescriptions'
+
+const PharmacyosIndexLazyRouteImport = createFileRoute('/pharmacyos/')()
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -44,6 +55,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/account.lazy').then((d) => d.Route))
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
@@ -149,15 +165,61 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/terms.lazy').then((d) => d.Route))
+const VisionMissionRoute = VisionMissionRouteImport.update({
+  id: '/vision-mission',
+  path: '/vision-mission',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/vision-mission.lazy').then((d) => d.Route),
+)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/admin/leads',
+  path: '/admin/leads',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/admin.leads.lazy').then((d) => d.Route))
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any).lazy(() => import('./routes/blog.$slug.lazy').then((d) => d.Route))
+const PharmacyosIndexLazyRoute = PharmacyosIndexLazyRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.index.lazy').then((d) => d.Route),
+)
+const PharmacyosAiRoute = PharmacyosAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() => import('./routes/pharmacyos.ai.lazy').then((d) => d.Route))
+const PharmacyosBillingRoute = PharmacyosBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.billing.lazy').then((d) => d.Route),
+)
+const PharmacyosInventoryRoute = PharmacyosInventoryRouteImport.update({
+  id: '/inventory',
+  path: '/inventory',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.inventory.lazy').then((d) => d.Route),
+)
+const PharmacyosPrescriptionsRoute = PharmacyosPrescriptionsRouteImport.update({
+  id: '/prescriptions',
+  path: '/prescriptions',
+  getParentRoute: () => PharmacyosRoute,
+} as any).lazy(() =>
+  import('./routes/pharmacyos.prescriptions.lazy').then((d) => d.Route),
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
   '/blog': typeof BlogRouteWithChildren
@@ -171,7 +233,7 @@ export interface FileRoutesByFullPath {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
-  '/pharmacyos': typeof PharmacyosRoute
+  '/pharmacyos': typeof PharmacyosRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -179,11 +241,19 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/vision-mission': typeof VisionMissionRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/pharmacyos/ai': typeof PharmacyosAiRoute
+  '/pharmacyos/billing': typeof PharmacyosBillingRoute
+  '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
   '/blog': typeof BlogRouteWithChildren
@@ -197,7 +267,6 @@ export interface FileRoutesByTo {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
-  '/pharmacyos': typeof PharmacyosRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -205,12 +274,20 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/vision-mission': typeof VisionMissionRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/pharmacyos/ai': typeof PharmacyosAiRoute
+  '/pharmacyos/billing': typeof PharmacyosBillingRoute
+  '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/ai': typeof AiRoute
   '/bi': typeof BiRoute
   '/blog': typeof BlogRouteWithChildren
@@ -224,7 +301,7 @@ export interface FileRoutesById {
   '/help': typeof HelpRoute
   '/login': typeof LoginRoute
   '/multi-store': typeof MultiStoreRoute
-  '/pharmacyos': typeof PharmacyosRoute
+  '/pharmacyos': typeof PharmacyosRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product-tour': typeof ProductTourRoute
@@ -232,13 +309,21 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
+  '/vision-mission': typeof VisionMissionRoute
+  '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/pharmacyos/ai': typeof PharmacyosAiRoute
+  '/pharmacyos/billing': typeof PharmacyosBillingRoute
+  '/pharmacyos/inventory': typeof PharmacyosInventoryRoute
+  '/pharmacyos/prescriptions': typeof PharmacyosPrescriptionsRoute
+  '/pharmacyos/': typeof PharmacyosIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/account'
     | '/ai'
     | '/bi'
     | '/blog'
@@ -260,11 +345,19 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/vision-mission'
+    | '/admin/leads'
     | '/blog/$slug'
+    | '/pharmacyos/ai'
+    | '/pharmacyos/billing'
+    | '/pharmacyos/inventory'
+    | '/pharmacyos/prescriptions'
+    | '/pharmacyos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/account'
     | '/ai'
     | '/bi'
     | '/blog'
@@ -278,7 +371,6 @@ export interface FileRouteTypes {
     | '/help'
     | '/login'
     | '/multi-store'
-    | '/pharmacyos'
     | '/pricing'
     | '/privacy'
     | '/product-tour'
@@ -286,11 +378,19 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/vision-mission'
+    | '/admin/leads'
     | '/blog/$slug'
+    | '/pharmacyos/ai'
+    | '/pharmacyos/billing'
+    | '/pharmacyos/inventory'
+    | '/pharmacyos/prescriptions'
+    | '/pharmacyos'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/account'
     | '/ai'
     | '/bi'
     | '/blog'
@@ -312,12 +412,20 @@ export interface FileRouteTypes {
     | '/security'
     | '/solutions'
     | '/terms'
+    | '/vision-mission'
+    | '/admin/leads'
     | '/blog/$slug'
+    | '/pharmacyos/ai'
+    | '/pharmacyos/billing'
+    | '/pharmacyos/inventory'
+    | '/pharmacyos/prescriptions'
+    | '/pharmacyos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
   AiRoute: typeof AiRoute
   BiRoute: typeof BiRoute
   BlogRoute: typeof BlogRouteWithChildren
@@ -331,7 +439,7 @@ export interface RootRouteChildren {
   HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
   MultiStoreRoute: typeof MultiStoreRoute
-  PharmacyosRoute: typeof PharmacyosRoute
+  PharmacyosRoute: typeof PharmacyosRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductTourRoute: typeof ProductTourRoute
@@ -339,6 +447,8 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
+  VisionMissionRoute: typeof VisionMissionRoute
+  AdminLeadsRoute: typeof AdminLeadsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -355,6 +465,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai': {
@@ -504,12 +621,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vision-mission': {
+      id: '/vision-mission'
+      path: '/vision-mission'
+      fullPath: '/vision-mission'
+      preLoaderRoute: typeof VisionMissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/admin/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/pharmacyos/': {
+      id: '/pharmacyos/'
+      path: '/'
+      fullPath: '/pharmacyos/'
+      preLoaderRoute: typeof PharmacyosIndexLazyRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
+    '/pharmacyos/ai': {
+      id: '/pharmacyos/ai'
+      path: '/ai'
+      fullPath: '/pharmacyos/ai'
+      preLoaderRoute: typeof PharmacyosAiRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
+    '/pharmacyos/billing': {
+      id: '/pharmacyos/billing'
+      path: '/billing'
+      fullPath: '/pharmacyos/billing'
+      preLoaderRoute: typeof PharmacyosBillingRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
+    '/pharmacyos/inventory': {
+      id: '/pharmacyos/inventory'
+      path: '/inventory'
+      fullPath: '/pharmacyos/inventory'
+      preLoaderRoute: typeof PharmacyosInventoryRouteImport
+      parentRoute: typeof PharmacyosRoute
+    }
+    '/pharmacyos/prescriptions': {
+      id: '/pharmacyos/prescriptions'
+      path: '/prescriptions'
+      fullPath: '/pharmacyos/prescriptions'
+      preLoaderRoute: typeof PharmacyosPrescriptionsRouteImport
+      parentRoute: typeof PharmacyosRoute
     }
   }
 }
@@ -524,9 +690,30 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface PharmacyosRouteChildren {
+  PharmacyosAiRoute: typeof PharmacyosAiRoute
+  PharmacyosBillingRoute: typeof PharmacyosBillingRoute
+  PharmacyosInventoryRoute: typeof PharmacyosInventoryRoute
+  PharmacyosPrescriptionsRoute: typeof PharmacyosPrescriptionsRoute
+  PharmacyosIndexLazyRoute: typeof PharmacyosIndexLazyRoute
+}
+
+const PharmacyosRouteChildren: PharmacyosRouteChildren = {
+  PharmacyosAiRoute: PharmacyosAiRoute,
+  PharmacyosBillingRoute: PharmacyosBillingRoute,
+  PharmacyosInventoryRoute: PharmacyosInventoryRoute,
+  PharmacyosPrescriptionsRoute: PharmacyosPrescriptionsRoute,
+  PharmacyosIndexLazyRoute: PharmacyosIndexLazyRoute,
+}
+
+const PharmacyosRouteWithChildren = PharmacyosRoute._addFileChildren(
+  PharmacyosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
   AiRoute: AiRoute,
   BiRoute: BiRoute,
   BlogRoute: BlogRouteWithChildren,
@@ -540,7 +727,7 @@ const rootRouteChildren: RootRouteChildren = {
   HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
   MultiStoreRoute: MultiStoreRoute,
-  PharmacyosRoute: PharmacyosRoute,
+  PharmacyosRoute: PharmacyosRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductTourRoute: ProductTourRoute,
@@ -548,6 +735,8 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
+  VisionMissionRoute: VisionMissionRoute,
+  AdminLeadsRoute: AdminLeadsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
