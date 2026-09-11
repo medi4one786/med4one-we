@@ -189,8 +189,8 @@ export function Navbar() {
                           {sub.name}
                         </Link>
                       ))}
-                    </div>
-                  )}
+                  </div>
+
                 </>
               ) : (
                 <Link
