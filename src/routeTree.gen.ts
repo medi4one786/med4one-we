@@ -228,7 +228,9 @@ const PharmacyosOrdersRoute = PharmacyosOrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
   getParentRoute: () => PharmacyosRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/pharmacyos.orders.lazy').then((d) => d.Route),
+)
 const PharmacyosPrescriptionsRoute = PharmacyosPrescriptionsRouteImport.update({
   id: '/prescriptions',
   path: '/prescriptions',
