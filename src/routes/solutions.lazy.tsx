@@ -11,6 +11,11 @@ import {
   Database
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import pharmacyosImg from "@/assets/solutions/pharmacyos.webp.asset.json";
+import aiImg from "@/assets/solutions/ai.webp.asset.json";
+import biImg from "@/assets/solutions/bi.webp.asset.json";
+import multistoreImg from "@/assets/solutions/multistore.webp.asset.json";
+import enterpriseImg from "@/assets/solutions/enterprise.webp.asset.json";
 
 export const Route = createLazyFileRoute("/solutions")({
   component: Solutions,
@@ -35,6 +40,7 @@ function Solutions() {
       desc: "Run your entire pharmacy from one intelligent platform.",
       icon: Layers,
       href: "/pharmacyos",
+      image: pharmacyosImg.url,
       color: "text-blue-500",
       bgColor: "bg-blue-500/10",
       highlights: ["Billing & POS", "Inventory", "Purchasing", "Reports"],
@@ -48,6 +54,7 @@ function Solutions() {
       desc: "Turn your pharmacy data into intelligent actions.",
       icon: BrainCircuit,
       href: "/ai",
+      image: aiImg.url,
       color: "text-teal-500",
       bgColor: "bg-teal-500/10",
       highlights: ["Business Assistant", "Inventory Forecast", "Sales Forecast", "Prescription OCR"],
@@ -61,6 +68,7 @@ function Solutions() {
       desc: "See what is happening in your business — and understand why.",
       icon: LineChart,
       href: "/bi",
+      image: biImg.url,
       color: "text-indigo-500",
       bgColor: "bg-indigo-500/10",
       highlights: ["Sales trends", "Gross margin", "Product performance", "Inventory value"],
@@ -74,6 +82,7 @@ function Solutions() {
       desc: "Manage your entire pharmacy network from one connected platform.",
       icon: LayoutGrid,
       href: "/multi-store",
+      image: multistoreImg.url,
       color: "text-cyan-500",
       bgColor: "bg-cyan-500/10",
       highlights: ["Central dashboard", "Store comparison", "Centralized inventory", "Role-based access"],
@@ -87,6 +96,7 @@ function Solutions() {
       desc: "Built for ambitious healthcare organizations.",
       icon: Building2,
       href: "/enterprise",
+      image: enterpriseImg.url,
       color: "text-slate-500",
       bgColor: "bg-slate-500/10",
       highlights: ["Scalable architecture", "Advanced permissions", "API connectivity", "Enterprise support"],
@@ -282,19 +292,27 @@ function Solutions() {
                     </Button>
                   </div>
                   <div className="flex-1 w-full aspect-video bg-muted/30 rounded-[2rem] border border-slate-200 overflow-hidden relative group-hover:shadow-2xl transition-all">
-                    <div className={`absolute inset-0 ${solution.bgColor} opacity-60`} />
+                    <img
+                      src={solution.image}
+                      alt={`${solution.title} software shown on pharmacy devices`}
+                      width={1280}
+                      height={720}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
                     <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
                       <div className="flex items-center justify-between">
-                        <div className={`text-[10px] font-bold uppercase tracking-[0.3em] ${solution.color}`}>
+                        <div className="rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-900">
                           {solution.stage}
                         </div>
-                        <solution.icon className={`h-5 w-5 ${solution.color}`} />
+                        <solution.icon className="h-5 w-5 text-white drop-shadow" />
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         {solution.highlights.map((item) => (
                           <div
                             key={item}
-                            className="rounded-xl bg-background/80 border border-white/40 px-3 py-2.5 text-xs font-semibold text-foreground/80 backdrop-blur-sm"
+                            className="rounded-xl bg-white/90 border border-white/40 px-3 py-2.5 text-xs font-semibold text-slate-900 backdrop-blur-sm"
                           >
                             {item}
                           </div>
