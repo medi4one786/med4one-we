@@ -34,6 +34,29 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+function ProductImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
+      <img
+        src={src}
+        alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        decoding="async"
+        className="h-full w-full object-cover"
+      />
+    </div>
+  );
+}
+
 function SectionHeading({
   eyebrow,
   title,
